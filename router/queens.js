@@ -1,10 +1,10 @@
-const express = require('express');
+const express = require(`express`);
 
-const Queen = require('../models/Queen');
+const Queen = require(`../models/Queen`);
 
 const router = express.Router();
 
-router.get('/', (req, res) => {
+router.get(`/`, (req, res) => {
   new Promise((resolve, reject) => {
     Queen.find((err, queens) => {
       if (err) reject(err);
@@ -19,7 +19,7 @@ router.get('/', (req, res) => {
   });
 });
 
-router.post('/create', (req, res) => {
+router.post(`/create`, (req, res) => {
   const queen = new Queen();
   queen.name = req.body.name;
 
