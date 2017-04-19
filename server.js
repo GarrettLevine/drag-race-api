@@ -4,11 +4,13 @@ const bodyParser = require('body-parser');
 
 const {
   username,
-  password
+  url,
+  password,
+  dbPort
 } = require('./private-config');
 const router = require('./router/index.js');
 
-mongoose.connect(`mongodb://${username}:${password}@ds139979.mlab.com:39979/drag-race-api`);
+mongoose.connect(`mongodb://${username}:${password}@${url}:${dbPort}/drag-race-api`);
 const app = express();
 
 app.use(bodyParser.urlencoded({ extended: true }));
