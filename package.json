@@ -1,5 +1,5 @@
 {
-  "name": "y",
+  "name": "drag-race-api",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,6 +8,16 @@
   },
   "author": "",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GarrettLevine/drag-race-api.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GarrettLevine/drag-race-api/issues"
+  },
+  "homepage": "https://github.com/GarrettLevine/drag-race-api#readme",
   "dependencies": {
     "body-parser": "^1.17.1",
     "express": "^4.15.2",
