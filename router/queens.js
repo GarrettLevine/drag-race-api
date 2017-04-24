@@ -32,7 +32,6 @@ router.post(`/create`, (req, res) => {
     new Promise((resolve, reject) => {
         queen.save(err => {
             if (err) reject(err);
-
             resolve(queen);
         });
     })
