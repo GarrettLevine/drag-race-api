@@ -10,6 +10,7 @@ const {
 } = require(`./private-config`);
 const router = require(`./router/index.js`)
 
+mongoose.Promise = global.Promise
 mongoose.connect(`mongodb://${username}:${password}@${url}:${dbPort}/drag-race-api`);
 const app = express();
 
