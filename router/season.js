@@ -11,11 +11,8 @@ router.get(`/`, (req, res) => {
             resolve(season);
         });
     })
-    .then(season => {
-        res.json(season);
-    })
-    .catch(err =>
-        res.json(err));
+    .then(season => res.json(season))
+    .catch(err => res.json(err));
 });
 
 router.post(`/create`, (req, res) => {

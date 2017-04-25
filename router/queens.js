@@ -11,11 +11,8 @@ router.get(`/`, (req, res) => {
             resolve(queens);
         });
     })
-    .then(queens => {
-        res.json(queens);
-    })
-    .catch(err =>
-        res.json(err));
+    .then(queens => res.json(queens))
+    .catch(err => res.json(err));
 });
 
 router.post(`/create`, (req, res) => {
