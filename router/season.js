@@ -34,12 +34,8 @@ router.post(`/create`, (req, res) => {
             resolve(season);
         });
     })
-    .then(season => {
-        res.json(season);
-    })
-    .catch(err => {
-        res.json(err);
-    });
+    .then(season => res.json(season))
+    .catch(err => res.json(err));
 });
 
 module.exports = router;

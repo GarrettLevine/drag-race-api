@@ -32,12 +32,8 @@ router.post(`/create`, (req, res) => {
             resolve(queen);
         });
     })
-    .then(queen => {
-        res.json(queen);
-    })
-    .catch(err => {
-        res.json(err);
-    });
+    .then(queen => res.json(queen))
+    .catch(err => res.json(err));
 });
 
 module.exports = router;
