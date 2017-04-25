@@ -8,8 +8,8 @@ const SeasonSchema = new Schema({
     required: true,
   },
   queens: [labelIdType],
-  airDate: {
-    type: Date,
+  year: {
+    type: Number,
     required: true,
   },
   episodes: [labelIdType],
