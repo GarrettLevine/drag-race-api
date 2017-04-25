@@ -30,7 +30,7 @@ const EpisodeSchema = new Schema({
     winner: [labelIdType],
   },
   bottomTwo: [labelIdType],
-  lipSyncSong: {
+  lipSynchSong: {
     artist: {
       type: String,
       required: true,
