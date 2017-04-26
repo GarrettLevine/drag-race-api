@@ -11,11 +11,8 @@ router.get(`/`, (req, res) => {
             resolve(queens);
         });
     })
-    .then(queens => {
-        res.json(queens);
-    })
-    .catch(err =>
-        res.json(err));
+    .then(queens => res.json(queens))
+    .catch(err => res.json(err));
 });
 
 router.post(`/create`, (req, res) => {
@@ -35,12 +32,8 @@ router.post(`/create`, (req, res) => {
             resolve(queen);
         });
     })
-    .then(queen => {
-        res.json(queen);
-    })
-    .catch(err => {
-        res.json(err);
-    });
+    .then(queen => res.json(queen))
+    .catch(err => res.json(err));
 });
 
 module.exports = router;
