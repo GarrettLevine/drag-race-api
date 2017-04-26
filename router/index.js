@@ -5,7 +5,7 @@ const router = express.Router();
 const queenRouter = require(`./queens`);
 const seasonRouter = require(`./season`);
 
-router.use(`/queens`, queenRouter);
+router.use(`/queen`, queenRouter);
 router.use(`/season`, seasonRouter);
 
 module.exports = router;
