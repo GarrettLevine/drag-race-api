@@ -3,8 +3,8 @@ const Schema = mongoose.Schema;
 const labelIdType = require(`./label-id-type`);
 
 const SeasonSchema = new Schema({
-  number: {
-    type: Number,
+  season: {
+    type: String,
     required: true,
   },
   queens: [labelIdType],
@@ -13,8 +13,8 @@ const SeasonSchema = new Schema({
     required: true,
   },
   episodes: [labelIdType],
-  winner: [labelIdType],
-  runnerUps: [labelIdType],
+  winner: labelIdType,
+  runnersUp: [labelIdType],
 });
 
 module.exports = mongoose.model(`Season`, SeasonSchema);
