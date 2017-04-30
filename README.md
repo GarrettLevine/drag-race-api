@@ -3,10 +3,11 @@
 An API to retrive information about _RuPaul's Drag Race_ Queens, Seasons and Episodes.
 
 ## Queen Endpoints
-
-### GET `https://drag-race.club/api/queens`
-
+---
 Retrieve an array of all the queens in _RuPaul's Drag Race_ herstory.
+
+example request:
+GET `https://drag-race.club/api/queens`
 
 example response
 ```
@@ -31,13 +32,14 @@ example response
   { ... },
 ]
 ```
-
-### GET `https://drag-race.club/api/queens/:id`
-
+---
 Retrieve one queen from the API based on their ID.
 
-example response:
+example request
 
+GET `https://drag-race.club/api/queens/59034065c3518b376ceed987`
+
+example response:
 ```
   {
     name: 'Trixie Matel',
