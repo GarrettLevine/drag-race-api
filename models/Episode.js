@@ -3,11 +3,8 @@ const Schema = mongoose.Schema;
 const labelIdType = require(`./label-id-type`);
 
 const EpisodeSchema = new Schema({
-  season: [label-id-type],
-  episodeNumber: {
-    type: Number,
-    required: true,
-  },
+  season: labelIdType,
+  episode: labelIdType,
   title: {
     type: String,
     required: true,
@@ -20,14 +17,14 @@ const EpisodeSchema = new Schema({
     title: {
       type: String,
     },
-    winner: [labelIdType],
+    winner: labelIdType,
   },
   mainChallenge: {
     title: {
       type: String,
       required: true,
     },
-    winner: [labelIdType],
+    winner: labelIdType,
   },
   bottomTwo: [labelIdType],
   lipsyncSong: {
