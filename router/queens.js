@@ -30,7 +30,6 @@ router.get(`/:id`, (req, res) => {
 
 router.post(`/create`, (req, res) => {
     const queen = new Queen();
-    console.log(req.body)
     queen.name = req.body.name;
     queen.winner = req.body.winner;
     queen.place = req.body.place;
@@ -48,5 +47,30 @@ router.post(`/create`, (req, res) => {
     .then(queen => res.json(queen))
     .catch(err => res.json(err));
 });
+
+router.put(`/:id/update`, (req, res) => {
+    new Promise((resolve, reject) => {
+        Queen.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, queen) => {
+            if (err) reject(err);
+            resolve(queen);
+        });
+    })
+    .then(queen => res.json(queen))
+    .catch(err => res.json(err));
+});
+
+router.delete(`/:id/delete`, (req, res) => {
+    new Promise((resolve, reject) => {
+        // passing in an empty options object as the 3rd argument
+        Queen.findByIdAndRemove(req.params.id, {}, err => {
+            if (err) reject(err);
+            resolve(true);
+        })
+    })
+    .then(() => res.json({ message: `Queen with removed from database. ID: ${req.params.id}` }))
+    .catch(err => res.json(err));
+});
+
+
 
 module.exports = router;
