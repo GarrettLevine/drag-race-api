@@ -7,7 +7,7 @@ const labelIdType = {
     required: true,
   },
   id: {
-    type: Schema.Types.ObjectId,
+    type: String,
   },
 };
 

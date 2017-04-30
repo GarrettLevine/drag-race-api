@@ -15,26 +15,8 @@ const QueenSchema = new Schema({
     type: Number,
     required: true,
   },
-  season: {
-    id: {
-      type: Schema.Types.ObjectId,
-      ref: 'Season',
-    },
-    label: {
-      type: String,
-    }
-  },
-  episodes: [
-    {
-      id: {
-        type: Schema.Types.ObjectId,
-        ref: 'Episode',
-      },
-      label: {
-        type: String,
-      },
-    },
-  ],
+  season: labelIdType,
+  episodes: [labelIdType],
   quote: {
     type: String,
   },
