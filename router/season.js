@@ -19,9 +19,9 @@ router.get(`/`, (req, res) => {
 
 // Get a season by its ID
 
-router.get(`/:season_id`, (req, res) => {
+router.get(`/:id`, (req, res) => {
     new Promise((resolve, reject) => {
-        Season.findById(req.params.season_id, (err, season) => {
+        Season.findById(req.params.id, (err, season) => {
             if (err) reject(err);
             resolve(season);
         });
@@ -35,15 +35,11 @@ router.get(`/:season_id`, (req, res) => {
 router.post(`/create`, (req, res) => {
     const season = new Season();
     season.season = req.body.season;
-    season.queens.label = req.body.queensLabel;
-    season.queens.id = req.body.queensId;
+    season.queens = req.body.queens;
     season.year = req.body.year;
-    season.episodes.label = req.body.episodesLabel;
-    season.episodes.id = req.body.episodesId;
-    season.winner.label = req.body.winnerLabel;
-    season.winner.id = req.body.winnerId;
-    season.runnersUp.label = req.body.runnersUpLabel;
-    season.runnersUp.id = req.body.runnersUpId;
+    season.episodes = req.body.episodes;
+    season.winner = req.body.winner;
+    season.runnersUp = req.body.runnersUp;
 
     new Promise((resolve, reject) => {
         season.save(err => {
@@ -57,24 +53,11 @@ router.post(`/create`, (req, res) => {
 
 // Update a season by its ID
 
-router.put(`/:season_id`, (req, res) => {
+router.put(`/:id/update`, (req, res) => {
     new Promise((resolve, reject) => {
-        Season.findById(req.params.season_id, (err, season) => {
+        Season.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, season) => {
             if (err) reject(err);
-            season.season = req.body.season;
-            season.queens.label = req.body.queensLabel;
-            season.queens.id = req.body.queensId;
-            season.year = req.body.year;
-            season.episodes.label = req.body.episodesLabel;
-            season.episodes.id = req.body.episodesId;
-            season.winner.label = req.body.winnerLabel;
-            season.winner.id = req.body.winnerId;
-            season.runnersUp.label = req.body.runnersUpLabel;
-            season.runnersUp.id = req.body.runnersUpId;
-            season.save(err => {
-                if (err) reject(err);
-                resolve(season);
-            });
+            resolve(season);
         });
     })
     .then(season => res.json(season))
@@ -83,15 +66,15 @@ router.put(`/:season_id`, (req, res) => {
 
 // Delete a season by its ID
 
-router.delete(`/:season_id`, (req, res) => {
+router.delete(`/:id/delete`, (req, res) => {
     new Promise((resolve, reject) => {
-        Season.remove(req.params.season_id, (err, season) => {
+        Season.findByIdAndDelete(req.params.id, {}, err => {
             if (err) reject(err);
-            resolve(season);
+            resolve(true);
         })
     })
-    .then(season => console.log(`Deleted!`))
-    .catch(err => console.log(err));
+    .then(() => res.json({ message: `Season removed from database. ID: ${req.params.id}` }))
+    .catch(err => res.json(err));
 });
 
 module.exports = router;
