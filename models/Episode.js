@@ -17,14 +17,14 @@ const EpisodeSchema = new Schema({
     title: {
       type: String,
     },
-    winner: labelIdType,
+    winner: [labelIdType],
   },
   mainChallenge: {
     title: {
       type: String,
       required: true,
     },
-    winner: labelIdType,
+    winner: [labelIdType],
   },
   bottomTwo: [labelIdType],
   lipsyncSong: {

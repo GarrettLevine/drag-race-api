@@ -6,14 +6,14 @@ const router = express.Router();
 
 // Get all episodes
 
-router.get(`/`, (req, res) => {
+router.get(`/all`, (req, res) => {
     new Promise((resolve, reject) => {
-        Episode.find((err, episode) => {
+        Episode.find((err, episodes) => {
             if (err) reject(err);
-            resolve(episode);
+            resolve(episodes);
         });
     })
-    .then(episode => res.json(episode))
+    .then(episodes => res.json(episodes))
     .catch(err => res.json(err));
 });
 
