@@ -4,6 +4,8 @@ const Season = require(`../models/Season`)
 
 const router = express.Router();
 
+// Get all seasons
+
 router.get(`/`, (req, res) => {
     new Promise((resolve, reject) => {
         Season.find((err, season) => {
@@ -15,18 +17,29 @@ router.get(`/`, (req, res) => {
     .catch(err => res.json(err));
 });
 
+// Get a season by its ID
+
+router.get(`/:id`, (req, res) => {
+    new Promise((resolve, reject) => {
+        Season.findById(req.params.id, (err, season) => {
+            if (err) reject(err);
+            resolve(season);
+        });
+    })
+    .then(season => res.json(season))
+    .catch(err => res.json(err));
+});
+
+// Create a new season
+
 router.post(`/create`, (req, res) => {
     const season = new Season();
-    season.number = req.body.number;
-    season.queens.label = req.body.queensLabelArray;
-    season.queens.id = req.body.queensIdArray;
+    season.season = req.body.season;
+    season.queens = req.body.queens;
     season.year = req.body.year;
-    season.episodes.label = req.body.episodesLabelArray;
-    season.episodes.id = req.body.episodesIdArray;
-    season.winner.label = req.body.winnerLabel;
-    season.winner.id = req.body.winnerId;
-    season.runnerUps.label = req.body.runnerUpsLabelArray;
-    season.runnerUps.id = req.body.runnerUpsIdArray;
+    season.episodes = req.body.episodes;
+    season.winner = req.body.winner;
+    season.runnersUp = req.body.runnersUp;
 
     new Promise((resolve, reject) => {
         season.save(err => {
@@ -35,6 +48,32 @@ router.post(`/create`, (req, res) => {
         });
     })
     .then(season => res.json(season))
+    .catch(err => res.json(err));
+});
+
+// Update a season by its ID
+
+router.put(`/:id/update`, (req, res) => {
+    new Promise((resolve, reject) => {
+        Season.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, season) => {
+            if (err) reject(err);
+            resolve(season);
+        });
+    })
+    .then(season => res.json(season))
+    .catch(err => res.json(err));
+});
+
+// Delete a season by its ID
+
+router.delete(`/:id/delete`, (req, res) => {
+    new Promise((resolve, reject) => {
+        Season.findByIdAndDelete(req.params.id, {}, err => {
+            if (err) reject(err);
+            resolve(true);
+        })
+    })
+    .then(() => res.json({ message: `Season removed from database. ID: ${req.params.id}` }))
     .catch(err => res.json(err));
 });
 
