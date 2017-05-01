@@ -1,13 +1,13 @@
 {
   "name": "drag-race-api",
   "version": "1.0.0",
-  "description": "REST API for drag race",
+  "description": "REST API for RuPaul's Drag Race",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "nodemon server.js"
   },
-  "author": "Keven Hannah & Garrett Levine",
+  "author": "Kevan Hannah & Garrett Levine",
   "license": "ISC",
   "repository": {
     "type": "git",

@@ -22,10 +22,8 @@ router.get(`/:id`, (req, res) => {
             resolve(queen);
         });
     })
-    .then(queen => {
-        res.json(queen);
-    })
-    .catch(err => rs.json(err));
+    .then(queen => res.json(queen))
+    .catch(err => res.json(err));
 });
 
 router.post(`/create`, (req, res) => {
@@ -67,7 +65,7 @@ router.delete(`/:id/delete`, (req, res) => {
             resolve(true);
         })
     })
-    .then(() => res.json({ message: `Queen with removed from database. ID: ${req.params.id}` }))
+    .then(() => res.json({ message: `Queen removed from database. ID: ${req.params.id}` }))
     .catch(err => res.json(err));
 });
 
