@@ -1,7 +1,5 @@
 const express = require(`express`);
-
 const Season = require(`../models/Season`)
-
 const router = express.Router();
 
 // Get all seasons
@@ -34,18 +32,9 @@ router.get(`/:id`, (req, res) => {
 
 router.post(`/create`, (req, res) => {
     const season = new Season();
-    season.season = req.body.season;
-    season.queens = req.body.queens;
-    season.year = req.body.year;
-    season.episodes = req.body.episodes;
-    season.winner = req.body.winner;
-    season.runnersUp = req.body.runnersUp;
-
-    new Promise((resolve, reject) => {
-        season.save(err => {
-            if (err) reject(err);
-            resolve(season);
-        });
+    Season.create({
+        season: req.body.season,
+        year: req.body.year,
     })
     .then(season => res.json(season))
     .catch(err => res.json(err));
