@@ -1,7 +1,6 @@
 const express = require(`express`);
 
-const Queen = require(`../models/Queen`)
-
+const { Queen } = require(`../models`)
 const router = express.Router();
 
 router.get(`/`, (req, res) => {
@@ -27,20 +26,11 @@ router.get(`/:id`, (req, res) => {
 });
 
 router.post(`/create`, (req, res) => {
-    const queen = new Queen();
-    queen.name = req.body.name;
-    queen.winner = req.body.winner;
-    queen.place = req.body.place;
-    queen.season = req.body.season;
-    queen.episodes = req.body.episodes;
-    queen.quote = req.body.quote;
-    queen.image_url = req.body.image_url;
-
-    new Promise((resolve, reject) => {
-        queen.save(err => {
-            if (err) reject(err);
-            resolve(queen);
-        });
+    Queen.create({
+        name: req.body.name,
+        winner: req.body.winner,
+        quote: req.body.quote,
+        image_url: req.body.image_url,
     })
     .then(queen => res.json(queen))
     .catch(err => res.json(err));

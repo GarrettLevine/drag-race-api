@@ -1,5 +1,5 @@
 const express = require(`express`);
-const Season = require(`../models/Season`)
+const { Season } = require(`../models`)
 const router = express.Router();
 
 // Get all seasons
@@ -31,9 +31,7 @@ router.get(`/:id`, (req, res) => {
 // Create a new season
 
 router.post(`/create`, (req, res) => {
-    const season = new Season();
     Season.create({
-        season: req.body.season,
         year: req.body.year,
     })
     .then(season => res.json(season))

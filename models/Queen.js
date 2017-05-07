@@ -1,28 +1,32 @@
-const mongoose = require(`mongoose`);
-const Schema = mongoose.Schema;
-const labelIdType = require(`./label-id-type`)
+const Sequelize = require('sequelize');
+const db = require('./db');
 
-const QueenSchema = new Schema({
-  name: {
-    type: String,
-    required: true,
-  },
-  winner: {
-    type: Boolean,
-    default: false,
-  },
-  place: {
-    type: Number,
-    required: true,
-  },
-  season: labelIdType,
-  episodes: [labelIdType],
-  quote: {
-    type: String,
+const Queen = db.define('Queen', {
+  id: {
+    type: Sequelize.INTEGER,
+    allowNull: false,
+    autoIncrement: true,
+    primaryKey: true,
   },
   image_url: {
-    type: String,
+    type: Sequelize.STRING,
+  },
+  name: {
+    type: Sequelize.STRING,
+    allowNull: false,
+    unique: true,
+  },
+  place: {
+    type: Sequelize.ARRAY(Sequelize.JSONB),
+  },
+  quote: {
+    type: Sequelize.STRING,
+    default: '',
+  },
+  winner: {
+    type: Sequelize.BOOLEAN,
+    allowNull: false,
   },
 });
 
-module.exports = mongoose.model(`Queen`, QueenSchema);
+module.exports = Queen;

@@ -12,19 +12,15 @@ const Season = db.define('Season', {
     type: Sequelize.INTEGER,
     allowNull: false,
   },
-  Queens: {
-    type: Sequelize.ARRAY,
-  },
   winner: {
     type: Sequelize.JSONB,
-  },
-  runnersUp: {
-    type: Sequelize.ARRAY,
   },
   image_url: {
     type: Sequelize.STRING,
   },
 });
+
+module.exports = Season;
 
 // const mongoose = require(`mongoose`);
 // const Schema = mongoose.Schema;
