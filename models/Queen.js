@@ -16,9 +16,6 @@ const Queen = db.define('Queen', {
     allowNull: false,
     unique: true,
   },
-  place: {
-    type: Sequelize.ARRAY(Sequelize.JSONB),
-  },
   quote: {
     type: Sequelize.STRING,
     default: '',

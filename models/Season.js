@@ -1,6 +1,8 @@
 const Sequelize = require('sequelize');
 const db = require('./db');
 
+const { Queen } = require('./');
+
 const Season = db.define('Season', {
   id: {
     type: Sequelize.INTEGER,
@@ -8,12 +10,16 @@ const Season = db.define('Season', {
     autoIncrement: true,
     primaryKey: true,
   },
+  winnerId: {
+    type: Sequelize.INTEGER,
+    reference: {
+      model: Queen,
+      key: 'id',
+    },
+  },
   year: {
     type: Sequelize.INTEGER,
     allowNull: false,
-  },
-  winner: {
-    type: Sequelize.JSONB,
   },
   image_url: {
     type: Sequelize.STRING,
