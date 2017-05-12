@@ -10,6 +10,10 @@ const Season = db.define('Season', {
     autoIncrement: true,
     primaryKey: true,
   },
+  seasonNumber: {
+    type: Sequelize.STRING,
+    allowNull: false,
+  },
   winnerId: {
     type: Sequelize.INTEGER,
     reference: {

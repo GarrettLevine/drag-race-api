@@ -1,0 +1,2 @@
+const { Queen } = require('models');
+
