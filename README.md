@@ -59,3 +59,35 @@ example response:
     image_url: 'http://trixie-matel.com/213131.jpg',
   }
 ```
+
+___
+Create One Queen in the database
+
+example request
+
+POST `https://drag-race.club/api/queens/create`
+
+example request body
+```
+{
+  name: 'Katya',
+  image_url: 'katya.jpg',
+  seasons: [
+    { seasonNumber: 7, place: 4 },
+    { seasonNumber: A2, place: 2 },
+  ],
+  quote: 'I'm a biological female woman.',
+  winner: false,
+}
+```
+
+example response
+```
+{
+  id: 1337,
+  name: 'Katya',
+  image_url: 'katya.jpg',
+  quote: 'I'm a biological female woman.',
+  winner: false,
+}
+```

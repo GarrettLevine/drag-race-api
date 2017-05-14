@@ -1,17 +1,10 @@
 const express = require(`express`);
-const mongoose = require(`mongoose`);
 const bodyParser = require(`body-parser`);
-
-const {
-    username,
-    password,
-    url,
-    dbPort
-} = require(`./private-config`);
 const router = require(`./router/index.js`)
 
-mongoose.Promise = global.Promise
-mongoose.connect(`mongodb://${username}:${password}@${url}:${dbPort}/drag-race-api`);
+'use strict';
+
+
 const app = express();
 
 app.use(bodyParser.urlencoded({ extended: true }));
