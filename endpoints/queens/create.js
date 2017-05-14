@@ -1,25 +1,33 @@
-const { Queen } = require('models');
+const {
+  Queen,
+  Season,
+} = require('models');
 
 function create(req, res) {
-  let queenId;
+  let queen;
+
   return Queen.create({
     name: req.body.name,
     winner: req.body.winner,
     quote: req.body.quote,
     image_url: req.body.image_url,
   })
-  .then(queen => {
-    queenId = queen.od;
-    const promiseArray = req.body.season
-      .map(season => queen.addSeason({
-        seasonId: season.id,
+  .then(q => {
+    queen = q;
+    const seasonArray = req.body.seasons
+      .map(season => Season.findById(season.id));
+
+    return Promise.all(seasonArray);
+  })
+  .then(seasons => {
+    const queenSeasonsArray = req.body.seasons
+      .map(season => queen.addSeason(seasons.find(s => s.id === season.id), {
         place: season.place,
       }));
-
-    return Promise.all(promiseArray);
+    
+    return Promise.all(queenSeasonsArray);
   })
-  .then(() => Queen.findByID(queenId))
-  .then(queen => res.json(queen))
+  .then(() => res.json(queen))
   .catch(err => res.json(err));
 }
 

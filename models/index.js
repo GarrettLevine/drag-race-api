@@ -19,6 +19,7 @@ Season.hasMany(Episode, { foreignKey: 'seasonId' });
 const model = db.sync();
 
 module.exports = {
+  db,
   model,
   Episode,
   Season,
