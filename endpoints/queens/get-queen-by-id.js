@@ -1,4 +1,4 @@
-const { Queen } = require('model');
+const { Queen } = require('models');
 
 function getQueenById(req, res) {
   return Queen.findById(req.params.id)
