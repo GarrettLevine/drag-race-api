@@ -1,4 +1,7 @@
-const { Queen } = require('models');
+const {
+  Season,
+  Queen,
+} = require('models');
 
 function getWinners(req, res) {
   let queenWinners;
@@ -6,6 +9,12 @@ function getWinners(req, res) {
     where: {
       winner: true,
     },
+    include: [{
+      model: Season,
+      through: {
+        attributes: ['place'],
+      },
+    }],
   })
   .then(queens => res.json(queens))
   .catch(err => res.json(err));
