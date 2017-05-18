@@ -1,6 +1,6 @@
 const express = require(`express`);
 
-const endpoints = require('endpoints/queens');
+const endpoints = require(`endpoints/queens`);
 
 const router = express.Router();
 
