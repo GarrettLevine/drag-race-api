@@ -18,3 +18,5 @@ function getCongeniality(req, res) {
   .then(queens => res.json(queens))
   .catch(err => res.json(err));
 }
+
+module.exports = getCongeniality;
