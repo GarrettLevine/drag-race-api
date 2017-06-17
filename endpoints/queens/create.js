@@ -8,6 +8,7 @@ function create(req, res) {
 
   return Queen.create({
     name: req.body.name,
+    missCongeniality: req.body.missCongeniality,
     winner: req.body.winner,
     quote: req.body.quote,
     image_url: req.body.image_url,

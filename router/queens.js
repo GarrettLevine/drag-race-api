@@ -5,6 +5,7 @@ const endpoints = require(`endpoints/queens`);
 const router = express.Router();
 
 router.get(`/`, endpoints.getQueens);
+router.get(`/congeniality`, endpoints.getCongeniality);
 router.get(`/winners`, endpoints.getWinners);
 router.get(`/:id`, endpoints.getQueenById);
 
