@@ -44,15 +44,17 @@ example response:
   {
     name: 'Trixie Matel',
     winner: false,
-    place: 6,
-    season: {
-      label: 7,
-      id: '71231dqd1',
-    },
+    missCongeniality: false,
+    seasons: [
+      {
+        id: 1,
+        place: 6,
+      },
+    ],
     episodes: [
       {
         label: 'What a fun episode',
-        id: '13131',
+        id: 97,
       },
     ],
     quote: 'Okay, calm down there public school.',

@@ -2,6 +2,7 @@ const {
   Season,
   Queen,
 } = require('models');
+const { formatQueen } = require('../utils');
 
 function getWinners(req, res) {
   return Queen.findAll({
@@ -15,7 +16,12 @@ function getWinners(req, res) {
       },
     }],
   })
-  .then(queens => res.json(queens))
+  .then(queens => {
+    const formatedQueens = queens
+      .map(queen => formatQueen(queen));
+
+    res.json(formatedQueens);
+  })
   .catch(err => res.json(err));
 }
 

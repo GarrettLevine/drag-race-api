@@ -2,6 +2,7 @@ const {
   Season,
   Queen,
 } = require('models');
+const { formatQueen } = require('../utils')
 
 function getQueenById(req, res) {
   return Queen.findById(req.params.id, {
@@ -12,7 +13,7 @@ function getQueenById(req, res) {
         },
       }],
     })
-    .then(queen => res.json(queen))
+    .then(queen => res.json(formatQueen(queen)))
     .catch(err => res.json(err));
 }
 
