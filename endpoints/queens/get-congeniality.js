@@ -1,12 +1,12 @@
 const {
-  Season,
-  Queen,
+    Season,
+    Queen,
 } = require('models');
 
-function getWinners(req, res) {
+function getCongeniality(req, res) {
   return Queen.findAll({
     where: {
-      winner: true,
+      missCongeniality: true,
     },
     include: [{
       model: Season,
@@ -19,4 +19,4 @@ function getWinners(req, res) {
   .catch(err => res.json(err));
 }
 
-module.exports = getWinners;
+module.exports = getCongeniality;

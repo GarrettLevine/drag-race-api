@@ -20,6 +20,10 @@ const Queen = db.define('Queen', {
     type: Sequelize.STRING,
     default: '',
   },
+  missCongeniality: {
+    type: Sequelize.BOOLEAN,
+    default: false,
+  },
   winner: {
     type: Sequelize.BOOLEAN,
     allowNull: false,

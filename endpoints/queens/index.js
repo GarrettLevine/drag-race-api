@@ -1,5 +1,6 @@
 const q = {};
 
+q.getCongeniality = require(`./get-congeniality`);
 q.getQueens = require(`./get-queens`);
 q.getQueenById = require(`./get-queen-by-id`);
 q.getWinners = require(`./get-winners`);
