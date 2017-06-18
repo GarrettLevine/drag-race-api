@@ -1,16 +1,29 @@
 # Drag Race API
 
-An API to retrive information about _RuPaul's Drag Race_ Queens, Seasons and Episodes.
+An API to retrive information about _RuPaul's Drag Race_ Queens, Seasons, Episodes, and Challenges.
 
-## Queen Endpoints
+### Table of Contents
+- <a href="#queens">Queen endpoints</a>
+- <a href="#seasons">Seasons endpoints</a>
+- <a href="#episodes">Episodes endpoints</a>
+- <a href="#challenges">Challenges endpoints</a>
+
 ---
-Retrieve an array of all the queens in _RuPaul's Drag Race_ herstory. Limit of 50 queens per request. Defaults to 20.
 
-example request:
-GET `https://drag-race.club/api/queens`
+<h2 id="queens">Queen Endpoints</h2>
 
-example response
-```
+|Params |Example |
+|-|-:|
+|Limit |50|
+
+### GET a list of Queens
+Retrieve an array of queens in _RuPaul's Drag Race_ herstory. Limit of 50 queens per request. Defaults to 20.
+
+_example request:_
+GET `https://drag-race.club/api/queens?limit=50`
+
+_example response:_
+```JS
 [
   {
     name: 'Trixie Matel',
@@ -33,14 +46,15 @@ example response
 ]
 ```
 ---
+## GET one queen
 Retrieve one queen from the API based on their ID.
 
-example request
+_example request_
 
-GET `https://drag-race.club/api/queens/59034065c3518b376ceed987`
+GET `https://drag-race.club/api/queens/12`
 
 example response:
-```
+```JS
   {
     name: 'Trixie Matel',
     winner: false,
@@ -61,35 +75,123 @@ example response:
     image_url: 'http://trixie-matel.com/213131.jpg',
   }
 ```
-
 ___
-Create One Queen in the database
+### Get all the winners
 
-example request
+Retrive an array of all the winners of _Rupaul's Drag Race_ herstory.
 
-POST `https://drag-race.club/api/queens/create`
+_example request:_
 
-example request body
+`https://drag-race.club/api/queens/winners`
+
+_example response:_
+```JS
+[
+  {
+    name: 'Bianca Del Rio.',
+    winner: true,
+    missCongeniality: false,
+    season: {
+      id: 7,
+      place: 1,
+    },
+    episodes: [
+      {
+        label: 'What a fun episode',
+        id: 97,
+      },
+    ],
+    quote: "I'll show you versatility when Santino wins a sewing compitetion and Visage wears a fucking turtle neck.",
+    image_url: 'http://bianca-del-rio.com/213131.jpg',
+  },
+  { ... },
+]
 ```
-{
-  name: 'Katya',
-  image_url: 'katya.jpg',
-  seasons: [
-    { seasonNumber: 7, place: 4 },
-    { seasonNumber: A2, place: 2 },
-  ],
-  quote: 'I'm a biological female woman.',
-  winner: false,
-}
+___
+### Get all Miss Congenialities
+
+Retrive an array of Queens who have won Miss Congeniality/fan favourite.
+
+_example request:_
+
+`https://drag-race.club/api/queens/congeniality`
+
+_example response:_
+```JS
+[
+  {
+    name: 'Latrice Royale',
+    winner: false,
+    missCongeniality: true,
+    season: {
+      id: 4,
+      place: 8,
+    },
+    episodes: [
+      {
+        label: 'What a fun episode',
+        id: 97,
+      },
+    ],
+    quote: "Jesus is a biscuit, let him sop you up.",
+    image_url: 'http://latrice-royal.com/213131.jpg',
+  },
+  { ... },
+]
+```
+___
+
+<h2 id="seasons">Seasons</h2>
+
+### Get all the seasons
+
+Get all seasons from _RuPaul's Drag Race_ herstory.
+
+_example request:_
+GET `https://drag-race.club/api/seasons`
+
+_example response:_
+```JS
+  [
+    {
+      id: 1,
+      seasonNumber: "01",
+      winnerId: 9,
+      queens: [
+        {
+          id: 1,
+          name: 'Victoria Porkchop Partner',
+          place: 9,
+        },
+        {...},
+      ],
+      episodes: [ {...}, {...} ]
+    },
+    {...}
+  ]
 ```
 
-example response
-```
-{
-  id: 1337,
-  name: 'Katya',
-  image_url: 'katya.jpg',
-  quote: 'I'm a biological female woman.',
-  winner: false,
-}
+### Get Season
+
+Get an individual season based on the ID.
+
+_example request:_
+GET `https://drag-race.club/api/seasons/1`
+
+_example response:_
+```JS
+  {
+    id: 1,
+    seasonNumber: "01",
+    winnerId: 9,
+    queens: [
+      {
+        id: 1,
+        name: 'Victoria Porkchop Partner',
+        place: 9,
+      },
+      {...},
+    ],
+    episodes: [ {...}, {...} ]
+  }
 ```
