@@ -157,6 +157,7 @@ _example response:_
       id: 1,
       seasonNumber: "01",
       winnerId: 9,
+      image_url: 'www.smwo.com/werw.jpg',
       queens: [
         {
           id: 1,
@@ -184,6 +185,7 @@ _example response:_
     id: 1,
     seasonNumber: "01",
     winnerId: 9,
+    image_url: 'www.smwo.com/werw.jpg',
     queens: [
       {
         id: 1,
