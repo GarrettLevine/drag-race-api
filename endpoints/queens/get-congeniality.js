@@ -2,7 +2,7 @@ const {
     Season,
     Queen,
 } = require('models');
-const { formatQueen } = require('../utils');
+const { formatQueen } = require('utils');
 
 function getCongeniality(req, res) {
   return Queen.findAll({
@@ -22,7 +22,7 @@ function getCongeniality(req, res) {
 
     res.json(formatedQueens);
   })
-  .catch(err => res.json(err));
+  .catch(err => res.status(400).json(err));
 }
 
 module.exports = getCongeniality;

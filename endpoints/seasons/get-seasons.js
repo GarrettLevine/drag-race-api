@@ -3,7 +3,7 @@ const {
   Queen,
 } = require('models');
 
-const { formatSeason } = require('../utils');
+const { formatSeason } = require('utils');
 
 function getSeasons(req, res) {
   return Season.findAll({

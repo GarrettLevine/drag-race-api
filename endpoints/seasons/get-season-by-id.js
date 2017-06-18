@@ -3,17 +3,25 @@ const {
   Queen,
 } = require('models');
 
-const { formatSeason } = require('../utils');
+const {
+  formatSeason,
+  errorHandler: eh,
+} = require('utils');
 
 function getSeasonById(req, res) {
-  return Season.findById(req.params.id, {
+  const { id } = req.params;
+
+  return Season.findById(id, {
     include: [{
       model: Queen,
       attributes: ['id', 'name'],
     }],
   })
-    .then(season => res.json(formatSeason(season)))
-    .catch(err => res.json(err));
+    .then(season => {
+      if (!season) return Promise.reject(eh.noSeasonWithId(id));
+      res.json(formatSeason(season));
+    })
+    .catch(err => res.status(400).json(err));
 }
 
 module.exports = getSeasonById;

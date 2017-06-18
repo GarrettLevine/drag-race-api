@@ -11,7 +11,5 @@ router.get(`/winners`, [queryLimit], endpoints.getWinners);
 router.get(`/:id`, endpoints.getQueenById);
 
 router.post(`/create`, endpoints.create);
-router.put(`/:id/update`, endpoints.update);
-router.delete(`/:id/delete`, endpoints.delete);
 
 module.exports = router;

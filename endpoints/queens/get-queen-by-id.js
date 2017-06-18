@@ -2,10 +2,16 @@ const {
   Season,
   Queen,
 } = require('models');
-const { formatQueen } = require('../utils')
+
+const {
+  formatQueen,
+  errorHandler: eh,
+} = require('utils')
 
 function getQueenById(req, res) {
-  return Queen.findById(req.params.id, {
+  const { id } = req.params;
+
+  return Queen.findById(id, {
       include: [{
         model: Season,
         through: {
@@ -13,8 +19,11 @@ function getQueenById(req, res) {
         },
       }],
     })
-    .then(queen => res.json(formatQueen(queen)))
-    .catch(err => res.json(err));
+    .then(queen => {
+      if (!queen) return Promise.reject(eh.noQueenWithId(id));
+      res.json(formatQueen(queen));
+    })
+    .catch(err => res.status(400).json(err));
 }
 
 module.exports = getQueenById;

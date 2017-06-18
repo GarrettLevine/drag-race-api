@@ -2,7 +2,7 @@ const {
   Season,
   Queen,
 } = require('models');
-const { formatQueen } = require('../utils');
+const { formatQueen } = require('utils');
 
 function getQueens(req, res) {
   let queens;
@@ -22,9 +22,7 @@ function getQueens(req, res) {
       .map(queen => formatQueen(queen));
     res.json(formatedQueens);
   })
-  .then(err => {
-    res.json(err);
-  });
+  .then(err => res.status(400).json(err));
 }
 
 module.exports = getQueens;
