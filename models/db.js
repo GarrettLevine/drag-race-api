@@ -2,15 +2,21 @@
 const Sequelize = require(`sequelize`);
 
 const {
-    dbPort,
+    port,
     host,
     name,
     password,
     username,
-} = require(`../private-config`);
+} = require(`private-config`);
 
-const sequelize = new Sequelize(name, username, password, {
-  host: host,
+const dbName = process.env.DB_NAME || name;
+const dbUsername = process.env.DB_USERNAME || username;
+const dbPassword = process.env .DB_PASSWORD || password;
+const dbHost = process.env.DB_HOST || host;
+const dbPort = process.env.PORT || port;
+
+const sequelize = new Sequelize(dbName, dbUsername, dbPassword, {
+  host: dbHost,
   port: dbPort,
   dialect: 'postgres',
   logging: false,
