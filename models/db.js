@@ -1,19 +1,11 @@
 'use strict';
 const Sequelize = require(`sequelize`);
 
-const {
-    port,
-    host,
-    name,
-    password,
-    username,
-} = require(`private-config`);
-
-const dbName = process.env.DB_NAME || name;
-const dbUsername = process.env.DB_USERNAME || username;
-const dbPassword = process.env .DB_PASSWORD || password;
-const dbHost = process.env.DB_HOST || host;
-const dbPort = process.env.PORT || port;
+const dbName = process.env.DB_NAME;
+const dbUsername = process.env.DB_USERNAME;
+const dbPassword = process.env .DB_PASSWORD;
+const dbHost = process.env.DB_HOST;
+const dbPort = process.env.PORT;
 
 const sequelize = new Sequelize(dbName, dbUsername, dbPassword, {
   host: dbHost,
