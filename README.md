@@ -5,8 +5,8 @@ An API to retrive information about _RuPaul's Drag Race_ Queens, Seasons, Episod
 ### Table of Contents
 - <a href="#queens">Queen endpoints</a>
 - <a href="#seasons">Seasons endpoints</a>
-- <a href="#episodes">Episodes endpoints</a>
-- <a href="#challenges">Challenges endpoints</a>
+- <span href="#episodes">Episodes endpoints</span> <em>...coming soon</em>
+- <span href="#challenges">Challenges endpoints</span> <em>...coming soon</em>
 
 ---
 
