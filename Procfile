@@ -1,0 +1,1 @@
+web: NODE_PATH=`pwd`/. node server.js
