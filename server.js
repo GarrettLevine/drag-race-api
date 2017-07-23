@@ -26,6 +26,9 @@ app.use(`/api`, router);
 app.get('/', (req, res) => {
   res.redirect('https://github.com/GarrettLevine/drag-race-api');
 })
+app.get('/*', (req, res) => {
+  res.status(400).json({ message: 'no route found.' });
+});
 
 app.listen(port)
 console.log(`App is running on port ${port}`);
