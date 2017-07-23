@@ -15,6 +15,7 @@ An API to retrive information about _RuPaul's Drag Race_ Queens, Seasons, Episod
 |Params |Example |
 |-|-:|
 |Limit |50|
+|Offset| 0|
 
 ### GET a list of Queens
 Retrieve an array of queens in _RuPaul's Drag Race_ herstory. Limit of 50 queens per request. Defaults to 20.
