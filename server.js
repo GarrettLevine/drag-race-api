@@ -1,12 +1,16 @@
 const express = require(`express`);
 const bodyParser = require(`body-parser`);
 const router = require(`./router/index.js`)
+const { rateLimit } = require('./middleware/')
 
 'use strict';
 
 
 const app = express();
 
+app.enable('trust proxy');
+
+app.use(rateLimit);
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use((req, res, next) => {
