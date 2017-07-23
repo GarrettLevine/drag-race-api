@@ -6,6 +6,7 @@ const dbUsername = process.env.DB_USERNAME;
 const dbPassword = process.env .DB_PASSWORD;
 const dbHost = process.env.DB_HOST;
 const dbPort = process.env.PORT;
+console.log(dbName, dbUsername, dbPort, dbHost, dbPort);
 
 const sequelize = new Sequelize(dbName, dbUsername, dbPassword, {
   host: dbHost,
