@@ -23,7 +23,7 @@ NOTE: There is rate limit of 100 requests per 15 minutes currently.
 Retrieve an array of queens in _RuPaul's Drag Race_ herstory. Limit of 50 queens per request. Defaults to 20.
 
 _example request:_
-GET `https://drag-race-api.herokuapp.com//api/queens?limit=50`
+GET `https://drag-race-api.herokuapp.com/api/queens?limit=50`
 
 _example response:_
 ```JS
@@ -54,7 +54,7 @@ Retrieve one queen from the API based on their ID.
 
 _example request_
 
-GET `https://drag-race-api.herokuapp.com//api/queens/12`
+GET `https://drag-race-api.herokuapp.com/api/queens/12`
 
 example response:
 ```JS
@@ -85,7 +85,7 @@ Retrive an array of all the winners of _Rupaul's Drag Race_ herstory.
 
 _example request:_
 
-`https://drag-race-api.herokuapp.com//api/queens/winners`
+`https://drag-race-api.herokuapp.com/api/queens/winners`
 
 _example response:_
 ```JS
@@ -117,7 +117,7 @@ Retrive an array of Queens who have won Miss Congeniality/fan favourite.
 
 _example request:_
 
-`https://drag-race-api.herokuapp.com//api/queens/congeniality`
+`https://drag-race-api.herokuapp.com/api/queens/congeniality`
 
 _example response:_
 ```JS
@@ -151,7 +151,7 @@ ___
 Get all seasons from _RuPaul's Drag Race_ herstory.
 
 _example request:_
-GET `https://drag-race-api.herokuapp.com//api/seasons`
+GET `https://drag-race-api.herokuapp.com/api/seasons`
 
 _example response:_
 ```JS
@@ -180,7 +180,7 @@ _example response:_
 Get an individual season based on the ID.
 
 _example request:_
-GET `https://drag-race-api.herokuapp.com//api/seasons/1`
+GET `https://drag-race-api.herokuapp.com/api/seasons/1`
 
 _example response:_
 ```JS
