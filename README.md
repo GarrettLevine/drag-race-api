@@ -2,6 +2,8 @@
 
 An API to retrive information about _RuPaul's Drag Race_ Queens, Seasons, Episodes, and Challenges.
 
+NOTE: There is rate limit of 100 requests per 15 minutes currently.
+
 ### Table of Contents
 - <a href="#queens">Queen endpoints</a>
 - <a href="#seasons">Seasons endpoints</a>
