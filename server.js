@@ -23,6 +23,9 @@ app.use((req, res, next) => {
 const port = process.env.PORT || 8080;
 
 app.use(`/api`, router);
+app.get('/', (req, res) => {
+  res.redirect('https://github.com/GarrettLevine/drag-race-api');
+})
 
 app.listen(port)
 console.log(`App is running on port ${port}`);
