@@ -6,7 +6,7 @@ function adminRoute(req, res, next) {
 
   res
     .status(400)
-    .jsom({
+    .json({
       error: {
         message: 'you must have an admin key.'
       }
