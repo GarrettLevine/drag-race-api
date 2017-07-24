@@ -14,10 +14,10 @@ NOTE: There is rate limit of 100 requests per 15 minutes currently.
 
 <h2 id="queens">Queen Endpoints</h2>
 
-|Params |Example |
-|-|-:|
-|Limit |50|
-|Offset| 0|
+|Params |Example |Default|
+|-|-:|-:|
+|Limit |50| 25|
+|Offset| 25| 0|
 
 ### GET a list of Queens
 Retrieve an array of queens in _RuPaul's Drag Race_ herstory. Limit of 50 queens per request. Defaults to 20.
@@ -62,7 +62,7 @@ example response:
     name: 'Trixie Matel',
     winner: false,
     missCongeniality: false,
-    seasons: [
+    seasons: [gi
       {
         id: 1,
         place: 6,
