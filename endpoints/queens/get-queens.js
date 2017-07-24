@@ -8,8 +8,8 @@ function getQueens(req, res) {
   let queens;
 
   return Queen.findAll({
-    limit: req.params.limit || 20,
-    offset: req.params.offset || 0,
+    limit: req.query.limit || 20,
+    offset: req.query.offset || 0,
     include: [{
       model: Season,
       through: {
