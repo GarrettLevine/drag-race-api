@@ -14,3 +14,5 @@ function adminRoute(req, res, next) {
 
   return;
 }
+
+module.exports = adminRoute;
