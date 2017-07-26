@@ -3,7 +3,10 @@ const {
   Queen,
 } = require(`models`);
 
-const { formatQueen } = require(`utils`);
+const {
+  errorHandler: eh,
+  formatQueen,
+} = require(`utils`);
 
 function getSeasonQueens(req, res) {
   const { id } = req.params;
@@ -24,7 +27,7 @@ function getSeasonQueens(req, res) {
       .map(queen => formatQueen(queen));
     res.json(formatedQueens);
   })
-  .catch(err => res.status(400).json(err));
+  .catch(err => res.status(400).json(eh.serverError()));
 }
 
 module.exports = getSeasonQueens;

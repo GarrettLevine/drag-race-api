@@ -2,11 +2,12 @@ const {
   Season,
   Queen,
 } = require('models');
-const { formatQueen } = require('utils');
+const {
+  formatQueen,
+  errorHandler: eh,
+} = require('utils');
 
 function getQueens(req, res) {
-  let queens;
-
   return Queen.findAll({
     limit: req.query.limit || 20,
     offset: req.query.offset || 0,
@@ -22,7 +23,7 @@ function getQueens(req, res) {
       .map(queen => formatQueen(queen));
     res.json(formatedQueens);
   })
-  .catch(err => res.status(400).json(err));
+  .catch(err => res.status(400).json(eh.serverError()));
 }
 
 module.exports = getQueens;
