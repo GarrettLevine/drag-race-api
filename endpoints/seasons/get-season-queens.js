@@ -1,17 +1,19 @@
 const {
   Season,
   Queen,
-} = require('models');
-const { formatQueen } = require('utils');
+} = require(`models`);
 
-function getQueens(req, res) {
-  let queens;
+const { formatQueen } = require(`utils`);
+
+function getSeasonQueens(req, res) {
+  const { id } = req.params;
 
   return Queen.findAll({
-    limit: req.query.limit || 20,
-    offset: req.query.offset || 0,
     include: [{
       model: Season,
+      where: {
+        id,
+      },
       through: {
         attributes: ['place'],
       },
@@ -25,4 +27,4 @@ function getQueens(req, res) {
   .catch(err => res.status(400).json(err));
 }
 
-module.exports = getQueens;
+module.exports = getSeasonQueens;

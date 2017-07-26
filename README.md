@@ -14,16 +14,16 @@ NOTE: There is rate limit of 100 requests per 15 minutes currently.
 
 <h2 id="queens">Queen Endpoints</h2>
 
-|Params |Example |
-|-|-:|
-|Limit |50|
-|Offset| 0|
+|Params |Example |Default|
+|-|-:|-:|
+|Limit |50| 25|
+|Offset| 25| 0|
 
 ### GET a list of Queens
 Retrieve an array of queens in _RuPaul's Drag Race_ herstory. Limit of 50 queens per request. Defaults to 20.
 
 _example request:_
-GET `https://drag-race-api.herokuapp.com//api/queens?limit=50`
+GET `http://www.nokeynoshade.party/api/queens?limit=50`
 
 _example response:_
 ```JS
@@ -54,7 +54,7 @@ Retrieve one queen from the API based on their ID.
 
 _example request_
 
-GET `https://drag-race-api.herokuapp.com//api/queens/12`
+GET `http://www.nokeynoshade.party/api/queens/12`
 
 example response:
 ```JS
@@ -62,7 +62,7 @@ example response:
     name: 'Trixie Matel',
     winner: false,
     missCongeniality: false,
-    seasons: [
+    seasons: [gi
       {
         id: 1,
         place: 6,
@@ -85,7 +85,7 @@ Retrive an array of all the winners of _Rupaul's Drag Race_ herstory.
 
 _example request:_
 
-`https://drag-race-api.herokuapp.com//api/queens/winners`
+`http://www.nokeynoshade.party/api/queens/winners`
 
 _example response:_
 ```JS
@@ -117,7 +117,7 @@ Retrive an array of Queens who have won Miss Congeniality/fan favourite.
 
 _example request:_
 
-`https://drag-race-api.herokuapp.com//api/queens/congeniality`
+`http://www.nokeynoshade.party/api/queens/congeniality`
 
 _example response:_
 ```JS
@@ -151,7 +151,7 @@ ___
 Get all seasons from _RuPaul's Drag Race_ herstory.
 
 _example request:_
-GET `https://drag-race-api.herokuapp.com//api/seasons`
+GET `http://www.nokeynoshade.party/api/seasons`
 
 _example response:_
 ```JS
@@ -180,7 +180,7 @@ _example response:_
 Get an individual season based on the ID.
 
 _example request:_
-GET `https://drag-race-api.herokuapp.com//api/seasons/1`
+GET `http://www.nokeynoshade.party/api/seasons/1`
 
 _example response:_
 ```JS
@@ -198,5 +198,36 @@ _example response:_
       {...},
     ],
     episodes: [ {...}, {...} ]
+  }
+```
+
+### Get all queens in a season
+
+Get all queens that appeared in a season based on the season ID.
+
+_example request:_
+GET `http://www.nokeynoshade.party/api/seasons/1/queens`
+
+_example response:_
+```JS
+  {
+    [
+      {
+        "id": 1,
+        "name": "Victoria 'Porkchop' Parker",
+        "winner": false,
+        "missCongeniality": false,
+        "image_url": "https://vignette3.wikia.nocookie.net/logosrupaulsdragrace/images/5/50/Victoria_Parker.jpg",
+        "quote": "Would you fuck me? I'd fuck me.",
+        "seasons": [
+          {
+            "seasonNumber": "1",
+            "seasonId": 1,
+            "place": 9
+          }
+        ]
+      },
+      { ... }
+    ]
   }
 ```
