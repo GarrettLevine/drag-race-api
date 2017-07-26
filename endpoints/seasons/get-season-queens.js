@@ -3,21 +3,16 @@ const {
   Queen,
 } = require(`models`);
 
-const {
-  formatQueen,
-  formatSeason,
-  errorHandler: what,
-} = require(`utils`);
+const { formatQueen } = require(`utils`);
 
 function getSeasonQueens(req, res) {
-  let queens;
   const { id } = req.params;
 
   return Queen.findAll({
     include: [{
       model: Season,
       where: {
-        id: id,
+        id,
       },
       through: {
         attributes: ['place'],
