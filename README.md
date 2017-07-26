@@ -200,3 +200,34 @@ _example response:_
     episodes: [ {...}, {...} ]
   }
 ```
+
+### Get all queens in a season
+
+Get all queens that appeared in a season based on the season ID.
+
+_example request:_
+GET `http://www.nokeynoshade.party/api/seasons/1/queens`
+
+_example response:_
+```JS
+  {
+    [
+      {
+        "id": 1,
+        "name": "Victoria 'Porkchop' Parker",
+        "winner": false,
+        "missCongeniality": false,
+        "image_url": "https://vignette3.wikia.nocookie.net/logosrupaulsdragrace/images/5/50/Victoria_Parker.jpg",
+        "quote": "Would you fuck me? I'd fuck me.",
+        "seasons": [
+          {
+            "seasonNumber": "1",
+            "seasonId": 1,
+            "place": 9
+          }
+        ]
+      },
+      { ... }
+    ]
+  }
+```
