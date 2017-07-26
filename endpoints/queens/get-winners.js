@@ -22,7 +22,7 @@ function getWinners(req, res) {
 
     res.json(formatedQueens);
   })
-  .catch(err => res.status(400).json(err));
+  .catch(err => res.status(400).json(eh.serverError()));
 }
 
 module.exports = getWinners;

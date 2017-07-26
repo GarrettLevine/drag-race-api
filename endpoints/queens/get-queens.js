@@ -2,7 +2,10 @@ const {
   Season,
   Queen,
 } = require('models');
-const { formatQueen } = require('utils');
+const {
+  formatQueen,
+  errorHandler: eh,
+} = require('utils');
 
 function getQueens(req, res) {
   return Queen.findAll({
@@ -20,7 +23,7 @@ function getQueens(req, res) {
       .map(queen => formatQueen(queen));
     res.json(formatedQueens);
   })
-  .catch(err => res.status(400).json(err));
+  .catch(err => res.status(400).json(eh.serverError()));
 }
 
 module.exports = getQueens;

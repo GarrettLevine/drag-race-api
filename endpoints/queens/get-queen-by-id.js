@@ -23,7 +23,7 @@ function getQueenById(req, res) {
       if (!queen) return Promise.reject(eh.noQueenWithId(id));
       res.json(formatQueen(queen));
     })
-    .catch(err => res.status(400).json(err));
+    .catch(err => res.status(400).json(eh.serverError()));
 }
 
 module.exports = getQueenById;
