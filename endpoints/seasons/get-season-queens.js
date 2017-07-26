@@ -4,24 +4,32 @@ const {
 } = require(`models`);
 
 const {
+  formatQueen,
   formatSeason,
   errorHandler: what,
 } = require(`utils`);
 
 function getSeasonQueens(req, res) {
+  let queens;
   const { id } = req.params;
 
-  return Season.findById(id, {
+  return Queen.findAll({
     include: [{
-      model: Queen,
-      attributes: [`id`, `name`],
+      model: Season,
+      where: {
+        id: id,
+      },
+      through: {
+        attributes: ['place'],
+      },
     }],
   })
-    .then(season => {
-      if (!season) return Promise.reject(eh.noSeasonWithId(id));
-      res.json(formatSeason(season));
-    })
-    .catch(err => res.status(400).json(err));
+  .then(queens => {
+    const formatedQueens = queens
+      .map(queen => formatQueen(queen));
+    res.json(formatedQueens);
+  })
+  .catch(err => res.status(400).json(err));
 }
 
 module.exports = getSeasonQueens;
