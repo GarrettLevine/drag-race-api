@@ -8,10 +8,10 @@ function create(req, res) {
     episodeInSeason: req.body.episodeInSeason,
     seasonId: req.body.seasonId,
     airDate: req.body.airDate,
-    lipsyncSongId: req.body.lipsyncSongId,
+    lipsyncId: req.body.lipsyncId,
     eliminatedQueenId: req.body.eliminatedQueenId,
   })
-  .then(() => res.json(queen))
+  .then(episode => res.json(episode))
   .catch(err => res.json(err));
 }
 

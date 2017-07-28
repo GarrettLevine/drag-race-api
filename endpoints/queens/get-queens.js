@@ -5,8 +5,6 @@ const {
 const { formatQueen } = require('utils');
 
 function getQueens(req, res) {
-  let queens;
-
   return Queen.findAll({
     limit: req.query.limit || 20,
     offset: req.query.offset || 0,

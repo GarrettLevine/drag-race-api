@@ -6,9 +6,9 @@ const {
     queryLimit,
 } = require(`middleware`);
 
-const endpoints = require(`endpoints/episodes`);
+const endpoints = require(`endpoints/lipsyncs`);
 
-router.get(`/`, [queryLimit], endpoints.getEpisodes);
+router.get(`/`, [queryLimit], endpoints.getLipsyncs);
 router.post(`/create`, [adminRoute], endpoints.create);
 
 module.exports = router;

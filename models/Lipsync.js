@@ -44,7 +44,7 @@ const Lipsync = db.define(`Lipsync`, {
         model: Queen,
         key: `id`,
     },
-    allowNull: false,
+    allowNull: true,
   },
   eliminatedQueenId: {
     type: Sequelize.INTEGER,
@@ -52,7 +52,7 @@ const Lipsync = db.define(`Lipsync`, {
       model: Queen,
       key: `id`,
     },
-    allowNull: false,
+    allowNull: true,
   },
 });
 
