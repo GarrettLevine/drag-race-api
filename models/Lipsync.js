@@ -2,44 +2,49 @@ const Sequelize = require(`sequelize`);
 const db = require(`./db`);
 
 const {
-  Lipsync,
+  Episode,
   Queen,
   Season,
 } = require(`./`);
 
-const Episode = db.define(`Episode`, {
+const Lipsync = db.define(`Lipsync`, {
   id: {
     type: Sequelize.INTEGER,
     allowNull: false,
     autoIncrement: true,
     primaryKey: true,
   },
-  title: {
+  name: {
     type: Sequelize.STRING,
     allowNull: false,
   },
-  episodeInSeason: {
+  artist: {
     type: Sequelize.INTEGER,
+    allowNull: false,
+  },
+  episodeId: {
+    type: Sequelize.INTEGER,
+    reference: {
+        model: Episode,
+        key: `id`,
+    },
     allowNull: false,
   },
   seasonId: {
     type: Sequelize.INTEGER,
     reference: {
-      model: Season,
-      key: `id`,
+        model: Season,
+        key: `id`,
     },
     allowNull: false,
   },
-  airDate: {
-    type: Sequelize.DATEONLY,
-    allowNull: false,
-  },
-  lipsyncSongId: {
+  winningQueenId: {
     type: Sequelize.INTEGER,
     reference: {
-      model: Lipsync,
-      key: `id`,
+        model: Queen,
+        key: `id`,
     },
+    allowNull: true,
   },
   eliminatedQueenId: {
     type: Sequelize.INTEGER,
@@ -47,7 +52,8 @@ const Episode = db.define(`Episode`, {
       model: Queen,
       key: `id`,
     },
+    allowNull: true,
   },
 });
 
-module.exports = Episode;
+module.exports = Lipsync;

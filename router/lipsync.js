@@ -3,13 +3,12 @@ const router = express.Router();
 
 const {
     adminRoute,
-    offsetCheck,
     queryLimit,
 } = require(`middleware`);
 
-const endpoints = require(`endpoints/episodes`);
+const endpoints = require(`endpoints/lipsyncs`);
 
-router.get(`/`, [queryLimit, offsetCheck], endpoints.getEpisodes);
+router.get(`/`, [queryLimit], endpoints.getLipsyncs);
 router.post(`/create`, [adminRoute], endpoints.create);
 
 module.exports = router;
