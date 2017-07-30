@@ -8,3 +8,5 @@ const QueensEpisodes = db.define('QueensEpisodes', {
     allowNull: false,
   },
 });
+
+module.exports = QueensEpisodes;
