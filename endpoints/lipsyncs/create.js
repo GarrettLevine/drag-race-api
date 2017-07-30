@@ -8,8 +8,6 @@ function create(req, res) {
     artist: req.body.artist,
     episodeId: req.body.episodeId,
     seasonId: req.body.seasonId,
-    winningQueenId: req.body.winningQueenId,
-    eliminatedQueenId: req.body.eliminatedQueenId,
   })
   .then(lipsync => res.json(lipsync))
   .catch(err => res.json(err));
