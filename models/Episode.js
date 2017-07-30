@@ -18,15 +18,8 @@ const Episode = db.define('Episode', {
     type: Sequelize.DATEONLY,
     allowNull: false,
   },
-  lipsyncSong: {
+  lipsyncSongId: {
     type: Sequelize.STRING,
-  },
-  elimantedQueenId: {
-    type: Sequelize.INTEGER,
-    reference: {
-      model: Queen,
-      key: 'id',
-    },
   },
 });
 

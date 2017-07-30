@@ -6,6 +6,7 @@ const Challenge = require('./Challenge');
 const Episode = require('./Episode');
 const Season = require('./Season');
 const Queen = require('./Queen');
+const QueensChallenges = require('./QueensChallenges');
 const QueensSeasons = require('./QueensSeasons');
 
 Challenge.hasMany(Queen, { through: 'ChallengeWinners', foreignkey: 'challengeId' });
@@ -14,6 +15,8 @@ Queen.belongsToMany(Challenge, { through: 'ChallengeWinners', foreignKey: 'queen
 Challenge.belongsTo(Episode, { foreignkey: 'challengeId' });
 Episode.hasMany(Challenge, { foreignkey: 'episodeId' });
 
+Challenge.hasMany(Queen, { through: QueensChallenges, foreignkey: 'challengeId' });
+Queen.belongsToMany(Challange, { through: QueensChallenges, foreignKey: 'queenId' });
 
 Queen.belongsToMany(Episode, { through: 'QueensEpisodes', foreignkey: 'queenId' });
 Episode.belongsToMany(Queen, { through: 'QueensEpisodes', foreignKey: 'episodeId' });

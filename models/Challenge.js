@@ -1,7 +1,10 @@
 const Sequelize = require('sequelize');
 const db = require('./db')
 
-const Season = require('./Season');
+const {
+  Episode,
+  Season,
+ } = require('./Season');
 
 const Challenge = db.define('Challenge', {
   id: {
@@ -28,6 +31,14 @@ const Challenge = db.define('Challenge', {
       key:id,
     },
   },
+  seasonId: {
+    type: Sequelize.INTEGER,
+    reference: {
+      model: Season,
+      key: id,
+    },
+  },
+
 });
 
 module.exports = Challenge;
