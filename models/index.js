@@ -11,8 +11,8 @@ const QueensChallenges = require('./QueensChallenges');
 const QueensSeasons = require('./QueensSeasons');
 const QueensEpisodes = require('./QueensEpisodes');
 
-Lipsync.belongsTo({ foreignKey: 'episodeId' });
-Episode.hasMany({ foreignkey: 'episodeId' });
+Lipsync.belongsTo(Episode, { foreignKey: 'episodeId' });
+Episode.hasMany(Lipsync, { foreignkey: 'episodeId' });
 
 Queen.belongsToMany(Challenge, { through: QueensChallenges, foreignKey: 'queenId' });
 Challenge.belongsToMany(Queen, { through: QueensChallenges, foreignkey: 'challengeId' });
