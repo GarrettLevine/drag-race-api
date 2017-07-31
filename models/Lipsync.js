@@ -21,6 +21,14 @@ const Lipsync = db.define(`Lipsync`, {
     type: Sequelize.STRING,
     allowNull: false,
   },
+  episodeId: {
+    type: Sequelize.INTEGER,
+    allowNull: false,
+    references: {
+      model: Episode,
+      key: `id`,
+    },
+  },
 });
 
 module.exports = Lipsync;

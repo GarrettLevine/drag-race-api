@@ -8,6 +8,7 @@ function create(req, res) {
   return Lipsync.create({
     name: req.body.name,
     artist: req.body.artist,
+    episodeId: req.body.episodeId,
   })
   .then((l) => {
     lipsync = l;
