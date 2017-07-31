@@ -17,10 +17,7 @@ function getEpisodes(req, res) {
       .map(episode => formatEpisode(episode));
     res.json(formattedEpisodes);
   })
-  .catch(err => {
-    console.log(err);
-    res.status(400).json(eh.serverError())
-  });
+  .catch(err => res.status(400).json(eh.serverError()));
 }
 
 module.exports = getEpisodes;
