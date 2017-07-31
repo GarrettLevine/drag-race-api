@@ -1,9 +1,7 @@
 const Sequelize = require('sequelize');
 const db = require('./db')
 
-const {
-  Episode,
-} = require('./');
+const { Episode } = require('./');
 
 const Challenge = db.define('Challenge', {
   id: {
