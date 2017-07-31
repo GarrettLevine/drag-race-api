@@ -3,8 +3,7 @@ const db = require('./db')
 
 const {
   Episode,
-  Season,
- } = require('./Season');
+} = require('./');
 
 const Challenge = db.define('Challenge', {
   id: {
@@ -22,23 +21,16 @@ const Challenge = db.define('Challenge', {
     allowNull: false,
   },
   prize: {
-    type: Sequelize.String,
+    type: Sequelize.STRING,
+    allowNull: true,
   },
   episodeId: {
     type: Sequelize.INTEGER,
     reference: {
       model: Episode,
-      key:id,
+      key: 'id',
     },
   },
-  seasonId: {
-    type: Sequelize.INTEGER,
-    reference: {
-      model: Season,
-      key: id,
-    },
-  },
-
 });
 
 module.exports = Challenge;
