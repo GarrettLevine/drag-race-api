@@ -34,20 +34,6 @@ const Episode = db.define(`Episode`, {
     type: Sequelize.DATEONLY,
     allowNull: false,
   },
-  lipsyncSongId: {
-    type: Sequelize.INTEGER,
-    reference: {
-      model: Lipsync,
-      key: `id`,
-    },
-  },
-  eliminatedQueenId: {
-    type: Sequelize.INTEGER,
-    reference: {
-      model: Queen,
-      key: `id`,
-    },
-  },
 });
 
 module.exports = Episode;

@@ -17,7 +17,7 @@ function getLipsyncs(req, res) {
       .map(lipsync => formatLipsync(lipsync));
     res.json(formattedLipsyncs);
   })
-  .catch(err => res.status(400).json(err));
+  .catch(err => res.status(400).json(eh.serverError()));
 }
 
 module.exports = getLipsyncs;
