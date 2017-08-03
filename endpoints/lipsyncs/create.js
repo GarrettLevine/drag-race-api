@@ -1,16 +1,38 @@
 const {
-  Episode,
+  Queen,
   Lipsync,
 } = require('models');
 
 function create(req, res) {
-  return Lipsync.create({
-    name: req.body.name,
-    artist: req.body.artist,
-    episodeId: req.body.episodeId,
-  })
-  .then(lipsync => res.json(lipsync))
-  .catch(err => res.json(err));
+    let lipsync;
+
+    return Lipsync.create({
+        name: req.body.name,
+        artist: req.body.artist,
+        episodeId: req.body.episodeId,
+    })
+    .then(l => {
+        lipsync = l;
+        console.log(req.body.queens);
+        const queensArray = req.body.queens
+            .map(queen => Queen.findById(queen.id));
+
+        return Promise.all(queensArray);
+        })
+    .then(queens => {
+        console.log(queens);
+        const queensLipsyncsArray = req.body.queens
+            .map(queen => lipsync.addQueen(queens.find(q => q.id === queen.id), {
+            won: queen.won || false,
+        }));
+
+        return Promise.all(queensLipsyncsArray);
+    })
+    .then(() => res.status(200).json(lipsync))
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
 }
 
 module.exports = create;
