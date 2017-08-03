@@ -13,14 +13,12 @@ function create(req, res) {
     })
     .then(l => {
         lipsync = l;
-        console.log(req.body.queens);
         const queensArray = req.body.queens
             .map(queen => Queen.findById(queen.id));
 
         return Promise.all(queensArray);
         })
     .then(queens => {
-        console.log(queens);
         const queensLipsyncsArray = req.body.queens
             .map(queen => lipsync.addQueen(queens.find(q => q.id === queen.id), {
             won: queen.won || false,
@@ -29,10 +27,7 @@ function create(req, res) {
         return Promise.all(queensLipsyncsArray);
     })
     .then(() => res.status(200).json(lipsync))
-    .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-    });
+    .catch(err => res.status(500).json(err));
 }
 
 module.exports = create;
