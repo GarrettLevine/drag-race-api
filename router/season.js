@@ -3,11 +3,14 @@ const router = express.Router();
 
 const { adminRoute } = require('middleware');
 
-const endpoints = require('endpoints/seasons');
+const seasonEndpoints = require('endpoints/seasons');
+const episodeEndpoints = require('endpoints/episodes');
 
-router.get('/', endpoints.getSeasons);
-router.get('/:id', endpoints.getSeasonById);
-router.get(`/:id/queens`, endpoints.getSeasonQueens);
-router.post('/create', [adminRoute], endpoints.create);
+
+router.get('/', seasonEndpoints.getSeasons);
+router.get('/:id', seasonEndpoints.getSeasonById);
+router.get(`/:id/queens`, seasonEndpoints.getSeasonQueens);
+router.get(`/:id/episodes`, episodeEndpoints.getEpisodesBySeason);
+router.post('/create', [adminRoute], seasonEndpoints.create);
 
 module.exports = router;
