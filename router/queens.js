@@ -1,6 +1,8 @@
 const express = require(`express`);
 
-const endpoints = require(`endpoints/queens`);
+const queenEndpoints = require(`endpoints/queens`);
+const episodeEndpoints = require(`endpoints/episodes`);
+
 const {
   adminRoute,
   offsetCheck,
@@ -9,11 +11,11 @@ const {
 
 const router = express.Router();
 
-router.get(`/`, [queryLimit, offsetCheck], endpoints.getQueens);
-router.get(`/congeniality`, [queryLimit], endpoints.getCongeniality);
-router.get(`/winners`, [queryLimit], endpoints.getWinners);
-router.get(`/:id`, endpoints.getQueenById);
-
-router.post(`/create`, [adminRoute], endpoints.create);
+router.get(`/`, [queryLimit, offsetCheck], queenEndpoints.getQueens);
+router.get(`/congeniality`, [queryLimit], queenEndpoints.getCongeniality);
+router.get(`/winners`, [queryLimit], queenEndpoints.getWinners);
+router.get(`/:id`, queenEndpoints.getQueenById);
+router.get(`/:id/episodes`, episodeEndpoints.getEpisodesByQueen);
+router.post(`/create`, [adminRoute], queenEndpoints.create);
 
 module.exports = router;

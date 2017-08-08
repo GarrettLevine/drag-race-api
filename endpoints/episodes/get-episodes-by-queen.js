@@ -9,9 +9,9 @@ const {
 } = require('utils');
 
 function getEpisodesByQueen(req, res) {
-  Queen.findById(req.params.queenId)
+  Queen.findById(req.params.id)
     .then(queen => {
-      if (!queen) return Promise.reject((eh.noQueenWithId(req.params.queenId)));
+      if (!queen) return Promise.reject((eh.noQueenWithId(req.params.id)));
 
       return queen.getEpisodes();
     })

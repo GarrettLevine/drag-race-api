@@ -5,9 +5,9 @@ const {
 } = require('utils');
 
 function getEpisodeBySeason(req, res) {
-  Season.findById(req.params.seasonId)
+  Season.findById(req.params.id)
     .then((season) => {
-      if (!season) return Promise.reject(eh.noSeasonWithId(req.params.seasonId));
+      if (!season) return Promise.reject(eh.noSeasonWithId(req.params.id));
 
       return season.getEpisodes();
     })
