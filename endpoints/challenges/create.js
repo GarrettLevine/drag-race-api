@@ -22,7 +22,6 @@ function create(req, res) {
   .then(queens => {
     const queensArray = req.body.queens
       .map(queen => challenge.addQueen(queens.find(q => q.id === queen.id), {
-        info: queen.info,
         won: queen.won || false,
       }));
     return Promise.all(queensArray);

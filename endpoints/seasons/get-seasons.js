@@ -19,7 +19,7 @@ function getSeasons(req, res) {
       .map(season => formatSeason(season));
     res.json(formatedSeasons);
   })
-  .catch(err => res.status(400).json(eh.serverError()));
+  .catch(err => res.status(400).json(eh.handleError(err)));
 }
 
 module.exports = getSeasons;
