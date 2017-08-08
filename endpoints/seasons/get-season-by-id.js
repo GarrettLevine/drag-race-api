@@ -21,7 +21,7 @@ function getSeasonById(req, res) {
       if (!season) return Promise.reject(eh.noSeasonWithId(id));
       res.json(formatSeason(season));
     })
-    .catch(err => res.status(400).json(eh.serverError()));
+    .catch(err => res.status(400).json(eh.handleError(err)));
 }
 
 module.exports = getSeasonById;

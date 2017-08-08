@@ -7,8 +7,6 @@ const formatEpisode = episode => {
     episodeInSeason: episode.episodeInSeason,
     seasonId: episode.seasonId,
     airDate: episode.airDate,
-    lipsyncSongId: episode.lipsyncSongId,
-    eliminatedQueenId: episode.eliminatedQueenId,
   };
 };
 
