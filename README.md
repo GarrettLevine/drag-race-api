@@ -263,7 +263,7 @@ _example response:_
 
 ### Get episode by ID
 
-Get an epiosde by a specific ID
+Get an episode by a specific ID
 
 _example request:_
 GET `http://www.nokeynoshade.party/api/1`
@@ -275,7 +275,7 @@ _example response:_
     "title": "Drag on A Dime",
     "episodeInSeason": 1,
     "seasonId": 1,
-    "airDate": "2009-02-02",
+    "airDate": "2009-02-02T05:00:00.000Z",
   },
 ```
 
@@ -295,7 +295,7 @@ _example response:_
        "title": "Drag on A Dime",
        "episodeInSeason": 1,
        "seasonId": 1,
-       "airDate": "2009-02-02",
+       "airDate": "2009-02-02T05:00:00.000Z",
       },
       { ... }
     ]
@@ -318,10 +318,9 @@ _example response:_
        "title": "Drag on A Dime",
        "episodeInSeason": 1,
        "seasonId": 1,
-       "airDate": "2009-02-02",
+       "airDate": "2009-02-02T05:00:00.000Z",
       },
       { ... }
     ]
   }
 ```
-

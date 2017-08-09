@@ -1,11 +1,11 @@
-const { Epiosde } = require('models');
+const { Episode } = require('models');
 const {
   eh: errorHandler,
   formatEpisode,
 } = require('utils');
 
 function getEpisodeById(req, res) {
-  return getEpisodeById.findById(req.params.id)
+  return Episode.findById(req.params.id)
     .then((episode) => {
       if (!episode) return Promise.reject(eh.noEpisodeWithId(req.params.id));
 
