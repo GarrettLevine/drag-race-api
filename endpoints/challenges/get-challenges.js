@@ -14,7 +14,7 @@ function getChallenges(req, res) {
     const formattedChallenges = 
     res.status(200).json(challenges)
   })
-  .catch(err => res.json(eh.serverError()));
+  .catch(err => res.json(eh.handleError(err)));
 }
 
 module.exports = getChallenges;
