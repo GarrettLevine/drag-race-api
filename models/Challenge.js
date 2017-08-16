@@ -11,7 +11,7 @@ const Challenge = db.define('Challenge', {
     primaryKey: true,
   },
   type: {
-    type: Sequelize.ENUM('mini', 'maxi'),
+    type: Sequelize.ENUM('mini', 'main'),
     allowNull: false,
   },
   description: {
