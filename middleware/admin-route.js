@@ -1,7 +1,7 @@
 const { errorHandler: eh } = require('utils');
 
 function adminRoute(req, res, next) {
-  if (req.query.admin === process.env.ADMIN_CODE) {
+  if (req.query.admin === process.env.DR_API_ADMIN_CODE) {
     next();
     return;
   }
