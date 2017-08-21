@@ -1,4 +1,6 @@
-const { Judge } = require(`models`);
+const {
+  Judge,
+} = require(`models`);
 
 const {
   formatJudge,

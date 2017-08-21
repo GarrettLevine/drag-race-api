@@ -24,7 +24,8 @@ const Judge = db.define('Judge', {
   },
   regular: {
   	type: Sequelize.BOOLEAN,
-  	default: false,
+  	default: false
+
   }
 })
 
