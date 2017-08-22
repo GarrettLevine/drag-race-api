@@ -11,6 +11,7 @@ router.get('/', seasonEndpoints.getSeasons);
 router.get('/:id', seasonEndpoints.getSeasonById);
 router.get(`/:id/queens`, seasonEndpoints.getSeasonQueens);
 router.get(`/:id/episodes`, episodeEndpoints.getEpisodesBySeason);
+router.get(`/:id/lipsyncs`, seasonEndpoints.getSeasonLipsyncs);
 router.post('/create', [adminRoute], seasonEndpoints.create);
 
 module.exports = router;
