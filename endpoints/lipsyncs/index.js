@@ -1,6 +1,7 @@
 const l = {};
 
-l.getLipsyncs = require(`./get-lipsyncs.js`);
+l.getLipsyncs = require(`./get-lipsyncs`);
+l.getLipsyncById = require(`./get-lipsync-by-id`);
 
 l.create = require(`./create`);
 

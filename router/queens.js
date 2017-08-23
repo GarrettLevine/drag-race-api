@@ -16,6 +16,7 @@ router.get(`/congeniality`, [queryLimit], queenEndpoints.getCongeniality);
 router.get(`/winners`, [queryLimit], queenEndpoints.getWinners);
 router.get(`/:id`, queenEndpoints.getQueenById);
 router.get(`/:id/episodes`, episodeEndpoints.getEpisodesByQueen);
+router.get(`/:id/lipsyncs`, queenEndpoints.getQueenLipsyncs);
 router.post(`/create`, [adminRoute], queenEndpoints.create);
 
 module.exports = router;
