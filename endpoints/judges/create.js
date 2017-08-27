@@ -8,17 +8,20 @@ function create(req, res) {
 
   return Judge.create({
   	name: req.body.name,
-  	episodeId: req.body.episodeId,
+    image_url: req.body.image_url,
+    bio: req.body.bio,
+    regular: req.body.regular,
   })
   .then(j => {
     judge = j;
-  	console.log(judge);
     const episodesArray = req.body.episodes
       .map(episode => Episode.findById(episode.id));
-    console.log(episodesArray);
-    
     return Promise.all(episodesArray);
   })
+  .then(episodes => {
+      return Promise.all(episodes.map(e => judge.addEpisode(e)))
+    }
+  )
   .then(judge => res.json(judge))
   .catch(err => res.json(err));
 }

@@ -1,6 +1,6 @@
 const e = {};
 
-e.getEpisodes = require(`./get-judges.js`);
+e.getJudges = require(`./get-judges`);
 
 e.create = require(`./create`);
 
