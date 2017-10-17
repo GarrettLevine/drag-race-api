@@ -1,5 +1,4 @@
 const formatChallenges = challenge => {
-  console.log(challenge);
   return {
     id: challenge.id,
     type: challenge.type,
@@ -7,10 +6,10 @@ const formatChallenges = challenge => {
     prize: challenge.prize,
     episodeId: challenge.episodeId,
     queens: challenge.Queens.map(queen => {
-      console.log(queen);
       return {
         id: queen.id,
         name: queen.name,
+        won: queen.QueensChallenges.won,
       };
     }),
   };

@@ -11,14 +11,13 @@ const {
 function getChallengeById(req, res) {
     return Challenge.findById(req.params.id, {
         include: [{
-            model: [Queen],
+            model: Queen,
             through: {
                 attributes: ['won'],
               },
         }],
     })
     .then(challenge => {
-        console.log(challenge)
         const formattedChallenge = formatChallenge(challenge);
         res.status(200).json(formattedChallenge);
     })
