@@ -10,6 +10,7 @@ const {
 const endpoints = require(`endpoints/challenges`);
 
 router.get(`/`, [queryLimit, offsetCheck], endpoints.getChallenges);
+router.get('/:id', endpoints.getChallengeById);
 router.post(`/create`, [adminRoute], endpoints.create);
 
 module.exports = router;
