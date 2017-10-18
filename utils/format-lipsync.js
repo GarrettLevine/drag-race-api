@@ -6,9 +6,11 @@ const formatLipsync = lipsync => {
     name: lipsync.name,
     artist: lipsync.artist,
     episodeId: lipsync.episodeId,
-    seasonId: lipsync.seasonId,
-    winningQueenId: lipsync.winningQueenId,
-    eliminatedQueenId: lipsync.eliminatedQueenId,
+    queens: lipsync.Queens.map(queen => ({
+        id: queen.id,
+        name: queen.name,
+        won: queen.QueensLipsyncs.won,
+    })),
   };
 };
 
