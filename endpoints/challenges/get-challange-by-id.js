@@ -14,7 +14,7 @@ function getChallengeById(req, res) {
             model: Queen,
             through: {
                 attributes: ['won'],
-              },
+            },
         }],
     })
     .then(challenge => {
