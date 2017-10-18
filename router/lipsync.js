@@ -6,10 +6,10 @@ const {
     queryLimit,
 } = require(`middleware`);
 
-const endpoints = require(`endpoints/lipsyncs`);
+const lipsyncsEndpoints = require(`endpoints/lipsyncs`);
 
-router.get(`/`, [queryLimit], endpoints.getLipsyncs);
-router.get(`/:id`, endpoints.getLipsyncById);
-router.post(`/create`, [adminRoute], endpoints.create);
+router.get(`/`, [queryLimit], lipsyncsEndpoints.getLipsyncs);
+router.get(`/:id`, lipsyncsEndpoints.getLipsyncById);
+router.post(`/create`, [adminRoute], lipsyncsEndpoints.create);
 
 module.exports = router;

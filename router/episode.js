@@ -8,11 +8,12 @@ const {
 } = require(`middleware`);
 
 const endpoints = require(`endpoints/episodes`);
+const lipsyncsEndpoints = require(`endpoints/lipsyncs`);
 
 router.get(`/`, [queryLimit, offsetCheck], endpoints.getEpisodes);
 router.get(`/:id`, endpoints.getEpisodeById);
 router.get(`/queen/:queenId`, endpoints.getEpisodesByQueen);
-router.get(`/:id/lipsyncs`, endpoints.getEpisodeLipsyncs);
+router.get(`/:id/lipsyncs`, lipsyncsEndpoints.getEpisodeLipsyncs);
 router.post(`/create`, [adminRoute], endpoints.create);
 
 module.exports = router;
