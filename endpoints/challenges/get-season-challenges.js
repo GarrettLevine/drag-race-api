@@ -9,7 +9,7 @@ const {
   errorHandler: eh,
 } = require('utils');
 
-function getSeasnsChallenges(req, res) {
+function getSeasonsByChallenges(req, res) {
     return Season.findById(req.params.id)
         .then(season => {
             if (!season) eh.noSeasonWithId(req.params.id);
@@ -38,4 +38,4 @@ function getSeasnsChallenges(req, res) {
         .catch(err => res.json(eh.handleError(err)));
 }
 
-module.exports = getSeasnsChallenges;
+module.exports = getSeasonsByChallenges;
