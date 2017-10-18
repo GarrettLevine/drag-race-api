@@ -7,13 +7,14 @@ const {
     queryLimit,
 } = require(`middleware`);
 
-const endpoints = require(`endpoints/episodes`);
+const episodeEndpoints = require(`endpoints/episodes`);
+const challengesEndpoints = require(`endpoints/challenges`);
 const lipsyncsEndpoints = require(`endpoints/lipsyncs`);
 
-router.get(`/`, [queryLimit, offsetCheck], endpoints.getEpisodes);
-router.get(`/:id`, endpoints.getEpisodeById);
-router.get(`/queen/:queenId`, endpoints.getEpisodesByQueen);
+router.get(`/`, [queryLimit, offsetCheck], episodeEndpoints.getEpisodes);
+router.get(`/:id`, episodeEndpoints.getEpisodeById);
+router.get(`/:id/challenges`, challengesEndpoints.getEpisodeChallenges);
 router.get(`/:id/lipsyncs`, lipsyncsEndpoints.getEpisodeLipsyncs);
-router.post(`/create`, [adminRoute], endpoints.create);
+router.post(`/create`, [adminRoute], episodeEndpoints.create);
 
 module.exports = router;
