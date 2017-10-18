@@ -12,25 +12,18 @@ function getQueenLipsyncs(req, res) {
   const { id } = req.params;
 
   return Queen.findById(id)
-    .then((queen) => {
-      if (!queen) return Promise.reject(eh.noQueenWithId(id));
-
-      return Lipsync.findAll({
-        include: [{
-          model: Queen,
-          where: {
-            id,
-          },
-          through: {
-            attributes: [`won`],
-          },
-        }],
-      });
-    })
+    .then(queen => queen.getLipsyncs({
+      include: [{
+        model: Queen,
+      }],
+      through: {
+        attributes: [`won`],
+      },
+    }))
     .then(lipsyncs => {
       const formattedLipsyncs = lipsyncs.map(lipsync => formatLipsync(lipsync));
 
-      res.json(formattedLipsyncs);
+      res.status(200).json(formattedLipsyncs);
     })
     .catch(err => res.status(400).json(eh.handleError(err)));
 }

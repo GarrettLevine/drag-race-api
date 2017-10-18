@@ -31,7 +31,7 @@ function getEpisodeLipsyncs(req, res) {
     .then(lipsyncs => {
       const formattedLipsyncs = lipsyncs.map(lipsync => formatLipsync(lipsync));
 
-      res.json(formattedLipsyncs);
+      res.status(200).json(formattedLipsyncs);
     })
     .catch(err => res.status(400).json(eh.handleError(err)));
 }

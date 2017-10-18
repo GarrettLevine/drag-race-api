@@ -22,7 +22,7 @@ function getLipsyncById(req, res) {
   .then(lipsync => {
     if (!lipsync) return Promise.reject(eh.noLipsyncWithId(id));
 
-    res.json(formatLipsync(lipsync));
+    res.status(200).json(formatLipsync(lipsync));
   })
   .catch(err => res.status(500).json(eh.handleError(err)));
 }
