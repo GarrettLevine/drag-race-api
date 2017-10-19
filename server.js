@@ -1,9 +1,7 @@
 const express = require(`express`);
 const bodyParser = require(`body-parser`);
-const router = require(`./router/index.js`)
-const { rateLimit } = require('./middleware')
-
-'use strict';
+const router = require(`router`)
+const { rateLimit } = require('middleware')
 
 const app = express();
 const port = process.env.PORT || 8080;
@@ -21,7 +19,7 @@ app.use(rateLimit);
 
 app.use(`/api`, router);
 router.use('/*', (req, res, next) => {
-  res.sendFile(path.resolve('public/index.html'), undefined, err => {
+  res.sendFile(path.resolve('public'), undefined, err => {
       if (err) next(err);
   });
 });

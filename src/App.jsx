@@ -1,7 +1,5 @@
 import React from 'react';
 
-import { Hello } from './hello/Hello';
-
 export default class App extends React.Component {
     render() {
         return (

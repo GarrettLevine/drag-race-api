@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 
-import Router from './router';
+import App from './App';
 
 ReactDOM.render(
     <App />,
