@@ -20,12 +20,12 @@ app.use((req, res, next) => {
 app.use(rateLimit);
 
 app.use(`/api`, router);
-app.get('/', (req, res) => {
-  res.status(301).redirect('https://drag-race-api.readme.io/docs');
-})
-app.get('/*', (req, res) => {
-  res.status(400).json({ message: 'no route found.' });
+router.use('/*', (req, res, next) => {
+  res.sendFile(path.resolve('public/index.html'), undefined, err => {
+      if (err) next(err);
+  });
 });
+
 
 app.listen(port)
 console.log(`App is running on port ${port}`);
