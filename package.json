@@ -20,11 +20,10 @@
   },
   "homepage": "https://github.com/GarrettLevine/drag-race-api#readme",
   "dependencies": {
-    "babel-preset-es2015": "^6.24.1",
-    "babel-preset-react": "^6.24.1",
     "body-parser": "^1.17.1",
     "express": "^4.15.2",
     "express-rate-limit": "^2.8.0",
+    "lodash": "^4.17.4",
     "mongoose": "^4.9.5",
     "nodemon": "^1.11.0",
     "pg": "^6.1.5",
@@ -35,6 +34,8 @@
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
     "concurrently": "^3.5.0",
     "css-loader": "^0.28.7",
     "html-webpack-plugin": "^2.30.1",
