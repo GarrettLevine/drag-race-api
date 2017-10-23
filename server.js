@@ -21,6 +21,7 @@ app.use((req, res, next) => {
 });
 app.use(rateLimit);
 
+app.use(express.static(path.resolve('./public')))
 app.use(`/`, appRouter);
 app.use(`/api`, apiRouter);
 
