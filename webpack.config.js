@@ -2,13 +2,21 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+const VENDOR_LIBS = [
+    'react',
+    'react-dom',
+  ];
+
 module.exports = {
     devtool: 'eval',
-    entry: './src/index.jsx',
+    entry: {
+        bundle: './src/index.jsx',
+        vendor: VENDOR_LIBS,
+    },
     output: {
-        filename: '[name].js',
-        path: `${__dirname}/public`,
-        publicPath: 'http://localhost:8080/',
+        filename: '[name].[chunkhash].js',
+        path: path.join(__dirname, 'public'),
+        publicPath: 'http://localhost:3000/',
     },
     devtool: 'source-map',
     resolve: {
@@ -18,7 +26,7 @@ module.exports = {
         stats: {
             chunkModules: false,
             colors: true,
-            path: path.resolve(__dirname, 'public'),
+            path: path.join(__dirname, 'public'),
         },
         contentBase: `${__dirname}/public`,
         historyApiFallback: true,
@@ -53,5 +61,8 @@ module.exports = {
             appMountId: 'app',
             inject: true,
         }),
+        new webpack.optimize.CommonsChunkPlugin({
+            names: [ 'vendor', 'manifest' ],
+          }),
     ]
 };

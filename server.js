@@ -2,10 +2,7 @@ const path = require('path');
 const express = require(`express`);
 const bodyParser = require(`body-parser`);
 
-const {
-  apiRouter,
-  appRouter,
-} = require('router');
+const { apiRouter } = require(`router`);
 const { rateLimit } = require(`middleware`)
 
 const app = express();
@@ -21,9 +18,10 @@ app.use((req, res, next) => {
 });
 app.use(rateLimit);
 
-app.use(express.static(path.resolve('./public')))
-app.use(`/`, appRouter);
+app.use(express.static('public'));
 app.use(`/api`, apiRouter);
+
+app.get(`*`, (req, res, next) => res.sendFile(path.resolve(`./public/index.html`)));
 
 app.listen(port, () => {
   console.log(`App is running on port ${port}`);
