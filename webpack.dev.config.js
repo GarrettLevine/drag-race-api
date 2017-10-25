@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const WriteFilePlugin = require('write-file-webpack-plugin');
 
 const VENDOR_LIBS = [
     'react',
@@ -14,9 +15,9 @@ module.exports = {
         vendor: VENDOR_LIBS,
     },
     output: {
-        filename: '[name].[chunkhash].js',
+        filename: '[name].js',
         path: path.join(__dirname, 'public'),
-        publicPath: 'http://localhost:3000/',
+        publicPath: './',
     },
     devtool: 'source-map',
     resolve: {
@@ -61,8 +62,9 @@ module.exports = {
             appMountId: 'app',
             inject: true,
         }),
+        new WriteFilePlugin({ log: true }),
         new webpack.optimize.CommonsChunkPlugin({
-            names: [ 'vendor', 'manifest' ],
+            names: [ 'vendor' ],
           }),
     ]
 };

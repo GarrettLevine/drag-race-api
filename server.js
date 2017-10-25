@@ -6,7 +6,7 @@ const { apiRouter } = require(`router`);
 const { rateLimit } = require(`middleware`)
 
 const app = express();
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 3000;
 
 app.enable(`trust proxy`);
 app.use(bodyParser.urlencoded({ extended: true }));
