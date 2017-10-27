@@ -12,6 +12,8 @@ eh.noEpisodeWithId = id => `No episode found with the id: ${id}`;
 
 eh.noChallengeWithId = id => `No challenge found with the id: ${id}`;
 
+eh.noLipsyncWithId = id => `No lipsync found with the id: ${id}`;
+
 eh.typeMissMatch = (value, expected, provided) => `expected ${value} provided to be a ${expected}, found a ${provided}`;
 
 eh.requestLimit = n => `Request limit is 50. You requested ${n}`;
