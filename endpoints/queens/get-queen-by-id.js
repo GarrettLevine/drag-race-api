@@ -1,4 +1,6 @@
 const {
+  Challenge,
+  Lipsync,
   Season,
   Queen,
 } = require('models');
@@ -12,12 +14,26 @@ function getQueenById(req, res) {
   const { id } = req.params;
 
   return Queen.findById(id, {
-      include: [{
-        model: Season,
-        through: {
-          attributes: ['place'],
+      include: [
+        {
+          model: Season,
+          through: {
+            attributes: ['place'],
+          },
         },
-      }],
+        {
+          model: Lipsync,
+          through: {
+            attributes: ['won'],
+          },
+        },
+        {
+          model: Challenge,
+          through: {
+            attributes: ['won'],
+          },
+        },
+      ],
     })
     .then(queen => {
       if (!queen) return Promise.reject(eh.noQueenWithId(id));
