@@ -4,8 +4,11 @@ const { errorHandler: eh } = require('utils');
 function getAllQueenNames(req, res) {
     return Queen.findAll()
         .then(queens => {
-            const nameArray = queens.map(q => q.name);
-            res.status(200).json(nameArray)
+            const queenArray = queens.map(q => ({
+                name: q.name,
+                id: q.id,
+            }));
+            res.status(200).json(queenArray)
         })
         .catch(err => eh.handleError(err))
 }
