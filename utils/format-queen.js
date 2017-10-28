@@ -18,6 +18,20 @@ const formatQueen = q => {
     }));
   }
 
+  if (q.Challenges) {
+    queen.challenges = q.Challenges.map(challenge => ({
+      challengeId: challenge.id,
+      won: challenge.QueensChallenges.won,
+    }));
+  }
+
+  if (q.Lipsyncs) {
+    queen.lipsyncs = q.Lipsyncs.map(lipsync => ({
+      lipsyncId: lipsync.id,
+      won: lipsync.QueensLipsyncs.won,
+    }));
+  }
+
   return queen;
 };
 
