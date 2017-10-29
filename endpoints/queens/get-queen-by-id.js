@@ -1,5 +1,6 @@
 const {
   Challenge,
+  Episode,
   Lipsync,
   Season,
   Queen,
@@ -16,11 +17,12 @@ function getQueenById(req, res) {
   return Queen.findById(id, {
       include: [
         {
-          model: Season,
+          model: Challenge,
           through: {
-            attributes: ['place'],
+            attributes: ['won'],
           },
         },
+        { model: Episode },
         {
           model: Lipsync,
           through: {
@@ -28,9 +30,9 @@ function getQueenById(req, res) {
           },
         },
         {
-          model: Challenge,
+          model: Season,
           through: {
-            attributes: ['won'],
+            attributes: ['place'],
           },
         },
       ],
@@ -39,7 +41,10 @@ function getQueenById(req, res) {
       if (!queen) return Promise.reject(eh.noQueenWithId(id));
       res.json(formatQueen(queen));
     })
-    .catch(err => res.status(400).json(eh.handleError(err)));
+    .catch(err => {
+      console.log({ err });
+      res.status(400).json(eh.handleError(err))
+    });
 }
 
 module.exports = getQueenById;

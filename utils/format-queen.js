@@ -1,6 +1,5 @@
 const formatQueen = q => {
   if (typeof q !== 'object') return {};
-
   const queen = {
     id: q.id,
     name: q.name,
@@ -10,29 +9,58 @@ const formatQueen = q => {
     quote: q.quote,
   };
 
-  if (q.Seasons) {
-    queen.seasons = q.Seasons.map(season => ({
-      seasonNumber: season.seasonNumber,
-      seasonId: season.id,
-      place: season.QueensSeasons.place,
-    }));
+  if (q.Challenges) {
+    queen.challenges = q.Challenges.map(challenge => formatChallenge(challenge));
   }
 
-  if (q.Challenges) {
-    queen.challenges = q.Challenges.map(challenge => ({
-      challengeId: challenge.id,
-      won: challenge.QueensChallenges.won,
-    }));
+  if (q.Episodes) {
+    queen.episodes = q.Episodes.map(episode => formatEpsiodes(episode));
   }
 
   if (q.Lipsyncs) {
-    queen.lipsyncs = q.Lipsyncs.map(lipsync => ({
-      lipsyncId: lipsync.id,
-      won: lipsync.QueensLipsyncs.won,
-    }));
+    queen.lipsyncs = q.Lipsyncs.map(lipsync => formatLipsync(lipsync));
+  }
+
+  if (q.Seasons) {
+    queen.seasons = q.Seasons.map(season => formatSeasons(season));
   }
 
   return queen;
 };
+
+function formatChallenge(c) {
+  return {
+    challengeId: c.id,
+    type: c.type,
+    description: c.description,
+    won: c.QueensChallenges.won,
+  };
+}
+
+function formatLipsync(l) {
+  return {
+      lipsyncId: l.id,
+      won: l.QueensLipsyncs.won,
+      name: l.name,
+      artist: l.artist,
+  };
+}
+
+function formatSeasons(s) {
+  return {
+    seasonNumber: s.seasonNumber,
+    seasonId: s.id,
+    place: s.QueensSeasons.place,
+  };
+}
+
+function formatEpsiodes(e) {
+  return {
+    seasonId: e.seasonId,
+    episodeInSeason: e.episodeInSeason,
+    title: e.title,
+    airDate: e.airDate,
+  };
+}
 
 module.exports = formatQueen;
