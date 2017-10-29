@@ -1,5 +1,7 @@
 const express = require(`express`);
+const Raven = require(`raven`);
 const bodyParser = require(`body-parser`);
+
 const router = require(`./router/index.js`)
 const { rateLimit } = require('./middleware')
 
@@ -7,6 +9,9 @@ const { rateLimit } = require('./middleware')
 
 const app = express();
 const port = process.env.PORT || 8080;
+
+Raven.config(process.env.DR_API_RAVEN_DNS).install();
+app.use(Raven.requestHandler());
 
 app.enable('trust proxy');
 
@@ -23,6 +28,7 @@ app.use(`/api`, router);
 app.get('/', (req, res) => {
   res.status(301).redirect('https://drag-race-api.readme.io/docs');
 })
+app.use(Raven.errorHandler());
 app.get('/*', (req, res) => {
   res.status(400).json({ message: 'no route found.' });
 });
