@@ -3,7 +3,10 @@ const Raven = require(`raven`);
 const bodyParser = require(`body-parser`);
 
 const router = require(`./router/index.js`)
-const { rateLimit } = require('./middleware')
+const {
+  rateLimit,
+  cors,
+} = require('./middleware')
 
 'use strict';
 
@@ -16,12 +19,7 @@ app.use(Raven.requestHandler());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 // Enable CORS
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
-  res.header('Access-Control-Allow-Headers', 'content-type, Authorization, Origin, X-Requested-With, Content-Type, Accept');
-  next();
-});
+app.use(cors);
 app.use(rateLimit);
 
 app.use(`/api`, router);
