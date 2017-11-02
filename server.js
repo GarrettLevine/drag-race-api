@@ -10,9 +10,6 @@ const { rateLimit } = require('./middleware')
 const app = express();
 const port = process.env.PORT || 8080;
 
-app.enable('trust proxy');
-
-
 Raven.config(process.env.DR_API_RAVEN_DNS).install();
 app.use(Raven.requestHandler());
 
