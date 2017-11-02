@@ -13,13 +13,13 @@ const {
 const app = express();
 const port = process.env.PORT || 8080;
 
+app.use(cors);
 Raven.config(process.env.DR_API_RAVEN_DNS).install();
 app.use(Raven.requestHandler());
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 // Enable CORS
-app.use(cors);
 app.use(rateLimit);
 
 app.use(`/api`, router);
