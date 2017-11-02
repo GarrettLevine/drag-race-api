@@ -12,7 +12,7 @@ const {
 
 const app = express();
 const port = process.env.PORT || 8080;
-
+console.log('test');
 app.use(cors);
 Raven.config(process.env.DR_API_RAVEN_DNS).install();
 app.use(Raven.requestHandler());
