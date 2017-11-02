@@ -10,6 +10,7 @@ const { rateLimit } = require('./middleware')
 const app = express();
 const port = process.env.PORT || 8080;
 
+app.enable('trust proxy');
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
@@ -19,8 +20,6 @@ app.use((req, res, next) => {
 
 Raven.config(process.env.DR_API_RAVEN_DNS).install();
 app.use(Raven.requestHandler());
-
-app.enable('trust proxy');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
