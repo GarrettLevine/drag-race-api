@@ -8,8 +8,6 @@ const {
   cors,
 } = require('./middleware')
 
-'use strict';
-
 const app = express();
 const port = process.env.PORT || 8080;
 
