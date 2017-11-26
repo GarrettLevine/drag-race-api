@@ -22,9 +22,10 @@ const Judge = db.define('Judge', {
   	default: '',
   	allowNull: false,
   },
-  regular: {
-  	type: Sequelize.BOOLEAN,
-  	default: false
+  type: {
+  	type: Sequelize.ENUM('regular', 'guest', 'interim'),
+  	default: 'guest',
+    allowNull: false,
   }
 })
 

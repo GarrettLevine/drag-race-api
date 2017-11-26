@@ -10,7 +10,7 @@ function create(req, res) {
   	name: req.body.name,
     image_url: req.body.image_url,
     bio: req.body.bio,
-    regular: req.body.regular,
+    type: req.body.type,
   })
   .then(j => {
     judge = j;
