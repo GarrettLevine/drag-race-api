@@ -2,7 +2,6 @@ import React from 'react';
 
 export default class App extends React.Component {
     componentDidMount() {
-        console.log('what');
         fetch('/api/queens', {
             method: 'GET',
         })

@@ -4,8 +4,7 @@ const Raven = require(`raven`);
 const bodyParser = require(`body-parser`);
 
 const { apiRouter } = require(`router`);
-const router = require(`./router/index.js`)
-const { rateLimit, cors } = require('./middleware')
+const { rateLimit, cors } = require(`middleware`)
 
 const app = express();
 const port = process.env.PORT || 3000;
