@@ -1,4 +1,5 @@
 const eh = {};
+const Raven = require('raven');
 
 eh.adminCode = () => 'You must have an admin code';
 
@@ -21,6 +22,7 @@ eh.requestLimit = n => `Request limit is 50. You requested ${n}`;
 eh.serverError = () => `internal server error. Please report a bug or try again later`;
 
 eh.handleError = (err) => {
+  Raven.captureException(err);
   if (typeof err !== 'string') return { error: { message: eh.serverError() } };
 
   return { error: { message: err } }

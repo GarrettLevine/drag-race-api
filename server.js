@@ -1,22 +1,23 @@
 const express = require(`express`);
+const Raven = require(`raven`);
 const bodyParser = require(`body-parser`);
-const router = require(`./router/index.js`)
-const { rateLimit } = require('./middleware')
 
-'use strict';
+const router = require(`./router/index.js`)
+const {
+  rateLimit,
+  cors,
+} = require('./middleware')
 
 const app = express();
 const port = process.env.PORT || 8080;
 
-app.enable('trust proxy');
+app.use(cors);
+Raven.config(process.env.DR_API_RAVEN_DNS).install();
+app.use(Raven.requestHandler());
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-  next();
-});
+// Enable CORS
 app.use(rateLimit);
 
 app.use(`/api`, router);
@@ -27,5 +28,6 @@ app.get('/*', (req, res) => {
   res.status(400).json({ message: 'no route found.' });
 });
 
+app.use(Raven.errorHandler());
 app.listen(port)
 console.log(`App is running on port ${port}`);

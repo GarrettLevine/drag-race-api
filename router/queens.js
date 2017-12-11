@@ -14,6 +14,7 @@ const {
 const router = express.Router();
 
 router.get(`/`, [queryLimit, offsetCheck], queenEndpoints.getQueens);
+router.get(`/all`, queenEndpoints.getAllQueens);
 router.get(`/congeniality`, [queryLimit], queenEndpoints.getCongeniality);
 router.get(`/winners`, [queryLimit], queenEndpoints.getWinners);
 
