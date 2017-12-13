@@ -1,6 +1,6 @@
 {
   "name": "drag-race-api",
-  "version": "1.0.0",
+  "version": "1.5.0",
   "description": "REST API for RuPaul's Drag Race",
   "main": "index.js",
   "scripts": {
