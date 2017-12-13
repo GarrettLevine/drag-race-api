@@ -1,9 +1,6 @@
 const sequelize = require(`sequelize`);
 
-const {
-  OhHoney,
-  Queen,
-} = require(`models`);
+const { OhHoney } = require(`models`);
 
 const {
   formatOhHoney,
@@ -19,7 +16,7 @@ function getOhHoney(req, res) {
   })
   .then(ohHoney => {
     const formattedHoney = ohHoney.map(honey => formatOhHoney(honey));
-    res.json(formattedHoney);
+    res.status(200).json(formattedHoney);
   })
   .catch(err => res.status(500).json(eh.handleError(err)));
 }
