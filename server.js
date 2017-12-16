@@ -28,9 +28,17 @@ app.use(rateLimit);
 app.use(express.static('public'));
 app.use(`/api`, apiRouter);
 
-app.use(Raven.errorHandler());
-app.get(`*`, (req, res, next) => res.sendFile(path.resolve(`./public/index.html`)));
+// comment these two routes out to start serving react bundle
+app.get('/', (req, res) => {
+  res.status(301).redirect('https://drag-race-api.readme.io/docs');
+})
+app.get('/*', (req, res) => {
+  res.status(400).json({ message: 'no route found.' });
+});
+// uncomment this to serve react bundle
+// app.get(`*`, (req, res, next) => res.sendFile(path.resolve(`./public/index.html`)));
 
+app.use(Raven.errorHandler());
 app.listen(port, () => {
   console.log(`App is running on port ${port}`);
 });
