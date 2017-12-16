@@ -1,5 +1,5 @@
 /node_modules
 /private-config.js
 /public
-
+npm-debug.log.*
 .DS_STORE
