@@ -1,1 +1,1 @@
-web: NODE_PATH=`pwd`/. npm start
+web: NODE_PATH=`pwd`/. npm watch-backend
