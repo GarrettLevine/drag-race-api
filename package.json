@@ -29,13 +29,9 @@
     "nodemon": "^1.11.0",
     "npm-run-all": "^4.1.1",
     "pg": "^6.1.5",
-<<<<<<< HEAD
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
-    "raven": "^2.2.1",
-=======
     "raven": "^2.3.0",
->>>>>>> e3e884e87fe3c455d5aa176b36326d932268e733
     "sequelize": "^3.30.4"
   },
   "devDependencies": {
