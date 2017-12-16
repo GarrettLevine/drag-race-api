@@ -1,6 +1,6 @@
 {
   "name": "drag-race-api",
-  "version": "1.0.0",
+  "version": "1.5.0",
   "description": "REST API for RuPaul's Drag Race",
   "main": "index.js",
   "scripts": {
@@ -24,7 +24,7 @@
     "mongoose": "^4.9.5",
     "nodemon": "^1.11.0",
     "pg": "^6.1.5",
-    "raven": "^2.2.1",
+    "raven": "^2.3.0",
     "sequelize": "^3.30.4"
   }
 }

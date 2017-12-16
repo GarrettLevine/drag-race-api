@@ -7,6 +7,7 @@ const Episode = require('./Episode');
 const Lipsync = require('./Lipsync');
 const Season = require('./Season');
 const Queen = require('./Queen');
+const OhHoney = require('./OhHoney');
 const QueensChallenges = require('./QueensChallenges');
 const QueensSeasons = require('./QueensSeasons');
 const QueensEpisodes = require('./QueensEpisodes');
@@ -30,6 +31,9 @@ Episode.belongsToMany(Queen, { through: QueensEpisodes, foreignKey: 'episodeId' 
 Episode.belongsTo(Season, { foreignKey: 'seasonId'});
 Season.hasMany(Episode, { foreignKey: 'seasonId' });
 
+OhHoney.belongsTo(Queen, { foreignKey: `queenId` });
+Queen.hasMany(OhHoney, { foreignKey: `queenId` } );
+
 const model = db.sync();
 
 module.exports = {
@@ -40,4 +44,5 @@ module.exports = {
   Episode,
   Season,
   Queen,
+  OhHoney,
 };
