@@ -29,9 +29,10 @@
     "nodemon": "^1.11.0",
     "npm-run-all": "^4.1.1",
     "pg": "^6.1.5",
+    "raven": "^2.3.0",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
-    "raven": "^2.3.0",
+    "react-router": "^4.2.0",
     "sequelize": "^3.30.4"
   },
   "devDependencies": {
