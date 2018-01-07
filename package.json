@@ -21,17 +21,22 @@
   },
   "homepage": "https://github.com/GarrettLevine/drag-race-api#readme",
   "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.17.1",
     "express": "^4.15.2",
     "express-rate-limit": "^2.8.0",
+    "jsonwebtoken": "^8.1.0",
     "lodash": "^4.17.4",
     "mongoose": "^4.9.5",
     "nodemon": "^1.11.0",
     "npm-run-all": "^4.1.1",
+    "passport": "^0.4.0",
+    "passport-jwt": "^3.0.1",
+    "passport-local": "^1.0.0",
     "pg": "^6.1.5",
+    "raven": "^2.3.0",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
-    "raven": "^2.3.0",
     "sequelize": "^3.30.4"
   },
   "devDependencies": {
