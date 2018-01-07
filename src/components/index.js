@@ -7,3 +7,6 @@ The Component folder is only meant for extremely GENERIC components;
 - headers
 - etc;
 */
+
+import _Header from './Header';
+export { _Header as Header };

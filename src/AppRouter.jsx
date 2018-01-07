@@ -2,8 +2,8 @@ import React from 'react';
 import { Router, Route, Switch } from 'react-router';
 import createBrowserHistory from 'history/createBrowserHistory'
 
-import Main from './main/Main';
-import Admin from './admin/Admin';
+import Main from './Main/Main';
+import Admin from './Admin/Admin';
 import NoMatch from './NoMatch';
 
 const history = createBrowserHistory()
