@@ -9,4 +9,4 @@ The Component folder is only meant for extremely GENERIC components;
 */
 
 import _Header from './Header';
-export { _Header as Header };
+import _Textarea from './Textarea';
