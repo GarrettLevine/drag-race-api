@@ -1,4 +1,12 @@
 @import '../styles/main.scss';
+html {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    margin: 0;
+}
 
 h1 {
     color: $pink-medium;
