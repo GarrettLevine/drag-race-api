@@ -1,7 +1,7 @@
 // FONTS
 @import url('https://fonts.googleapis.com/css?family=Monda:400,700');
-
-$base-font: 'Monda', sans-serif;
+$base-font: 'Monda',
+sans-serif;
 
 // COLOUR VARIABLES
 $pink-light: #FFC8EF;
@@ -10,13 +10,17 @@ $pink-dark: #E345B6;
 
 $red: #E75264;
 
+$blue-lightest: #E1F2F4; //for body background colour
 $blue-light: #D9F9FE;
 $blue-medium: #00BBD5;
 
-$grey: 	#F8F8F8;
+$grey : #F8F8F8;
+
+// LAYOUT
+
+$section-max-width: 800px;
 
 // TYPOGRAPHY EPISODE FORM
-
 $font-size-form_heading: 18px;
 
 $font-size-form_sub-heading: 12px; //instructions, text input labels
@@ -28,7 +32,6 @@ $font-size-form_button: 18px;
 $line-height-form: 32px; //all typography has same line-height
 
 // TYPOGRAPHY LANDING PAGE
-
 $font-size-landing_heading: 32px;
 $line-height-landing_heading: 32px;
 
@@ -40,7 +43,6 @@ $line-height-landing_regular: 32px;
 
 $font-size-landing_navigation: 16px;
 $line-height-landing_navigation: 24px;
-
 
 // Z-INDEX
 $z-index-none: 0;
@@ -55,3 +57,16 @@ $z-index-overtake-2: 6;
 $z-index-overtake-3: 7;
 $z-index-overtake-4: 8;
 $z-index-overtake-5: 9;
+
+// BODY AND WRAPPER STYLES
+body {
+    background-color: $blue-lightest;
+}
+
+.wrapper {
+    border-radius: 3px;
+    background-color: #FFFFFF;
+    box-shadow: 0 2px 4px 0 rgba(39, 97, 105, 0.3);
+    max-width: 961px;
+    margin: 40px auto;
+}
