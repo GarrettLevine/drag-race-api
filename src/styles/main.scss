@@ -57,16 +57,3 @@ $z-index-overtake-2: 6;
 $z-index-overtake-3: 7;
 $z-index-overtake-4: 8;
 $z-index-overtake-5: 9;
-
-// BODY AND WRAPPER STYLES
-body {
-    background-color: $blue-lightest;
-}
-
-.wrapper {
-    border-radius: 3px;
-    background-color: #FFFFFF;
-    box-shadow: 0 2px 4px 0 rgba(39, 97, 105, 0.3);
-    max-width: 961px;
-    margin: 40px auto;
-}
