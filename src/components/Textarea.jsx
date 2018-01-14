@@ -1,18 +1,28 @@
 import React from 'react';
 
+import './Textarea.scss';
 
 export default class Textarea extends React.Component {
   constructor(props) {
-  	super(props);
+    super(props);
 
-  	this.state = {
-  		value: '',
-  	}
-  }
+    this.updateDescription = this.updateDescription.bind(this);
+
+    this.state = {
+        challengeDescription: '',
+    };
+  };
+  
+  updateDescription(event) {
+        this.setState({
+            challengeDescription: event.target.value,
+        });
+    }
 
   render() {
-    return (
-      <textarea className="textarea" id={this.props.id} placeholder={this.props.placeholder} value={this.state.value}></textarea>
-    );
-  }
-}
+      return (
+        <textarea id={this.props.id} placeholder={this.props.placeholder} value={this.state.challengeDescription} onChange={this.updateDescription}></textarea>
+      );
+    };
+  
+};
