@@ -1,7 +1,6 @@
 import React from 'react';
 
-import { fetch } from '../utils';
-import { sortQueens } from './utils';
+import { adminSetup } from './utils';
 
 export default class AddEpisode extends React.Component {
   constructor(props) {
@@ -14,25 +13,18 @@ export default class AddEpisode extends React.Component {
     };
   }
   componentDidMount() {
-    fetch.get('/api/seasons')
-      .then((seasons) => {
-        const seasonId = seasons.sort((a, b) => b.id - a.id)[0].id;
-        this.setState({
-          seasonId,
-        });
+      adminSetup()
+        .then(({ activeQueens, inactiveQueens, seasonId }) => {
 
-        return sortQueens(seasonId);
-      })
-      .then(({ inactiveQueens, activeQueens }) => {
-
-        this.setState({
-          activeQueens,
-          inactiveQueens,
+          this.setState({
+            activeQueens,
+            inactiveQueens,
+            seasonId,
+          });
+        })
+        .catch((err) => {
+          console.log(err);
         });
-      })
-      .catch((err) => {
-        console.log(err);
-      });
   }
 
   render() {

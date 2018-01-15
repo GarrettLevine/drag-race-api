@@ -1,3 +1,2 @@
-import _sortQueens from './sort-queens';
-export { _sortQueens as sortQueens };
- 
+import _adminSetup from './admin-setup';
+export { _adminSetup as adminSetup };
