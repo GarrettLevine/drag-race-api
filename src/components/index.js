@@ -12,3 +12,6 @@ export { _Header as Header };
 
 import _Wrapper from './Wrapper';
 export { _Wrapper as Wrapper };
+
+import _Checkbox from './Checkbox';
+export { _Checkbox as Checkbox };
