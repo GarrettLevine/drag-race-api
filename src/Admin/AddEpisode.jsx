@@ -1,5 +1,8 @@
 import React from 'react';
 
+import { fetch } from '../utils';
+import { sortQueens } from './utils';
+
 export default class AddEpisode extends React.Component {
   constructor(props) {
     super(props);
@@ -11,19 +14,24 @@ export default class AddEpisode extends React.Component {
     };
   }
   componentDidMount() {
-    fetch('/api/seasons')
-      .then((resp) => resp.json())
+    fetch.get('/api/seasons')
       .then((seasons) => {
         const seasonId = seasons.sort((a, b) => b.id - a.id)[0].id;
         this.setState({
           seasonId,
         });
 
-        return fetch(`/api/seasons/${seasonId}/queens`);
+        return sortQueens(seasonId);
       })
-      .then((resp) => resp.json())
-      .then((queens) => {
+      .then(({ inactiveQueens, activeQueens }) => {
 
+        this.setState({
+          activeQueens,
+          inactiveQueens,
+        });
+      })
+      .catch((err) => {
+        console.log(err);
       });
   }
 

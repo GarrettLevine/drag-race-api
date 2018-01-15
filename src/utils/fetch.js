@@ -1,4 +1,4 @@
-export function get(url) {
+function get(url) {
   return fetch(url, {
     method: 'get',
     credentials: 'same-origin',
@@ -10,8 +10,7 @@ export function get(url) {
   .then((resp) => resp.json());
 }
 
-export function post(url, payload) {
-  if 
+function post(url, payload) {
   return fetch(url, {
     method: 'post',
     credentials: 'same-origin',
@@ -23,3 +22,8 @@ export function post(url, payload) {
   })
   .then((resp) => resp.json());
 }
+
+export default {
+  get,
+  post,
+};
