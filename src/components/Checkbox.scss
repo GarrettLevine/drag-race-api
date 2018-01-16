@@ -1,10 +1,16 @@
 @import '../styles/main.scss';
 
+.checkbox-label {
+   line-height: $line-height-form;
+   font-size: $font-size-form_regular;
+   font-family: $base-font;
+}
+
 .checkbox {
-   -webkit-appearance: none;
-   -moz-appearance:    none;
-   appearance:         none;
-   margin: 0;
+  position: absolute;
+  left: -9999px;
+   line-height: $line-height-form;
+   font-size: $font-size-form_regular;
 }
 
 .checkbox:before {
@@ -19,10 +25,8 @@
 .checkbox:checked:before {
     content: "\2713";
     text-shadow: 1px 1px 1px rgba(0, 0, 0, .2);
-    font-size: $font-size-form_regular;
     color: #f3f3f3;
     text-align: center;
-    line-height: 15px;
 }
 
 .checkbox_elimination {
