@@ -1,8 +1,9 @@
 import React from 'react';
 
-import { Header, Wrapper, Checkbox, Button } from '../components';
-
+import '../styles/imports.scss';
 import './main.scss';
+
+import { Header, Wrapper, Button } from '../components';
 
 export default class Main extends React.Component {
   render() {
