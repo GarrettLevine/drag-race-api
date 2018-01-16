@@ -10,7 +10,6 @@ export default class Main extends React.Component {
     return (
       <Wrapper>
             <Header header="Main Page" subheader="Get werkin'" />
-
             <Checkbox 
               label="Kennedy Davenport" 
               name="eliminatedQueens" 
@@ -21,9 +20,9 @@ export default class Main extends React.Component {
               name="eliminatedQueens" 
               class="checkbox_elimination"
               />  
-
+              
             <Button label="Push me" />
-
+            
       </Wrapper>
     );
   }
