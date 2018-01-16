@@ -11,7 +11,7 @@ const VENDOR_LIBS = [
 module.exports = {
     devtool: 'eval',
     entry: {
-        bundle: ['./src/index.jsx', './src/styles/index.scss'],
+        bundle: ['./src/styles/index.scss', './src/index.jsx'],
         vendor: VENDOR_LIBS,
     },
     output: {
