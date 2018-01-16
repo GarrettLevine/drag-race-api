@@ -16,7 +16,7 @@ export default class Checkbox extends React.Component {
                     onChange={this.props.handleChange} 
                     className={classNames('checkbox', this.props.className)}
                     value={this.props.value}/>
-                <label className='checkbox-label' for={this.props.id}>
+                <label className='checkbox-label' htmlFor={this.props.id}>
                     {this.props.label}
                 </label>
             </div>
