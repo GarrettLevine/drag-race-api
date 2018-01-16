@@ -1,0 +1,13 @@
+@import '../styles/main.scss';
+
+textarea {
+	border: 1px solid $light-grey;	
+	border-radius: 3px;
+	width: 100%;
+	height: 72px;
+	font-family: $base-font;
+	font-size: $font-size-landing_navigation;
+	line-height: $line-height-form;
+	padding: 10px;
+}
+
