@@ -11,7 +11,7 @@ const VENDOR_LIBS = [
 module.exports = {
     devtool: 'eval',
     entry: {
-        bundle: [`${__dirname}/src/index.jsx`, `${__dirname}/src/styles/main.scss`],
+        bundle: ['./src/styles/index.scss', './src/index.jsx'],
         vendor: VENDOR_LIBS,
     },
     output: {
@@ -59,13 +59,10 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: `${__dirname}/index.template.html`,
+            template: './index.template.html',
             filename: 'index.html',
             appMountId: 'app',
             inject: true,
-            files: {
-                css: [`${__dirname}/public/main.css`],
-            },
         }),
         new WriteFilePlugin({ log: true }),
         new webpack.optimize.CommonsChunkPlugin({
