@@ -1,6 +1,5 @@
 import React from 'react';
 
-import '../styles/imports.scss';
 import './main.scss';
 
 import { Header, Wrapper, Button, Checkbox } from '../components';
