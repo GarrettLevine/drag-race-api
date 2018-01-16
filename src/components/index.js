@@ -13,5 +13,9 @@ export { _Header as Header };
 
 import _TextInput from './TextInput';
 export { _TextInput as TextInput };
+
+import _Queens from './Queens';
+export { _Queens as Queens };
+
 import _Wrapper from './Wrapper';
 export { _Wrapper as Wrapper };
