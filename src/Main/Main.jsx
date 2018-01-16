@@ -3,7 +3,7 @@ import React from 'react';
 import '../styles/imports.scss';
 import './main.scss';
 
-import { Header, Wrapper, Button } from '../components';
+import { Header, Wrapper, Button, Checkbox } from '../components';
 
 export default class Main extends React.Component {
   render() {
@@ -13,16 +13,39 @@ export default class Main extends React.Component {
             <Checkbox 
               label="Kennedy Davenport" 
               name="eliminatedQueens" 
-              class="checkbox"
+              className="checkbox"
+              id="kennedyeliminate"
               />
             <Checkbox 
               label="Kennedy Davenport" 
               name="eliminatedQueens" 
-              class="checkbox_elimination"
+              className="checkbox"
+              id="kennedyeliminate1"
+              />
+            <Checkbox 
+              label="Kennedy Davenport" 
+              name="eliminatedQueens" 
+              className="checkbox"
+              id="kennedyeliminate2"
+              />
+            <Checkbox 
+              label="Kennedy Davenport" 
+              name="eliminatedQueens" 
+              className="checkbox"
+              id="kennedyeliminate3"
               />  
-              
-            <Button label="Push me" />
-            
+            <Checkbox 
+              label="Kennedy Davenport" 
+              name="eliminatedQueens" 
+              className="checkbox"
+              id="kennedyeliminate4"
+              />
+            <Checkbox 
+              label="Kennedy Davenport" 
+              name="eliminatedQueens" 
+              className="checkbox"
+              id="kennedyeliminate5"
+              />  
       </Wrapper>
     );
   }

@@ -1,2 +1,57 @@
 @import '../styles/main.scss';
 
+.checkbox-container {
+    position: relative;
+    display: inline-block;
+    min-width: 30%;
+}
+
+.checkbox {
+    display: none;
+}
+
+.checkbox-label {
+    font-family: $base-font;
+    font-size: $font-size-form_regular;
+    color: $grey-labels;
+    display: inline-block;
+}
+
+.checkbox-label:hover {
+    color: lighten($grey-labels, 25%);
+}
+
+.checkbox-label:before {
+    content: '\00a0';
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    background-color: white;
+    border: 2px solid $grey-labels;
+    border-radius: 2px;
+    text-align: center;
+    vertical-align: middle;
+    margin: 8px;
+    cursor: pointer;
+}
+
+.checkbox:checked + .checkbox-label {
+    color: $blue-labels;
+}
+
+.checkbox:checked + .checkbox-label:before {
+    border-color: $blue-labels;
+}
+
+.checkbox:checked + .checkbox-label:after {
+    font-family: 'Arial Unicode MS';
+    position: absolute;
+    content: '✓';
+    left: 11px;
+    top: 5px;
+    color: $blue-labels;
+}
+
+.checkbox:checked + .checkbox-label:hover {
+    color: lighten($blue-labels, 15%);
+}

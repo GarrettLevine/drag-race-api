@@ -1,4 +1,6 @@
 import React from 'react';
+import classNames from 'classnames';
+
 
 import './Checkbox.scss';
 
@@ -6,16 +8,18 @@ export default class Checkbox extends React.Component {
     
     render() {
         return (
-         <label className='checkbox-label'for={this.props.id}>
-           <input
-            id={this.props.id}
-            name={this.props.name}
-            type="checkbox"
-            onChange={this.props.handleChange} 
-            className={this.props.class}
-            value={this.props.value}/>
-            {this.props.label}
-        </label>
+            <div className="checkbox-container">
+               <input
+                    id={this.props.id}
+                    name={this.props.name}
+                    type="checkbox"
+                    onChange={this.props.handleChange} 
+                    className={classNames('checkbox', this.props.className)}
+                    value={this.props.value}/>
+                <label className='checkbox-label' for={this.props.id}>
+                    {this.props.label}
+                </label>
+            </div>
         );
     }
 }
