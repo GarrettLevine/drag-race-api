@@ -22,16 +22,9 @@
 }
 
 .checkbox-label:before {
-    content: '\00a0';
-    display: inline-block;
-    width: 18px;
-    height: 18px;
-    background-color: white;
-    border: 2px solid $grey-labels;
-    border-radius: 2px;
-    text-align: center;
+    content: url('~/assets/imgs/empty-check-box.png');
     vertical-align: middle;
-    margin: 8px;
+    margin: 0 8px;
     cursor: pointer;
 }
 
@@ -41,16 +34,7 @@
     }
 
     .checkbox:checked+.checkbox-label:before {
-        border-color: $blue-labels;
-    }
-
-    .checkbox:checked+.checkbox-label:after {
-        font-family: 'Arial Unicode MS';
-        position: absolute;
-        content: '✓';
-        left: 11px;
-        top: 5px;
-        color: $blue-labels;
+        content: url('~/assets/imgs/check-box.png');
     }
 
     .checkbox:checked+.checkbox-label:hover {
@@ -59,21 +43,14 @@
 }
 
 .checkbox_elimination {
+    
     .checkbox:checked+.checkbox-label {
         color: $red;
+        text-decoration: line-through;
     }
 
     .checkbox:checked+.checkbox-label:before {
-        border-color: $red;
-    }
-
-    .checkbox:checked+.checkbox-label:after {
-        font-family: 'Arial Unicode MS';
-        position: absolute;
-        content: '╳';
-        left: 11px;
-        top: 5px;
-        color: $red;
+        content: url('~/assets/imgs/x-checkbox.png');
     }
 
     .checkbox:checked+.checkbox-label:hover {
