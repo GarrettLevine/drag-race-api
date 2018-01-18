@@ -8,6 +8,8 @@ export default class Checkbox extends React.Component {
     
     render() {
         return (
+            //for blue check, give className checkbox_standard
+            //for red cross-out, give className checkbox_elimination
             <div className={classNames('checkbox-container',  this.props.className)}>
                <input
                     id={this.props.id}
