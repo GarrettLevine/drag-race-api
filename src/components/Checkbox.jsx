@@ -8,13 +8,13 @@ export default class Checkbox extends React.Component {
     
     render() {
         return (
-            <div className="checkbox-container">
+            <div className={classNames('checkbox-container',  this.props.className)}>
                <input
                     id={this.props.id}
+                    className='checkbox'
                     name={this.props.name}
                     type="checkbox"
                     onChange={this.props.handleChange} 
-                    className={classNames('checkbox', this.props.className)}
                     value={this.props.value}/>
                 <label className='checkbox-label' htmlFor={this.props.id}>
                     {this.props.label}
