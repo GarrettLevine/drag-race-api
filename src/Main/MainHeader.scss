@@ -27,7 +27,7 @@
         border-bottom: 1px solid $pink-light;
         @media screen and (max-width: 600px) {
             flex-direction: column;
-            align-items: right;
+            align-items: flex-end;
         }
     }
 }
