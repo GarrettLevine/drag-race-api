@@ -10,5 +10,12 @@ body {
     background-color: #FFFFFF;
     box-shadow: 0 2px 4px 0 rgba(39, 97, 105, 0.3);
     max-width: 961px;
-    margin: 40px auto;
+    margin: 20px auto;
+}
+
+
+@media (max-width: 960px) {
+    .wrapper {
+        margin: 20px;
+    }
 }
