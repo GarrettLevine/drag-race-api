@@ -1,0 +1,21 @@
+@import '../styles/main.scss';
+
+.navitem {
+    margin-left: 60px;
+    list-style: none;
+    @media screen and (max-width: 700px) {
+        margin-left: 30px;
+    }
+    &:after{
+        content: url('~/assets/imgs/external-link_icon.png');
+        margin: 0 8px;
+    }
+}
+
+.navitem_link {
+    text-decoration: none;
+    color: $grey-labels;
+    &:hover {
+        color: lighten($grey-labels, 10%);
+    }
+}
