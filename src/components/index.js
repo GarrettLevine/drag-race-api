@@ -19,3 +19,6 @@ export { _Checkbox as Checkbox };
 
 import _Button from './Button';
 export { _Button as Button };
+
+import _Tag from './Tag';
+export {_Tag as Tag };
