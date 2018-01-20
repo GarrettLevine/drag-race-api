@@ -13,12 +13,12 @@
 .checkbox-label {
     font-family: $base-font;
     font-size: $font-size-form_regular;
-    color: $grey-labels;
+    color: $grey-text;
     display: inline-block;
 }
 
 .checkbox-label:hover {
-    color: lighten($grey-labels, 25%);
+    color: $grey-text_hover;
 }
 
 .checkbox-label:before {
@@ -38,12 +38,12 @@
     }
 
     .checkbox:checked+.checkbox-label:hover {
-        color: lighten($blue-labels, 15%);
+        color: $blue-labels_hover;
     }
 }
 
 .checkbox_elimination {
-    
+
     .checkbox:checked+.checkbox-label {
         color: $red;
         text-decoration: line-through;
@@ -54,6 +54,6 @@
     }
 
     .checkbox:checked+.checkbox-label:hover {
-        color: lighten($red, 15%);
+        color: $red_hover;
     }
 }
