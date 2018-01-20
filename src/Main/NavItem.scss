@@ -14,8 +14,8 @@
 
 .navitem_link {
     text-decoration: none;
-    color: $grey-labels;
+    color: $grey-text;
     &:hover {
-        color: lighten($grey-labels, 10%);
+        color: $grey-text_hover;
     }
 }
