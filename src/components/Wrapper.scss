@@ -1,0 +1,20 @@
+@import '../styles/main.scss';
+
+
+body {
+    background-color: $blue-lightest;
+    font-family: $base-font;
+    color: $grey-text;
+}
+
+.wrapper {
+    border-radius: 3px;
+    background-color: #FFFFFF;
+    box-shadow: 0 2px 4px 0 rgba(39, 97, 105, 0.3);
+    max-width: 961px;
+    margin: 20px auto;
+    padding-top: 30px;
+    @media screen and ( max-width: $break-medium ) {
+        margin: 20px;
+    }
+}

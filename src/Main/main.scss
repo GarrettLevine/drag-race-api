@@ -8,6 +8,10 @@ body {
     margin: 0;
 }
 
-h1 {
-    color: $pink-medium;
+.section {
+    max-width: $section-max-width;
+    margin: 0 auto;
+    @media screen and (max-width: $break-medium) {
+        margin: 0 30px;
+    }
 }

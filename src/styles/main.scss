@@ -1,9 +1,76 @@
+// FONTS
+$base-font: 'Monda',
+sans-serif;
+
 // COLOUR VARIABLES
 $pink-light: #FFC8EF;
 $pink-medium: #F17CC6;
 $pink-dark: #E345B6;
+$pink-links: #EB5DB7; //and buttons
+$pink-links_hover: lighten($pink-links, 15%);
 
+$red: #E75264;
+$red_hover: lighten($red, 15%);
+
+$blue-lightest: #E1F2F4; //for body background colour
 $blue-light: #D9F9FE;
 $blue-medium: #00BBD5;
+$blue-labels: #00789D; //and radio buttons/checkboxes
+$blue-labels_hover: lighten($blue-labels, 15%);
 
-$grey: 	#F8F8F8;
+$grey: #F8F8F8;
+$grey-light: #DADADA;
+$grey-dark: #919191;
+$grey-text: #555;
+$grey-text_hover: lighten($grey-text, 10%);
+
+$white: #FFFFFF;
+
+// LAYOUT
+
+$section-max-width: 800px;
+
+// BREAKPOINT
+
+$break-medium: 1000px;
+
+// TYPOGRAPHY COMPONENTS
+$font-size-component_button: 18px;
+
+// TYPOGRAPHY EPISODE FORM
+$font-size-form_heading: 18px;
+
+$font-size-form_sub-heading: 12px; //instructions, text input labels
+
+$font-size-form_regular: 16px; //inputs, checkbox labels, links
+
+$font-size-form_button: 18px;
+
+$line-height-form: 32px; //all typography has same line-height
+
+// TYPOGRAPHY LANDING PAGE
+$font-size-landing_heading: 32px;
+$line-height-landing_heading: 32px;
+
+$font-size-landing_sub-heading: 14px;
+$line-height-landing_sub-heading: 24px;
+
+$font-size-landing_regular: 18px;
+$line-height-landing_regular: 32px;
+
+$font-size-landing_navigation: 16px;
+$line-height-landing_navigation: 24px;
+
+// Z-INDEX
+$z-index-none: 0;
+$z-index-bottom: 1;
+$z-index-middle: 2;
+$z-index-top: 3;
+$z-index-overtake: 4;
+
+// DONT USE THESE UNLESS THE WORLD IS ENDING
+$z-index-overtake-1: 5;
+$z-index-overtake-2: 6;
+$z-index-overtake-3: 7;
+$z-index-overtake-4: 8;
+$z-index-overtake-5: 9;

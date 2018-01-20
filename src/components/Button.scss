@@ -1,0 +1,20 @@
+@import '../styles/main.scss';
+
+button {
+    width: 240px;
+    height: 56px;
+    background-color: $pink-medium;
+    border-radius: 3px;
+    font-family: $base-font;
+    font-size: $font-size-component_button;
+    color: $white;
+
+    &:hover {
+        background-color: $pink-light;
+    }
+
+    &:disabled {
+        background-color: $grey;
+        color: $grey-dark
+    }
+}

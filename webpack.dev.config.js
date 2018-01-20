@@ -11,7 +11,7 @@ const VENDOR_LIBS = [
 module.exports = {
     devtool: 'eval',
     entry: {
-        bundle: ['./src/index.jsx', './src/styles/main.scss'],
+        bundle: ['./src/styles/index.scss', './src/index.jsx'],
         vendor: VENDOR_LIBS,
     },
     output: {
@@ -19,7 +19,6 @@ module.exports = {
         path: path.join(__dirname, 'public'),
         publicPath: '/',
     },
-    devtool: 'source-map',
     resolve: {
         extensions: [ '.js', '.jsx'],
     },
@@ -60,7 +59,7 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: 'index.template.html',
+            template: './index.template.html',
             filename: 'index.html',
             appMountId: 'app',
             inject: true,
