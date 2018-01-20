@@ -17,8 +17,8 @@ $blue-labels: #00789D; //and radio buttons/checkboxes
 $grey: #F8F8F8;
 $grey-light: #DADADA;
 $grey-dark: #919191;
-$grey-labels: #555;
-
+$grey-text: #555;
+$grey-text_hover: lighten($grey-text, 10%);
 
 $white: #FFFFFF;
 
