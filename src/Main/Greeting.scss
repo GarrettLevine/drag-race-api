@@ -1,0 +1,23 @@
+@import '../styles/main.scss';
+
+.greeting {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 70px;
+    margin-bottom: 100px;
+}
+
+.greeting-portrait {
+    margin: 0 16px;
+    flex: 0 1 150px;
+}
+
+.greeting-text {
+    flex: 0 1 68%;
+    font-size: $font-size-landing_regular;
+    line-height: $line-height-landing_regular;
+    .blue-text {
+        font-weight: 700;
+        color: $blue-medium
+    }
+}
