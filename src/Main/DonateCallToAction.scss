@@ -1,0 +1,11 @@
+@import '../styles/main.scss';
+
+.donate-text {
+    font-size: $font-size-landing_regular;
+    line-height: $line-height-landing_regular;
+    margin-bottom: $line-height-landing_regular;
+}
+
+.button_full-width {
+    width: 100%;
+}
