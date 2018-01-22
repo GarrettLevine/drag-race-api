@@ -5,11 +5,18 @@
     justify-content: space-between;
     margin-top: 70px;
     margin-bottom: 100px;
+    @media screen and (max-width: $break-small) {
+        flex-direction: column;
+    }
 }
 
 .greeting-portrait {
     margin: 0 16px;
     flex: 0 1 150px;
+    @media screen and (max-width: $break-small) {
+        max-width: 150px;
+        margin: 0 auto 30px;
+    }
 }
 
 .greeting-text {
@@ -17,7 +24,7 @@
     font-size: $font-size-landing_regular;
     line-height: $line-height-landing_regular;
     .blue-text {
-        font-weight: 700;
+        font-weight: bold;
         color: $blue-medium
     }
 }

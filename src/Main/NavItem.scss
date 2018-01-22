@@ -1,14 +1,17 @@
 @import '../styles/main.scss';
 
 .navitem {
-    margin-left: 60px;
     list-style: none;
-    @media screen and (max-width: 700px) {
-        margin-left: 30px;
-    }
     &:after{
-        content: url('~/assets/imgs/external-link_icon.png');
-        margin: 0 8px;
+    content: url('~/assets/imgs/external-link_icon.png');
+    margin: 0 8px;
+    }
+}
+
+.navitem:not(:first-child) {
+    margin-left: 60px;
+    @media screen and (max-width: $break-small) {
+        margin-left: 0;
     }
 }
 

@@ -21,6 +21,6 @@ export default class MainFooter extends React.Component {
           </div>
         </div>
       </footer>
-    )
+    );
   }
 }
