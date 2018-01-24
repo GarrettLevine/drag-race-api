@@ -1,0 +1,20 @@
+@import '../styles/main.scss';
+
+.footer {
+    background-color: #F17CC6;
+}
+
+.footer_background-container {
+    background: url('~/assets/imgs/icons.png') repeat;
+    height: 100%;
+    width: 100%;
+    padding: 50px;
+}
+
+.footer_heading {
+    color: white;
+    font-weight: bold;
+    margin-bottom: 12px;
+    font-size: $font-size-landing_regular;
+    line-height: $line-height-landing_regular
+}
