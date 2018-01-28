@@ -1,9 +1,12 @@
 @import '../styles/main.scss';
 
 textarea {
-	border: 1px solid $light-grey;	
+	border: 1px solid $grey-light;	
 	border-radius: 3px;
 	width: 100%;
+	max-width: 800px;
+	margin: 0 auto;
+	display: block;
 	height: 72px;
 	font-family: $base-font;
 	font-size: $font-size-landing_navigation;
