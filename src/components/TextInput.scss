@@ -1,0 +1,10 @@
+@import '../styles/main.scss';
+
+input[type=text] {
+  font-family: $base-font;
+  color: $grey-dark;
+  font-size: $font-size-form_regular;
+  border: 1px solid $grey-light;
+  border-radius: 3px;
+  padding: 5px 10px;
+}
