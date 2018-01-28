@@ -1,5 +1,16 @@
-input[type=checkbox] {
-  height: 10px;
-  width: 10px;
-  border: 1px solid red;
+@import '../styles/main.scss';
+
+.selected {
+  color: $red;
+}
+
+.bring-back {
+  cursor: pointer;
+  color: $pink-links;
+  text-decoration: underline;
+  text-decoration-skip: ink;
+
+  &:hover {
+    color: $pink-links_hover;
+  }
 }

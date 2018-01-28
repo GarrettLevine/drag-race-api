@@ -9,6 +9,7 @@ export default class AddEpisode extends React.Component {
     super(props);
 
     this.eliminateQueen = this.eliminateQueen.bind(this);
+    this.bringBack = this.bringBack.bind(this);
 
     this.state = {
       seasonId: 0,
@@ -45,6 +46,10 @@ export default class AddEpisode extends React.Component {
     }
   }
 
+  bringBack() {
+    console.log(this.state.eliminatedQueens);
+  }
+
   render() {
     return (
       <div>
@@ -53,6 +58,7 @@ export default class AddEpisode extends React.Component {
           inactiveQueens={this.state.inactiveQueens}
           eliminatedQueens={this.state.eliminatedQueens}
           eliminateQueen={this.eliminateQueen}
+          bringBack={this.bringBack}
         />
       </div>
     );
