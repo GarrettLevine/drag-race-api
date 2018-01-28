@@ -10,10 +10,10 @@ export default class MainFooter extends React.Component {
       <footer className="footer">
         <div className="footer_background-container">
           <div className="section">
-            <p class="footer_heading">
+            <p className="footer_heading">
               Meet the Queens:
             </p>
-            <div class="footer_tagholder">
+            <div className="footer_tagholder">
               <Tag color="pink" content={<a href="#">@GarretLevine</a>} />
               <Tag color="pink" content={<a href="#">@KevanH</a>} />
               <Tag color="pink" content={<a href="#">@SeafoamGreenway</a>} />

@@ -5,7 +5,6 @@ import classNames from 'classnames';
 import './Checkbox.scss';
 
 export default class Checkbox extends React.Component {
-    
     render() {
         return (
             //for blue check, give className checkbox_standard
@@ -17,7 +16,8 @@ export default class Checkbox extends React.Component {
                     name={this.props.name}
                     type="checkbox"
                     onChange={this.props.handleChange} 
-                    value={this.props.value}/>
+                    value={this.props.value}
+                />
                 <label className='checkbox-label' htmlFor={this.props.id}>
                     {this.props.label}
                 </label>
