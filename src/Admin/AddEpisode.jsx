@@ -29,7 +29,7 @@ export default class AddEpisode extends React.Component {
 
   render() {
     return (
-      <div> <Checkbox elimintion /></div>
+      <div> ADD EPISODE </div>
     );
   }
 }
