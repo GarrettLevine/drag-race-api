@@ -1,20 +1,52 @@
 @import '../styles/main.scss';
 
-button {
-    width: 240px;
+.button {
     height: 56px;
-    background-color: $pink-medium;
     border-radius: 3px;
+    border: none;
     font-family: $base-font;
     font-size: $font-size-component_button;
+
+    &:disabled {
+        background-color: $grey;
+        color: $grey-dark
+    }
+}
+
+.button.button_submit {
+    background-color: $pink-medium;
     color: $white;
 
     &:hover {
         background-color: $pink-light;
     }
+}
 
-    &:disabled {
-        background-color: $grey;
-        color: $grey-dark
+.button.button_add {
+    background-color: $grey;
+    color: $pink-medium;
+    display: flex;
+    webkit-display: flex;
+    -moz-display: flex;
+    -o-display: flex;
+    flex-direction: row;
+    -webkit-flex-direction: row;
+    -moz-flex-direction: row;
+    -o-flex-direction: row;
+    justify-content: center;
+    -moz-justify-content: center;
+    -webkit-justify-content: center;
+    -o-justify-content: center;
+
+    
+    &:before {
+        content: "\f067";
+        font-family: "FontAwesome";
+        font-size: $font-size-form_regular;
+        margin: 2px 10px 0 0px;
+    }
+
+    &:hover {
+        color: $pink-links_hover;
     }
 }
