@@ -8,9 +8,11 @@ export default class Checkbox extends React.Component {
 
     render() {
         return (
-            //for blue check, give className checkbox_standard
-            //for red cross-out, give className checkbox_elimination
-            <div className={classNames('checkbox-container',  this.props.className)}>
+            //for red cross-out, passs prop elimination
+            <div className={classNames('checkbox-container', {
+                'checkbox_standard': !this.props.elimination,
+                'checkbox_elimination': this.props.elimination,
+            } )}>
                <input
                checked
                     id={this.props.id}
@@ -18,8 +20,12 @@ export default class Checkbox extends React.Component {
                     name={this.props.name}
                     type="checkbox"
                     onChange={this.props.handleChange}
+<<<<<<< HEAD
                     value={this.props.value}
                     />
+=======
+                    value={this.props.value}/>
+>>>>>>> react-router
                 <label className='checkbox-label' htmlFor={this.props.id}>
                     {this.props.label}
                 </label>
