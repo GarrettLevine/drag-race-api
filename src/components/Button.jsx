@@ -10,12 +10,12 @@ export default class Button extends React.Component {
         	//for "add" grey buttons, add NO submit prop
         	<div>
             	<button 
-            		className={classNames('button',  this.props.className, {
+            		className={classNames('button', this.props.className, {
         	    		button_add: !this.props.submit,
         	    		button_submit: this.props.submit,
-        			})} 
+        			} )} 
         			onClick={this.props.handleClick}>
-        				{this.props.label}
+        			{this.props.label}
         		</button>
             </div>
         );
