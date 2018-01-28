@@ -11,7 +11,7 @@ const VENDOR_LIBS = [
 module.exports = {
     devtool: 'eval',
     entry: {
-        bundle: './src/index.jsx',
+        bundle: ['./src/index.jsx', './src/styles/main.scss'],
         vendor: VENDOR_LIBS,
     },
     output: {
@@ -45,13 +45,16 @@ module.exports = {
     },
     module: {
         rules: [
-            { 
+            {
+                use: 'babel-loader',
                 test: /\.jsx?$/,
-                loaders: [ 'babel-loader' ],
+                exclude: /node_modules/,
+                include: path.join(__dirname, 'src'),
             },
             {
                 test: /\.scss$/,
-                loaders: ["c", "css-loader", "sass-loader"],
+                include: path.join(__dirname, 'src'),
+                use: ['style-loader', 'css-loader', 'sass-loader'],
             },
         ],
     },
