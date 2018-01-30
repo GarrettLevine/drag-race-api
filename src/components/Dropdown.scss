@@ -2,12 +2,23 @@
 
 .dropdown {
 
+  &.is-active {
+    .dropdown-trigger button:before {
+      content: '-';
+    }
+
+    #dropdown-menu {
+      display: block;
+    }
+  }
+
   .dropdown-trigger button {
     background: 0;
     border: none;
     width: auto;
     height: auto;
     color: $pink-links;
+    transition: all 0.25s ease;
     text-decoration: underline;
     text-decoration-skip: ink;
 
@@ -18,25 +29,33 @@
       font-size: 1.5rem;
       padding-right: 5px;
     }
+
+    &:hover {
+      color: $pink-links_hover;
+    }
   }
 
   #dropdown-menu {
     display: none;
+    position: relative;
+  }
+
+  .dropdown-content {
     background: #fff;
+    position: absolute;
+    padding: 1rem 0;
+    left: 1.5rem;
+    box-shadow: 0px 1px 5px 0px $grey-dark;
+    border-radius: 3px;
   }
 
-  .dropdown-item:hover {
-    background: $grey;
-    cursor: pointer;
-  }
+  .dropdown-item {
+    padding: 0 5rem 0 1.5rem;
+    line-height: 2.5rem;
 
-  &.is-active {
-    .dropdown-trigger button:before {
-      content: '-';
-    }
-
-    #dropdown-menu {
-      display: block;
+    &:hover {
+      background: $grey;
+      cursor: pointer;
     }
   }
 }
