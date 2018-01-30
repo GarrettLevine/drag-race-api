@@ -1,0 +1,42 @@
+@import "../styles/main.scss";
+
+.dropdown {
+
+  .dropdown-trigger button {
+    background: 0;
+    border: none;
+    width: auto;
+    height: auto;
+    color: $pink-links;
+    text-decoration: underline;
+    text-decoration-skip: ink;
+
+    &:before {
+      content: '+';
+      display: inline-block;
+      line-height: 0;
+      font-size: 1.5rem;
+      padding-right: 5px;
+    }
+  }
+
+  #dropdown-menu {
+    display: none;
+    background: #fff;
+  }
+
+  .dropdown-item:hover {
+    background: $grey;
+    cursor: pointer;
+  }
+
+  &.is-active {
+    .dropdown-trigger button:before {
+      content: '-';
+    }
+
+    #dropdown-menu {
+      display: block;
+    }
+  }
+}

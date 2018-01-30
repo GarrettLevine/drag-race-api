@@ -2,6 +2,8 @@ import React from 'react';
 
 import { adminSetup } from './utils';
 
+import { Dropdown } from '../components'
+
 export default class AddEpisode extends React.Component {
   constructor(props) {
     super(props);
@@ -9,7 +11,7 @@ export default class AddEpisode extends React.Component {
     this.state = {
       seasonId: 0,
       activeQueens: [],
-      eliminateQueens: [],
+      eliminatedQueens: [],
     };
   }
   componentDidMount() {
@@ -29,7 +31,13 @@ export default class AddEpisode extends React.Component {
 
   render() {
     return (
-      <div> ADD EPISODE </div>
+      <div>
+
+        <Dropdown 
+          options={this.state.activeQueens}
+        /> 
+
+      </div>
     );
   }
 }
