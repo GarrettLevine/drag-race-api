@@ -13,7 +13,7 @@
   }
 
   .dropdown-trigger button {
-    background: 0;
+    background: none;
     border: none;
     width: auto;
     height: auto;
@@ -51,7 +51,7 @@
 
   .dropdown-item {
     padding: 0 5rem 0 1.5rem;
-    line-height: 2.5rem;
+    line-height: $line-height-form;
 
     &:hover {
       background: $grey;

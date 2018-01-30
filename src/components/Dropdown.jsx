@@ -1,4 +1,5 @@
 import React from 'react';
+import classNames from 'classnames';
 
 import './Dropdown.scss';
 
@@ -46,14 +47,16 @@ export default class Dropdown extends React.Component {
     });
     return (
       <div
-        className={this.state.isActive ? 'dropdown is-active' : 'dropdown'}
+        className={classNames('dropdown', {
+          'is-active': this.state.isActive,
+        })}
         onClick={() => {
           this.state.isActive ? this.hide() : this.show();
         }}
       >
         <div className="dropdown-trigger">
           <button className="button" aria-haspopup="true" aria-controls="dropdown-menu">
-            <span>Bring Back a Girl</span>
+            <span>{this.props.text}</span>
           </button>
         </div>
         <div className="dropdown-menu" id="dropdown-menu" role="menu">
