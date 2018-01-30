@@ -35,7 +35,9 @@ export default class AddEpisode extends React.Component {
   }
 
   eliminateQueen(queen) {
-    if (!!this.state.eliminatedQueens.find(eQueen => eQueen.id === queen.id)) {
+    const queenIsEliminated = !!this.state.eliminatedQueens.find(eQueen => eQueen.id === queen.id;
+    
+    if (queenIsEliminated) {
       this.setState( prevState => ({ 
         eliminatedQueens: prevState.eliminatedQueens.filter(eQueen => eQueen.id !== queen.id)
       }));

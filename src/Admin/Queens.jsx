@@ -9,7 +9,6 @@ export default class Queens extends Component {
   render() {
     return (
       <Dragment>
-        <TextInput />
         <fieldset className="queens">
           <h2>Queens</h2>
           <p>Select Eliminated Queen(s)
