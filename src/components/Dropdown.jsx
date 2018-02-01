@@ -29,19 +29,14 @@ export default class Dropdown extends React.Component {
   }
 
   render() {
-    const options = this.props.options.map((o) => {
+    const options = this.props.options.map((queen) => {
       return (
         <div
-          key={o.id}
+          key={queen.id}
           className="dropdown-item"
-          onClick={() => {
-            this.setState({
-              label: o.label,
-            });
-            this.props.handleChange(o.label);
-          }}
+          onClick={() => {this.props.bringBackQueen(queen)}}
         >
-          {o.name}
+          {queen.name}
         </div>
       );
     });

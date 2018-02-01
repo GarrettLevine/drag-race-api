@@ -9,7 +9,7 @@ export default class AddEpisode extends React.Component {
     super(props);
 
     this.eliminateQueen = this.eliminateQueen.bind(this);
-    this.bringBack = this.bringBack.bind(this);
+    this.bringBackQueen = this.bringBackQueen.bind(this);
 
     this.state = {
       seasonId: 0,
@@ -35,7 +35,7 @@ export default class AddEpisode extends React.Component {
   }
 
   eliminateQueen(queen) {
-    const queenIsEliminated = !!this.state.eliminatedQueens.find(eQueen => eQueen.id === queen.id;
+    const queenIsEliminated = !!this.state.eliminatedQueens.find(eQueen => eQueen.id === queen.id);
     
     if (queenIsEliminated) {
       this.setState( prevState => ({ 
@@ -48,8 +48,10 @@ export default class AddEpisode extends React.Component {
     }
   }
 
-  bringBack() {
-    console.log(this.state.eliminatedQueens);
+  bringBackQueen(queen) {
+    this.setState( prevState => ({
+      activeQueens: [...prevState.activeQueens, queen]
+    }));
   }
 
   render() {
@@ -60,7 +62,7 @@ export default class AddEpisode extends React.Component {
           inactiveQueens={this.state.inactiveQueens}
           eliminatedQueens={this.state.eliminatedQueens}
           eliminateQueen={this.eliminateQueen}
-          bringBack={this.bringBack}
+          bringBackQueen={this.bringBackQueen}
         />
       </div>
     );

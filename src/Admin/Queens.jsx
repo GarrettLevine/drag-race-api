@@ -2,7 +2,7 @@ import React, { Component, Fragment as Dragment} from 'react';
 
 import './Queens.scss';
 
-import { Checkbox, TextInput } from '../components';
+import { Checkbox, Dropdown } from '../components';
 
 export default class Queens extends Component {
 
@@ -34,7 +34,11 @@ export default class Queens extends Component {
             )
           })}
         </fieldset>
-        <a className="bring-back" onClick={this.props.bringBack}>Bring back a Girl</a>
+        <Dropdown 
+          options={this.props.activeQueens}
+          text={'Bring Back a Girl'}
+          bringBackQueen={this.props.bringBackQueen}
+        />
       </Dragment>
     );
   } 
