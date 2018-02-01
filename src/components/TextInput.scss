@@ -1,0 +1,21 @@
+@import '../styles/main.scss';
+
+input[type=text] {
+  font-family: $base-font;
+  color: $grey-dark;
+  font-size: $font-size-form_regular;
+  border: 1px solid $grey-light;
+  border-radius: 3px;
+  padding: 5px 10px;
+  transition: all 0.2s ease;
+
+  &:hover {
+    border-color: $pink-light;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: $pink-light;
+    box-shadow:0 0 10px $pink-medium;
+  }
+}
