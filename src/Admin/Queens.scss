@@ -1,0 +1,16 @@
+@import '../styles/main.scss';
+
+.selected {
+  color: $red;
+}
+
+.bring-back {
+  cursor: pointer;
+  color: $pink-links;
+  text-decoration: underline;
+  text-decoration-skip: ink;
+
+  &:hover {
+    color: $pink-links_hover;
+  }
+}

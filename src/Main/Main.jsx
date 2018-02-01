@@ -2,7 +2,7 @@ import React from 'react';
 
 import './main.scss';
 
-import { Wrapper,Checkbox } from '../components';
+import { Wrapper, Checkbox } from '../components';
 
 import MainHeader from './MainHeader';
 import Greeting from './Greeting';
