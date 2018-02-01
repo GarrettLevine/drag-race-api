@@ -24,3 +24,6 @@ export { _Button as Button };
 
 import _Tag from './Tag';
 export {_Tag as Tag };
+
+import _Dropdown from './Dropdown';
+export {_Dropdown as Dropdown };
