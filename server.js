@@ -10,8 +10,8 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 app.use(cors);
-Raven.config(process.env.DR_API_RAVEN_DNS).install();
-app.use(Raven.requestHandler());
+// Raven.config(process.env.DR_API_RAVEN_DNS).install();
+// app.use(Raven.requestHandler());
 
 
 app.enable(`trust proxy`);
@@ -38,7 +38,7 @@ app.get('/*', (req, res) => {
 // uncomment this to serve react bundle
 // app.get(`*`, (req, res, next) => res.sendFile(path.resolve(`./public/index.html`)));
 
-app.use(Raven.errorHandler());
+// app.use(Raven.errorHandler());
 app.listen(port, () => {
   console.log(`App is running on port ${port}`);
 });
