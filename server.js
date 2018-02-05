@@ -31,7 +31,8 @@ app.use(`/api`, apiRouter);
 // comment these two routes out to start serving react bundle
 app.get('/', (req, res) => {
   res.status(301).redirect('https://drag-race-api.readme.io/docs');
-})
+});
+
 app.get('/*', (req, res) => {
   res.status(400).json({ message: 'no route found.' });
 });
