@@ -1,5 +1,11 @@
 @import '../styles/main.scss';
 
+.textarea-input-label {
+	font-size: $font-size-form_sub-heading;
+	font-family: $base-font;
+	color: $grey-text;
+}
+
 textarea {
 	border: 1px solid $grey-light;	
 	border-radius: 3px;
@@ -14,3 +20,8 @@ textarea {
 	padding: 10px;
 }
 
+textarea::placeholder {
+	font-family: $base-font;
+	font-size: $font-size-landing_navigation;
+	color: $grey-light;
+}
