@@ -1,10 +1,10 @@
 import React, { Fragment as Dragment } from 'react';
 
-import './AddEpisode.scss';
-
 import Queens from './Queens';
 
 import { adminSetup } from './utils';
+
+import './AddEpisode.scss';
 
 export default class AddEpisode extends React.Component {
   constructor(props) {
@@ -52,7 +52,8 @@ export default class AddEpisode extends React.Component {
 
   bringBackQueen(queen) {
     this.setState( prevState => ({
-      activeQueens: [...prevState.activeQueens, queen]
+      activeQueens: [...prevState.activeQueens, queen],
+      inactiveQueens: prevState.inactiveQueens.filter(eQueen => eQueen.id !== queen.id)
     }));
   }
 

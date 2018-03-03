@@ -13,7 +13,8 @@ export default class Queens extends Component {
           <h2>Queens</h2>
           <p>Select Eliminated Queen(s)
           
-          { this.props.eliminatedQueens.length ? 
+          { this.props.eliminatedQueens.length 
+            ? 
               <span className="selected"> - {this.props.eliminatedQueens.length} Selected</span> 
             : 
               null 
@@ -38,7 +39,7 @@ export default class Queens extends Component {
           </div>
         </fieldset>
         <Dropdown 
-          options={this.props.activeQueens}
+          options={this.props.inactiveQueens}
           text={'Bring Back a Girl'}
           bringBackQueen={this.props.bringBackQueen}
         />
