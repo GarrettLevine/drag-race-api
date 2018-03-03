@@ -1,5 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
 
 import './Dropdown.scss';
 
@@ -67,4 +68,14 @@ export default class Dropdown extends React.Component {
       </div>
     );
   }
+}
+
+Dropdown.propTypes = {
+  label: PropTypes.string,
+  options: PropTypes.arrayOf(PropTypes.shape({
+    name: PropTypes.string,
+    id: PropTypes.number
+  })).isRequired,
+  text: PropTypes.string,
+  handleDropdownSelect: PropTypes.func.isRequired
 }

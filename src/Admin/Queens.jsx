@@ -13,10 +13,8 @@ export default class Queens extends Component {
           <h2>Queens</h2>
           <p>Select Eliminated Queen(s)
 
-          { this.props.eliminatedQueens.length ?
+          { this.props.eliminatedQueens.length &&
               <span className="selected"> - {this.props.eliminatedQueens.length} Selected</span>
-            :
-              null
           }
 
           </p>

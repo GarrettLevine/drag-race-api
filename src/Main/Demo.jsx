@@ -1,11 +1,11 @@
 import React from 'react';
 import { fetch } from '../utils';
 
-import './Demo.scss';
-import {Tag} from '../components';
-import DemoDescription from './DemoDescription';
+import { Tag } from '../components';
 import DemoData from './DemoData';
-import Dropdown from '../components/Dropdown';
+import { Dropdown } from '../components';
+
+import './Demo.scss';
 
 const options = [
     {

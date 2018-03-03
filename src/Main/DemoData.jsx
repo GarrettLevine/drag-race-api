@@ -1,6 +1,7 @@
 import React from 'react';
+
 import SyntaxHighlighter from 'react-syntax-highlighter';
-import {paraisoDark} from 'react-syntax-highlighter/styles/hljs';
+import { paraisoDark } from 'react-syntax-highlighter/styles/hljs';
 
 import './DemoData.scss';
 
