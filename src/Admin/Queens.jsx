@@ -20,19 +20,22 @@ export default class Queens extends Component {
           }
             
           </p>
-          {this.props.activeQueens.map((queen, i) => {
-            return (
-              <Checkbox 
-                elimination
-                key={queen.id}
-                id={queen.id}
-                name={queen.name}
-                label={queen.name}
-                value={!!this.props.eliminatedQueens.find(eQueen => eQueen.id === queen.id )}
-                handleChange={() => { this.props.eliminateQueen(queen) }}
-              />
-            )
-          })}
+          
+          <div className="checkboxes">
+            {this.props.activeQueens.map((queen, i) => {
+              return (
+                <Checkbox 
+                  elimination
+                  key={queen.id}
+                  id={queen.id}
+                  name={queen.name}
+                  label={queen.name}
+                  value={!!this.props.eliminatedQueens.find(eQueen => eQueen.id === queen.id )}
+                  handleChange={() => { this.props.eliminateQueen(queen) }}
+                />
+              )
+            })}  
+          </div>
         </fieldset>
         <Dropdown 
           options={this.props.activeQueens}

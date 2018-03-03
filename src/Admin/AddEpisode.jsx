@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { Fragment as Dragment } from 'react';
+
+import './AddEpisode.scss';
 
 import Queens from './Queens';
 
@@ -56,7 +58,7 @@ export default class AddEpisode extends React.Component {
 
   render() {
     return (
-      <div>
+      <Dragment>
         <Queens 
           activeQueens={this.state.activeQueens}
           inactiveQueens={this.state.inactiveQueens}
@@ -64,7 +66,7 @@ export default class AddEpisode extends React.Component {
           eliminateQueen={this.eliminateQueen}
           bringBackQueen={this.bringBackQueen}
         />
-      </div>
+      </Dragment>
     );
   }
 }
