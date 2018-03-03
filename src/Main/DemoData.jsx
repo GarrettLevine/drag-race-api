@@ -6,11 +6,23 @@ import './DemoData.scss';
 const exampleresult = require('json-loader!./exampleresult.json')
 
 export default class DemoData extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      data: this.props.data
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.setState({ data: nextProps.data });
+    this.forceUpdate()
+  }
+
   render() {
     return (
       <div className="demo_data">
         <SyntaxHighlighter language='JSON' useInlineStyles={false} style={paraisoDark} >
-          {JSON.stringify(exampleresult, null, '  ')}
+          {JSON.stringify(this.state.data, null, '  ')}
         </SyntaxHighlighter>
       </div>
     )
