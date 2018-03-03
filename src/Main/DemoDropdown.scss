@@ -1,0 +1,29 @@
+@import "node_modules/styleselect/scss/styleselect.scss";
+@import '../styles/main.scss';
+
+.demo .style-select, .style-select * {
+    color: inherit;
+}
+.demo .style-select {
+    width: 100%;
+    font-size: $font-size-landing_heading;
+
+    .ss-selected-option {
+        background: transparent;
+        border: none;
+        padding: 12.5px 0;
+        &:after{
+            color: $pink-dark;
+        }
+    }
+    .ss-dropdown {
+        top: 48px;
+    }
+    .ss-option {
+        padding-bottom: 24px;
+    }
+
+    .ss-option.ticked::before {
+        color: $pink-dark;
+    }
+}
