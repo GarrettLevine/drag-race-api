@@ -1,5 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
 
 import './Dropdown.scss';
 
@@ -7,7 +8,7 @@ const defaultProps = {
   options: [],
   label: 'Choose something',
 };
-
+//This component's option prop is an object with an id and a name property
 export default class Dropdown extends React.Component {
   constructor(props) {
     super(props);
@@ -17,7 +18,12 @@ export default class Dropdown extends React.Component {
     this.state = {
       isActive: false,
       label: this.props.label,
+      text: this.props.text
     };
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.setState({ text: nextProps.text });
   }
 
   show() {
@@ -29,14 +35,14 @@ export default class Dropdown extends React.Component {
   }
 
   render() {
-    const options = this.props.options.map((queen) => {
+    const options = this.props.options.map((option) => {
       return (
         <div
-          key={queen.id}
+          key={option.id}
           className="dropdown-item"
-          onClick={() => {this.props.bringBackQueen(queen)}}
+          onClick={() => {this.props.handleDropdownSelect(option)}}
         >
-          {queen.name}
+          {option.name}
         </div>
       );
     });
@@ -51,7 +57,7 @@ export default class Dropdown extends React.Component {
       >
         <div className="dropdown-trigger">
           <button className="button" aria-haspopup="true" aria-controls="dropdown-menu">
-            <span>{this.props.text}</span>
+            <span>{this.state.text}</span>
           </button>
         </div>
         <div className="dropdown-menu" id="dropdown-menu" role="menu">
@@ -62,4 +68,14 @@ export default class Dropdown extends React.Component {
       </div>
     );
   }
+}
+
+Dropdown.propTypes = {
+  label: PropTypes.string,
+  options: PropTypes.arrayOf(PropTypes.shape({
+    name: PropTypes.string,
+    id: PropTypes.number
+  })).isRequired,
+  text: PropTypes.string,
+  handleDropdownSelect: PropTypes.func.isRequired
 }

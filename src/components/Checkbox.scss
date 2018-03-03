@@ -44,7 +44,7 @@
 
 .checkbox_elimination {
 
-    .checkbox:checked {   
+    .checkbox:checked {
         + .checkbox-label {
             color: $red;
             text-decoration: line-through;
@@ -57,14 +57,14 @@
         + .checkbox-label:hover {
             color: $red_hover;
         }
-    } 
+    }
 
-    .checkbox:hover {
+    .checkbox:checked {
         + .checkbox-label {
             color: $red_hover;
             text-decoration: line-through;
-        } 
-       
+        }
+
         + .checkbox-label:before {
             content: url('~/assets/imgs/x-checkbox.png');
         }
