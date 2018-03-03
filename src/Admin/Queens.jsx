@@ -19,7 +19,7 @@ export default class Queens extends Component {
             : 
               null 
           }
-            
+
           </p>
           
           <div className="checkboxes">
@@ -41,9 +41,9 @@ export default class Queens extends Component {
         <Dropdown 
           options={this.props.inactiveQueens}
           text={'Bring Back a Girl'}
-          bringBackQueen={this.props.bringBackQueen}
+          handleDropdownSelect={this.props.bringBackQueen}
         />
       </Dragment>
     );
-  } 
+  }
 }

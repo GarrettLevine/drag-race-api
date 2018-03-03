@@ -52,19 +52,30 @@
       content: url('~/assets/imgs/x-checkbox.png');
     }
 
-    +.checkbox-label:hover {
-      color: $red_hover;
-    }
-  }
+    .checkbox:checked {
+        + .checkbox-label {
+            color: $red;
+            text-decoration: line-through;
+        }
 
-  .checkbox:hover {
-    +.checkbox-label {
-      color: $red_hover;
-      text-decoration: line-through;
+        + .checkbox-label:before {
+            content: url('~/assets/imgs/x-checkbox.png');
+        }
+
+        + .checkbox-label:hover {
+            color: $red_hover;
+        }
     }
 
-    +.checkbox-label:before {
-      content: url('~/assets/imgs/x-checkbox.png');
+    .checkbox:checked {
+        + .checkbox-label {
+            color: $red_hover;
+            text-decoration: line-through;
+        }
+
+        + .checkbox-label:before {
+            content: url('~/assets/imgs/x-checkbox.png');
+        }
     }
   }
 }
