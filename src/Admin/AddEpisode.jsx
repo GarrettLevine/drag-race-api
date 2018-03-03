@@ -27,7 +27,6 @@ export default class AddEpisode extends React.Component {
             1,
             2,
           ]
-
         }
       ]
     };
