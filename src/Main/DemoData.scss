@@ -1,0 +1,23 @@
+@import '../styles/main.scss';
+
+.demo_data {
+    max-height: 350px;
+    padding: 16px;
+    width: 100%;
+    border: 1px $grey-light solid;
+    border-radius: 2px;
+    background-color: $grey;
+    overflow-y: scroll;
+    margin-bottom: 40px;
+
+    .hljs code {
+        font-size: $font-size-landing_sub-heading;
+        line-height: $line-height-landing_sub-heading
+    }
+    .hljs span {
+        color: $blue-labels;
+    }
+    .hljs .hljs-attr {
+        color: $pink-dark;
+    }
+}
