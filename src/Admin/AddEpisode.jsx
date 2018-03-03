@@ -84,7 +84,6 @@ export default class AddEpisode extends React.Component {
   }
 
   handleDateChange(e) {
-    console.log(e.target.value);
     this.setState({
       episodeDate: e.target.value
     });
