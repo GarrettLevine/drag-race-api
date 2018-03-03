@@ -3,7 +3,6 @@ import SyntaxHighlighter from 'react-syntax-highlighter';
 import {paraisoDark} from 'react-syntax-highlighter/styles/hljs';
 
 import './DemoData.scss';
-const exampleresult = require('json-loader!./exampleresult.json')
 
 export default class DemoData extends React.Component {
   constructor(props) {
