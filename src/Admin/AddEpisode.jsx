@@ -32,7 +32,7 @@ export default class AddEpisode extends React.Component {
       ]
     };
   }
-  
+
   componentDidMount() {
       adminSetup()
         .then(({ activeQueens, inactiveQueens, seasonId }) => {
@@ -50,9 +50,9 @@ export default class AddEpisode extends React.Component {
 
   eliminateQueen(queen) {
     const queenIsEliminated = !!this.state.eliminatedQueens.find(eQueen => eQueen.id === queen.id);
-    
+
     if (queenIsEliminated) {
-      this.setState( prevState => ({ 
+      this.setState( prevState => ({
         eliminatedQueens: prevState.eliminatedQueens.filter(eQueen => eQueen.id !== queen.id)
       }));
     } else {
@@ -86,7 +86,8 @@ export default class AddEpisode extends React.Component {
   render() {
     return (
       <div>
-        <Queens 
+        {this.state.loading && <img style={{width: "300px"}} src="assets/imgs/loading.gif" /> }
+        <Queens
           activeQueens={this.state.activeQueens}
           inactiveQueens={this.state.inactiveQueens}
           eliminatedQueens={this.state.eliminatedQueens}

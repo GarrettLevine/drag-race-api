@@ -16,7 +16,8 @@ export default class extends React.Component{
                         color="blue"
                         content="New API, who dis?"
                     />
-                    <p><span className="blue-text">Come on internet, let’s get sickening.</span> With this API access to dapibus posuere velit aliquet. Cras mattis consectetur purus sit amet fermentum. Maecenas faucibus mollis interdum. Vivamus sagittis lacus vel augue laoreet rutrum faucibus. </p>
+                    <p><span className="blue-text">Come on internet, let’s get sickening.</span> This API retrieves information about the queens, seasons, and episodes of RuPaul's Drag Race! </p>
+                    <p>There is currently no key required to use this API, but there is a rate limit of a 100 requests per IP every 15 minutes.</p>
                 </div>
             </section>
         );
