@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Queens from './Queens';
+import Challenge from './Challenge';
 
 import { adminSetup } from './utils';
 
@@ -10,12 +11,25 @@ export default class AddEpisode extends React.Component {
 
     this.eliminateQueen = this.eliminateQueen.bind(this);
     this.bringBackQueen = this.bringBackQueen.bind(this);
+    this.renderChallenges = this.renderChallenges.bind(this);
 
     this.state = {
       seasonId: 0,
       activeQueens: [],
       inactiveQueens: [],
       eliminatedQueens: [],
+      challenges: [ 
+        {
+          type: "Main",
+          prize: "Cash",
+          description: "Reading Challenge",
+          winners: [
+            1,
+            2,
+          ]
+
+        }
+      ]
     };
   }
   
@@ -54,6 +68,21 @@ export default class AddEpisode extends React.Component {
     }));
   }
 
+  renderChallenges() {
+    return this.state.challenges.map((challenge, i) => {
+      return (
+        <Challenge
+            key={i}
+            prize={challenge.prize}
+            description={challenge.description}
+            type={challenge.type}
+            activeQueens= {this.state.activeQueens}
+
+        />
+      )
+    })
+  }
+
   render() {
     return (
       <div>
@@ -64,6 +93,7 @@ export default class AddEpisode extends React.Component {
           eliminateQueen={this.eliminateQueen}
           bringBackQueen={this.bringBackQueen}
         />
+        {this.renderChallenges()}
       </div>
     );
   }
