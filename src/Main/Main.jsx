@@ -14,16 +14,6 @@ export default class Main extends React.Component {
     return (
       <Wrapper>
             <MainHeader header="Main Page" subheader="Get werkin'" />
-            <Checkbox
-              elimination
-              id="alaska"
-              name="queens"
-              value="aLAKSA"
-              label="ALASKAAARRR"
-
-
-
-            />
             <Greeting />
             <Demo />
             <DonateCallToAction />

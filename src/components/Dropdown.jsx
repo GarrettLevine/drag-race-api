@@ -34,7 +34,7 @@ export default class Dropdown extends React.Component {
         <div
           key={queen.id}
           className="dropdown-item"
-          onClick={() => {this.props.bringBackQueen(queen)}}
+          onClick={() => {this.props.handleDropdownSelect(queen)}}
         >
           {queen.name}
         </div>
