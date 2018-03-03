@@ -1,6 +1,7 @@
 @import '../styles/main.scss';
 
-input[type=text] {
+input[type=text],
+input[type=date] {
   font-family: $base-font;
   color: $grey-dark;
   font-size: $font-size-form_regular;
