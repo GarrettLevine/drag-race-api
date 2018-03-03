@@ -16,6 +16,7 @@ export default class AddEpisode extends React.Component {
       activeQueens: [],
       inactiveQueens: [],
       eliminatedQueens: [],
+      loading: true,
     };
   }
 
@@ -27,6 +28,7 @@ export default class AddEpisode extends React.Component {
             activeQueens,
             inactiveQueens,
             seasonId,
+            loading: false,
           });
         })
         .catch((err) => {
