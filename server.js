@@ -1,4 +1,5 @@
 const path = require('path');
+const fs = require('fs');
 const express = require(`express`);
 const Raven = require(`raven`);
 const bodyParser = require(`body-parser`);
@@ -27,12 +28,17 @@ app.use((req, res, next) => {
 app.use(rateLimit);
 app.use(express.static('public'));
 app.use(`/api`, apiRouter);
-app.use('/images/:queen', (req, res, next) => {
-  const queen = req.params.queen;
-  res.sendFile(path.resolve(`./images/${queen}`), (err) => {
+app.use('/images/:queen', ({ params }, res, next) => {
+  const imagePath = path.resolve(`./images/${params.queen}`);
+  fs.access(imagePath, (err) => {
     if (err) {
-      next(err);
+      res.status(400).json({ message: `${params.queen} doesnt not exist.` })
+      return;
     }
+
+    res.sendFile(imagePath, (err) => {
+      if (err) res.status(500).json({ message: 'internal server error' })
+    });
   });
 });
 
