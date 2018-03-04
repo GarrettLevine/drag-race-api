@@ -27,6 +27,14 @@ app.use((req, res, next) => {
 app.use(rateLimit);
 app.use(express.static('public'));
 app.use(`/api`, apiRouter);
+app.use('/images/:queen', (req, res, next) => {
+  const queen = req.params.queen;
+  res.sendFile(path.resolve(`./images/${queen}`), (err) => {
+    if (err) {
+      next(err);
+    }
+  });
+});
 
 // comment these two routes out to start serving react bundle
 app.get('/', (req, res) => {
@@ -39,7 +47,7 @@ app.get('/*', (req, res) => {
 // uncomment this to serve react bundle
 // app.get(`*`, (req, res, next) => res.sendFile(path.resolve(`./public/index.html`)));
 
-app.use(Raven.errorHandler());
+// app.use(Raven.errorHandler());
 app.listen(port, () => {
   console.log(`App is running on port ${port}`);
 });
