@@ -3,6 +3,8 @@ $base-font: 'Monda',
 sans-serif;
 
 // COLOUR VARIABLES
+$white: #FFFFFF;
+
 $pink-light: #FFC8EF;
 $pink-medium: #F17CC6;
 $pink-dark: #E345B6;
@@ -24,7 +26,10 @@ $grey-dark: #919191;
 $grey-text: #555;
 $grey-text_hover: lighten($grey-text, 10%);
 
-$white: #FFFFFF;
+// WEIGHTS
+
+$regular: 400;
+$bold: 600;
 
 // LAYOUT
 
