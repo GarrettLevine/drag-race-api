@@ -25,7 +25,6 @@ export default class AddEpisode extends React.Component {
   componentDidMount() {
       adminSetup()
         .then(({ activeQueens, inactiveQueens, seasonId }) => {
-
           this.setState({
             activeQueens,
             inactiveQueens,
