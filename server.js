@@ -1,4 +1,5 @@
 const path = require('path');
+const fs = require('fs');
 const express = require(`express`);
 const Raven = require(`raven`);
 const bodyParser = require(`body-parser`);
@@ -27,6 +28,19 @@ app.use((req, res, next) => {
 app.use(rateLimit);
 app.use(express.static('public'));
 app.use(`/api`, apiRouter);
+app.use('/images/:queen', ({ params }, res, next) => {
+  const imagePath = path.resolve(`./images/${params.queen}`);
+  fs.access(imagePath, (err) => {
+    if (err) {
+      res.status(400).json({ message: `${params.queen} doesnt not exist.` })
+      return;
+    }
+
+    res.sendFile(imagePath, (err) => {
+      if (err) res.status(500).json({ message: 'internal server error' })
+    });
+  });
+});
 
 // comment these two routes out to start serving react bundle
 app.get('/', (req, res) => {
@@ -39,7 +53,7 @@ app.get('/*', (req, res) => {
 // uncomment this to serve react bundle
 // app.get(`*`, (req, res, next) => res.sendFile(path.resolve(`./public/index.html`)));
 
-app.use(Raven.errorHandler());
+// app.use(Raven.errorHandler());
 app.listen(port, () => {
   console.log(`App is running on port ${port}`);
 });
