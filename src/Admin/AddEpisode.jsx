@@ -55,12 +55,8 @@ export default class AddEpisode extends React.Component {
   bringBackQueen(returningQueen) {
     const queenToAdd = this.state.inactiveQueens.find(queen => queen.name === returningQueen.label)
     this.setState( prevState => ({
-<<<<<<< HEAD
-      activeQueens: [...prevState.activeQueens, queen],
-      inactiveQueens: prevState.inactiveQueens.filter(eQueen => eQueen.id !== queen.id)
-=======
+      inactiveQueens: prevState.inactiveQueens.filter(eQueen => eQueen.id !== queen.id),
       activeQueens: [...prevState.activeQueens, queenToAdd]
->>>>>>> a2eb1acaf68d4b3dc6d62b6e8c1d0d07b57cd09d
     }));
   }
 

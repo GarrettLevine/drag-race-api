@@ -48,21 +48,14 @@ export default class Queens extends Component {
             })}  
           </div>
         </fieldset>
-<<<<<<< HEAD
-        <Dropdown 
-          options={this.props.inactiveQueens}
-          text={'Bring Back a Girl'}
-          handleDropdownSelect={this.props.bringBackQueen}
-=======
         <div style={{width: "300px"}}>
-        <Select
-            name="demo-api-select"
-            onChange={this.props.bringBackQueen}
-            options={queensForSelect}
-            placeholder="Bring Back A Girl"
-            className="queens-dropdown"
->>>>>>> a2eb1acaf68d4b3dc6d62b6e8c1d0d07b57cd09d
-        />
+          <Select
+              name="demo-api-select"
+              onChange={this.props.bringBackQueen}
+              options={queensForSelect}
+              placeholder="Bring Back A Girl"
+              className="queens-dropdown"
+          />
         </div>
       </Dragment>
     );
