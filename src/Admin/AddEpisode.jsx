@@ -16,6 +16,7 @@ export default class AddEpisode extends React.Component {
       activeQueens: [],
       inactiveQueens: [],
       eliminatedQueens: [],
+      loading: true,
     };
   }
 
@@ -27,6 +28,7 @@ export default class AddEpisode extends React.Component {
             activeQueens,
             inactiveQueens,
             seasonId,
+            loading: false,
           });
         })
         .catch((err) => {
@@ -48,9 +50,10 @@ export default class AddEpisode extends React.Component {
     }
   }
 
-  bringBackQueen(queen) {
+  bringBackQueen(returningQueen) {
+    const queenToAdd = this.state.inactiveQueens.find(queen => queen.name === returningQueen.label)
     this.setState( prevState => ({
-      activeQueens: [...prevState.activeQueens, queen]
+      activeQueens: [...prevState.activeQueens, queenToAdd]
     }));
   }
 
