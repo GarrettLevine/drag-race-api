@@ -1,6 +1,5 @@
 /node_modules
 /private-config.js
 /public
-/images
 npm-debug.log.*
 .DS_STORE
