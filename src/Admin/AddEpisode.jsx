@@ -1,12 +1,12 @@
 import React, { Fragment as Dragment } from 'react';
 
-import './AddEpisode.scss';
-
 import Queens from './Queens';
 
 import DatePicker from '../components/DatePicker';
 
 import { adminSetup } from './utils';
+
+import './AddEpisode.scss';
 
 export default class AddEpisode extends React.Component {
   constructor(props) {
@@ -22,10 +22,14 @@ export default class AddEpisode extends React.Component {
       activeQueens: [],
       inactiveQueens: [],
       eliminatedQueens: [],
+<<<<<<< HEAD
       episodeDate: '',
+=======
+      loading: true,
+>>>>>>> eee12ff39be89c36896b6dc8b2b4da8db20d4d14
     };
   }
-  
+
   componentDidMount() {
       adminSetup()
         .then(({ activeQueens, inactiveQueens, seasonId }) => {
@@ -34,6 +38,7 @@ export default class AddEpisode extends React.Component {
             activeQueens,
             inactiveQueens,
             seasonId,
+            loading: false,
           });
         })
         .catch((err) => {
@@ -45,9 +50,9 @@ export default class AddEpisode extends React.Component {
 
   eliminateQueen(queen) {
     const queenIsEliminated = !!this.state.eliminatedQueens.find(eQueen => eQueen.id === queen.id);
-    
+
     if (queenIsEliminated) {
-      this.setState( prevState => ({ 
+      this.setState( prevState => ({
         eliminatedQueens: prevState.eliminatedQueens.filter(eQueen => eQueen.id !== queen.id)
       }));
     } else {
@@ -57,9 +62,11 @@ export default class AddEpisode extends React.Component {
     }
   }
 
-  bringBackQueen(queen) {
+  bringBackQueen(returningQueen) {
+    const queenToAdd = this.state.inactiveQueens.find(queen => queen.name === returningQueen.label)
     this.setState( prevState => ({
-      activeQueens: [...prevState.activeQueens, queen]
+      inactiveQueens: prevState.inactiveQueens.filter(eQueen => eQueen.id !== queen.id),
+      activeQueens: [...prevState.activeQueens, queenToAdd]
     }));
   }
 
@@ -92,6 +99,7 @@ export default class AddEpisode extends React.Component {
   render() {
     return (
       <Dragment>
+<<<<<<< HEAD
 
         <DatePicker 
           episodeDate={this.state.episodeDate}
@@ -99,6 +107,10 @@ export default class AddEpisode extends React.Component {
         />
 
         <Queens 
+=======
+        {this.state.loading && <img style={{width: "300px"}} src="assets/imgs/loading.gif" /> }
+        <Queens
+>>>>>>> eee12ff39be89c36896b6dc8b2b4da8db20d4d14
           activeQueens={this.state.activeQueens}
           inactiveQueens={this.state.inactiveQueens}
           eliminatedQueens={this.state.eliminatedQueens}

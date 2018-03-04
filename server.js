@@ -35,6 +35,7 @@ app.use(`/api`, apiRouter);
 // app.get('/*', (req, res) => {
 //   res.status(400).json({ message: 'no route found.' });
 // });
+
 // uncomment this to serve react bundle
 app.get(`/*`, (req, res, next) => res.sendFile(path.resolve(`./public/index.html`)));
 
