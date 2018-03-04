@@ -1,6 +1,6 @@
 {
   "name": "drag-race-api",
-  "version": "1.6.5",
+  "version": "1.7.1",
   "description": "REST API for RuPaul's Drag Race",
   "main": "index.js",
   "scripts": {
@@ -37,7 +37,7 @@
     "react-router": "^4.2.0",
     "react-select": "^1.2.1",
     "react-syntax-highlighter": "^7.0.0",
-    "sequelize": "^3.30.4"
+    "sequelize": "^3.31.2"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
