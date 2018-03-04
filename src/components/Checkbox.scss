@@ -1,48 +1,56 @@
 @import '../styles/main.scss';
 
 .checkbox-container {
-    position: relative;
-    display: inline-block;
-    min-width: 30%;
+  position: relative;
+  display: inline-block;
+  min-width: 30%;
+  margin: 0.33rem 0;
 }
 
 .checkbox {
-    display: none;
+  display: none;
 }
 
 .checkbox-label {
-    font-family: $base-font;
-    font-size: $font-size-form_regular;
-    color: $grey-text;
-    display: inline-block;
+  font-family: $base-font;
+  font-size: $font-size-form_regular;
+  color: $grey-text;
+  display: inline-block;
 }
 
 .checkbox-label:hover {
-    color: $grey-text_hover;
+  color: $grey-text_hover;
 }
 
 .checkbox-label:before {
-    content: url('~/assets/imgs/empty-check-box.png');
-    vertical-align: middle;
-    margin: 0 8px;
-    cursor: pointer;
+  content: url('~/assets/imgs/empty-check-box.png');
+  vertical-align: middle;
+  margin: 0 8px;
+  cursor: pointer;
 }
 
 .checkbox_standard {
-    .checkbox:checked+.checkbox-label {
-        color: $blue-labels;
-    }
-
-    .checkbox:checked+.checkbox-label:before {
-        content: url('~/assets/imgs/check-box.png');
-    }
-
-    .checkbox:checked+.checkbox-label:hover {
-        color: $blue-labels_hover;
-    }
+  .checkbox:checked+.checkbox-label {
+    color: $blue-labels;
+  }
+  .checkbox:checked+.checkbox-label:before {
+    content: url('~/assets/imgs/check-box.png');
+  }
+  .checkbox:checked+.checkbox-label:hover {
+    color: $blue-labels_hover;
+  }
 }
 
 .checkbox_elimination {
+  .checkbox:checked {
+    +.checkbox-label {
+      color: $red;
+      text-decoration: line-through;
+    }
+    
+    +.checkbox-label:before {
+      content: url('~/assets/imgs/x-checkbox.png');
+    }
 
     .checkbox:checked {
         + .checkbox-label {
@@ -69,4 +77,5 @@
             content: url('~/assets/imgs/x-checkbox.png');
         }
     }
+  }
 }

@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { Fragment as Dragment } from 'react';
 
 import Queens from './Queens';
 
 import { adminSetup } from './utils';
+
+import './AddEpisode.scss';
 
 export default class AddEpisode extends React.Component {
   constructor(props) {
@@ -53,13 +55,18 @@ export default class AddEpisode extends React.Component {
   bringBackQueen(returningQueen) {
     const queenToAdd = this.state.inactiveQueens.find(queen => queen.name === returningQueen.label)
     this.setState( prevState => ({
+<<<<<<< HEAD
+      activeQueens: [...prevState.activeQueens, queen],
+      inactiveQueens: prevState.inactiveQueens.filter(eQueen => eQueen.id !== queen.id)
+=======
       activeQueens: [...prevState.activeQueens, queenToAdd]
+>>>>>>> a2eb1acaf68d4b3dc6d62b6e8c1d0d07b57cd09d
     }));
   }
 
   render() {
     return (
-      <div>
+      <Dragment>
         {this.state.loading && <img style={{width: "300px"}} src="assets/imgs/loading.gif" /> }
         <Queens
           activeQueens={this.state.activeQueens}
@@ -68,7 +75,7 @@ export default class AddEpisode extends React.Component {
           eliminateQueen={this.eliminateQueen}
           bringBackQueen={this.bringBackQueen}
         />
-      </div>
+      </Dragment>
     );
   }
 }

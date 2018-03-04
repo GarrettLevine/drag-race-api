@@ -22,26 +22,38 @@ export default class Queens extends Component {
         <fieldset className="queens">
           <h2>Queens</h2>
           <p>Select Eliminated Queen(s)
-
-          { this.props.eliminatedQueens.length &&
-              <span className="selected"> - {this.props.eliminatedQueens.length} Selected</span>
+          
+          { this.props.eliminatedQueens.length 
+            ? 
+              <span className="selected"> - {this.props.eliminatedQueens.length} Selected</span> 
+            : 
+              null 
           }
 
           </p>
-          {this.props.activeQueens.map((queen, i) => {
-            return (
-              <Checkbox
-                elimination
-                key={queen.id}
-                id={queen.id}
-                name={queen.name}
-                label={queen.name}
-                value={!!this.props.eliminatedQueens.find(eQueen => eQueen.id === queen.id )}
-                handleChange={() => { this.props.eliminateQueen(queen) }}
-              />
-            )
-          })}
+          
+          <div className="checkboxes">
+            {this.props.activeQueens.map((queen, i) => {
+              return (
+                <Checkbox 
+                  elimination
+                  key={queen.id}
+                  id={queen.id}
+                  name={queen.name}
+                  label={queen.name}
+                  value={!!this.props.eliminatedQueens.find(eQueen => eQueen.id === queen.id )}
+                  handleChange={() => { this.props.eliminateQueen(queen) }}
+                />
+              )
+            })}  
+          </div>
         </fieldset>
+<<<<<<< HEAD
+        <Dropdown 
+          options={this.props.inactiveQueens}
+          text={'Bring Back a Girl'}
+          handleDropdownSelect={this.props.bringBackQueen}
+=======
         <div style={{width: "300px"}}>
         <Select
             name="demo-api-select"
@@ -49,6 +61,7 @@ export default class Queens extends Component {
             options={queensForSelect}
             placeholder="Bring Back A Girl"
             className="queens-dropdown"
+>>>>>>> a2eb1acaf68d4b3dc6d62b6e8c1d0d07b57cd09d
         />
         </div>
       </Dragment>
