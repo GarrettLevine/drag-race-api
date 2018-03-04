@@ -11,9 +11,9 @@ export default class DatePicker extends React.Component {
 
           <h2>Episode Date</h2>
 
-          <p>Year/Month/Day</p>
+          <label htmlFor="episode-date">Year/Month/Day</label>
         
-          <input type="date" name="episode-date" value={this.props.episodeDate} onChange={this.props.handleChange}></input>
+          <input type="date" name="episode-date" id="episode-date" value={this.props.episodeDate} onChange={this.props.handleChange}></input>
 
         </fieldset>
 
