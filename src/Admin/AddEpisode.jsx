@@ -23,6 +23,7 @@ export default class AddEpisode extends React.Component {
       inactiveQueens: [],
       eliminatedQueens: [],
       episodeDate: '',
+      loading: false,
     };
   }
 
@@ -59,6 +60,7 @@ export default class AddEpisode extends React.Component {
 
   bringBackQueen(queen) {
     this.setState(prevState => ({
+      inactiveQueens: prevState.inactiveQueens.filter(eQueen => eQueen.id !== queen.id),
       activeQueens: [...prevState.activeQueens, queen]
     }));
   }
@@ -83,7 +85,6 @@ export default class AddEpisode extends React.Component {
   }
 
   handleDateChange(e) {
-    console.log(e.target.value);
     this.setState({
       episodeDate: e.target.value
     });
@@ -92,7 +93,7 @@ export default class AddEpisode extends React.Component {
   render() {
     return (
       <Dragment>
-
+        {this.state.loading && <img style={{width: "300px"}} src="assets/imgs/loading.gif" /> }
         <DatePicker
           episodeDate={this.state.episodeDate}
           heading={this.props.heading}
