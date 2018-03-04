@@ -53,7 +53,7 @@ app.get('/*', (req, res) => {
 // uncomment this to serve react bundle
 // app.get(`*`, (req, res, next) => res.sendFile(path.resolve(`./public/index.html`)));
 
-// app.use(Raven.errorHandler());
+app.use(Raven.errorHandler());
 app.listen(port, () => {
   console.log(`App is running on port ${port}`);
 });
