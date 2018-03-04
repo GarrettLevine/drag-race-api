@@ -35,6 +35,7 @@
     "react-dom": "^16.0.0",
     "react-highlight": "^0.10.0",
     "react-router": "^4.2.0",
+    "react-select": "^1.2.1",
     "react-syntax-highlighter": "^7.0.0",
     "sequelize": "^3.30.4"
   },

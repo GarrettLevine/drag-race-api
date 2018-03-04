@@ -1,45 +1,53 @@
 import React from 'react';
-import { fetch } from '../utils';
+import Select from 'react-select';
 
+
+import { fetch } from '../utils';
 import { Tag } from '../components';
 import DemoData from './DemoData';
-import { Dropdown } from '../components';
 
+import '../styles/react-select.scss';
 import './Demo.scss';
 
 const options = [
     {
-        name: "Bring Back My Girls",
+        value: "all-queens",
+        label: "Bring Back My Girls",
         id: 1,
         apiCall: "http://www.nokeynoshade.party/api/queens?limit=10",
         whatDoesItDo: "Retrieve an array of queens in RuPaul's Drag Race herstory with information about their seasons."
     },
     {
-        name: "Don't Fuck It Up",
+        value: "all-lipsyncs",
+        label: "Don't Fuck It Up",
         id: 2,
         apiCall: "http://www.nokeynoshade.party/api/lipsyncs?limit=10",
         whatDoesItDo: "Get a list of lipsyncs in the entire herstory of RuPaul's Drag Race.",
     },
     {
-        name: "That's the Gag of the Season",
+        value: "all-seasons",
+        label: "That's the Gag of the Season",
         id: 3,
         apiCall: "http://www.nokeynoshade.party/api/seasons",
         whatDoesItDo: "Get all seasons from RuPaul's Drag Race herstory."
     },
     {
-        name: "You're a Winner, Baby",
+        value: "all-winners",
+        label: "You're a Winner, Baby",
         id: 4,
         apiCall: "http://www.nokeynoshade.party/api/queens/winners",
         whatDoesItDo: "Retreive an array of all the winners of RuPaul's Drag Race herstory."
     },
     {
-        name: "Whatever Happened to Merle Ginsberg?",
+        value: "all-judges",
+        label: "Whatever Happened to Merle Ginsberg?",
         id: 5,
         apiCall: "http://www.nokeynoshade.party/api/judges?limit=10",
         whatDoesItDo: "Get a list of judges in the entire herstory of RuPaul's Drag Race."
     },
     {
-        name: "That's a Lot Of Emotion For Safe",
+        value: "all-challenges",
+        label: "That's a Lot Of Emotion For Safe",
         id: 6,
         apiCall: "http://www.nokeynoshade.party/api/challenges?limit=10",
         whatDoesItDo: "Get a list of challenges in the entire herstory of Drag Race."
@@ -82,11 +90,12 @@ export default class Demo extends React.Component {
         return (
             <section className="demo section">
                 <Tag color="blue" content="Demo"/>
-                <Dropdown
+                <Select
+                    name="demo-api-select"
+                    placeholder={this.state.apiCallToShow.label}
+                    onChange={this.handleDropdownChange}
                     options={options}
-                    text={this.state.apiCallToShow.name}
-                    handleDropdownSelect={this.handleDropdownChange}
-                    />
+                />
                 <p className="demo_description">{this.state.apiCallToShow.whatDoesItDo}</p>
                 <DemoData
                     data = {this.state.result}

@@ -1,12 +1,22 @@
 import React, { Component, Fragment as Dragment} from 'react';
+import Select from 'react-select';
 
+import { Checkbox } from '../components';
+
+import '../styles/react-select.scss';
 import './Queens.scss';
-
-import { Checkbox, Dropdown } from '../components';
 
 export default class Queens extends Component {
 
   render() {
+
+    const queensForSelect = this.props.inactiveQueens.map(queen => {
+      return {
+        label: queen.name,
+        value: queen.name
+      }
+    })
+
     return (
       <Dragment>
         <fieldset className="queens">
@@ -32,11 +42,15 @@ export default class Queens extends Component {
             )
           })}
         </fieldset>
-        <Dropdown
-          options={this.props.activeQueens}
-          text={'Bring Back a Girl'}
-          handleDropdownSelect={this.props.bringBackQueen}
+        <div style={{width: "300px"}}>
+        <Select
+            name="demo-api-select"
+            onChange={this.props.bringBackQueen}
+            options={queensForSelect}
+            placeholder="Bring Back A Girl"
+            className="queens-dropdown"
         />
+        </div>
       </Dragment>
     );
   }
