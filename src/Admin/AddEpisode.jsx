@@ -1,10 +1,12 @@
 import React, { Fragment as Dragment } from 'react';
 
+import './AddEpisode.scss';
+
 import Queens from './Queens';
 
-import { adminSetup } from './utils';
+import DatePicker from '../components/DatePicker';
 
-import './AddEpisode.scss';
+import { adminSetup } from './utils';
 
 export default class AddEpisode extends React.Component {
   constructor(props) {
@@ -12,13 +14,16 @@ export default class AddEpisode extends React.Component {
 
     this.eliminateQueen = this.eliminateQueen.bind(this);
     this.bringBackQueen = this.bringBackQueen.bind(this);
+    this.getThursday = this.getThursday.bind(this);
+    this.handleDateChange = this.handleDateChange.bind(this);
 
     this.state = {
       seasonId: 0,
       activeQueens: [],
       inactiveQueens: [],
       eliminatedQueens: [],
-      loading: true,
+      episodeDate: '',
+      loading: false,
     };
   }
 
@@ -35,34 +40,66 @@ export default class AddEpisode extends React.Component {
         .catch((err) => {
           console.log(err);
         });
+
+    this.getThursday();
   }
 
   eliminateQueen(queen) {
     const queenIsEliminated = !!this.state.eliminatedQueens.find(eQueen => eQueen.id === queen.id);
 
     if (queenIsEliminated) {
-      this.setState( prevState => ({
+      this.setState(prevState => ({
         eliminatedQueens: prevState.eliminatedQueens.filter(eQueen => eQueen.id !== queen.id)
       }));
     } else {
-      this.setState( prevState => ({
+      this.setState(prevState => ({
         eliminatedQueens: [...prevState.eliminatedQueens, queen]
       }));
     }
   }
 
-  bringBackQueen(returningQueen) {
-    const queenToAdd = this.state.inactiveQueens.find(queen => queen.name === returningQueen.label)
-    this.setState( prevState => ({
+  bringBackQueen(queen) {
+    this.setState(prevState => ({
       inactiveQueens: prevState.inactiveQueens.filter(eQueen => eQueen.id !== queen.id),
-      activeQueens: [...prevState.activeQueens, queenToAdd]
+      activeQueens: [...prevState.activeQueens, queen]
     }));
+  }
+
+  getThursday() {
+    const today = new Date();
+    const lastSunday = today.setDate(today.getDate() - today.getDay());
+    const lastThursday = new Date(lastSunday - 259200000);
+
+    let month = '' + (lastThursday.getMonth() + 1);
+    let day = '' + lastThursday.getDate();
+    const year = lastThursday.getFullYear();
+
+    if (month.length < 2) month = '0' + month;
+    if (day.length < 2) day = '0' + day;
+
+    const formattedThursday = [year, month, day].join('-');
+
+    this.setState(prevState => ({
+      episodeDate: formattedThursday
+    }));
+  }
+
+  handleDateChange(e) {
+    this.setState({
+      episodeDate: e.target.value
+    });
   }
 
   render() {
     return (
       <Dragment>
         {this.state.loading && <img style={{width: "300px"}} src="assets/imgs/loading.gif" /> }
+        <DatePicker
+          episodeDate={this.state.episodeDate}
+          heading={this.props.heading}
+          handleChange={this.handleDateChange}
+        />
+
         <Queens
           activeQueens={this.state.activeQueens}
           inactiveQueens={this.state.inactiveQueens}
