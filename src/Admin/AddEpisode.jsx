@@ -27,18 +27,18 @@ export default class AddEpisode extends React.Component {
   }
 
   componentDidMount() {
-    adminSetup()
-      .then(({ activeQueens, inactiveQueens, seasonId }) => {
-
-        this.setState({
-          activeQueens,
-          inactiveQueens,
-          seasonId,
+      adminSetup()
+        .then(({ activeQueens, inactiveQueens, seasonId }) => {
+          this.setState({
+            activeQueens,
+            inactiveQueens,
+            seasonId,
+            loading: false,
+          });
+        })
+        .catch((err) => {
+          console.log(err);
         });
-      })
-      .catch((err) => {
-        console.log(err);
-      });
 
     this.getThursday();
   }
@@ -64,22 +64,21 @@ export default class AddEpisode extends React.Component {
   }
 
   getThursday() {
-    const d = new Date();
-    let dnum = d.getDay();
-    const diff = d.getDate() - dnum + (dnum == 0 ? 0 : 4); // adjust when day is Thursday
-    const thurs = new Date(d.setDate(diff));
+    const today = new Date();
+    const lastSunday = today.setDate(today.getDate() - today.getDay());
+    const lastThursday = new Date(lastSunday - 259200000);
 
-    let month = '' + (thurs.getMonth() + 1);
-    let day = '' + thurs.getDate();
-    const year = thurs.getFullYear();
+    let month = '' + (lastThursday.getMonth() + 1);
+    let day = '' + lastThursday.getDate();
+    const year = lastThursday.getFullYear();
 
     if (month.length < 2) month = '0' + month;
     if (day.length < 2) day = '0' + day;
 
-    var lastThursday = [year, month, day].join('-');
+    const formattedThursday = [year, month, day].join('-');
 
     this.setState(prevState => ({
-      episodeDate: lastThursday
+      episodeDate: formattedThursday
     }));
   }
 
@@ -96,6 +95,7 @@ export default class AddEpisode extends React.Component {
 
         <DatePicker
           episodeDate={this.state.episodeDate}
+          heading={this.props.heading}
           handleChange={this.handleDateChange}
         />
 
