@@ -6,6 +6,10 @@
     border: none;
     font-family: $base-font;
     font-size: $font-size-component_button;
+    width: 100%;
+    max-width: 800px;
+    margin: 30px auto 0;
+    transition: .3s ease;
 
     &:disabled {
         background-color: $grey;

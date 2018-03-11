@@ -3,10 +3,12 @@
 fieldset {
 	border: none;
 	padding: 0;
+    max-width: 800px;
+    margin: 0 auto;
 
 	.radio-button {
 		display: inline-block;
-		margin: 5px 10px;
+		margin: 5px 30px 5px 0px;
 
 		label {
 			font-size: $font-size-form_regular;
@@ -29,11 +31,19 @@ fieldset {
 [type="radio"]:checked + label,
 [type="radio"]:not(:checked) + label {
     position: relative;
-    padding-left: 28px;
+    padding-left: 22px;
     cursor: pointer;
     line-height: 20px;
     display: inline-block;
-    color: $grey-dark;
+    color: $grey-text;
+}
+
+[type="radio"]:not(:checked) + label:hover {
+    color: $grey-text-hover;
+}
+
+[type="radio"]:not(:checked) + label:hover:before {
+    border: 2px solid $grey-text-hover;
 }
 
 [type="radio"]:checked + label:before,
@@ -41,10 +51,10 @@ fieldset {
     content: '';
     position: absolute;
     left: 0;
-    top: 1px;
-    width: 14px;
-    height: 14px;
-    border: 2px solid $grey-dark;
+    top: 2px;
+    width: 16px;
+    height: 16px;
+    border: 2px solid $grey-text;
     border-radius: 100%;
     background: $white;
 }
@@ -52,11 +62,11 @@ fieldset {
 [type="radio"]:checked + label:after,
 [type="radio"]:not(:checked) + label:after {
     content: '';
-    width: 10px;
-    height: 10px;
+    width: 8px;
+    height: 8px;
     background: $blue-labels;
     position: absolute;
-    top: 5px;
+    top: 6px;
     left: 4px;
     border-radius: 100%;
     -webkit-transition: all 0.2s ease;

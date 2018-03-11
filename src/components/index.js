@@ -25,5 +25,11 @@ export { _Button as Button };
 import _Tag from './Tag';
 export {_Tag as Tag };
 
+import _Radio from './Radio';
+export {_Radio as Radio};
+
+import _Textarea from './Textarea';
+export {_Textarea as  Textarea};
+
 import _Dropdown from './Dropdown';
 export {_Dropdown as Dropdown };

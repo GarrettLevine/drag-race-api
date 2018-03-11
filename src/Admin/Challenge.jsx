@@ -1,24 +1,29 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { TextInput, Textarea, Checkbox, Button } from '../components';
+import './Challenge.scss';
+
+import { TextInput, Textarea, Checkbox, Button, Radio } from '../components';
 
 const propTypes = {
   type: PropTypes.string,
   description: PropTypes.string,
   prize: PropTypes.string,
-  activeQueens: PropTypes.arrayOf (PropTypes.shape({
+  activeQueens: PropTypes.arrayOf(PropTypes.shape({
   	id: PropTypes.number,
   	name: PropTypes.string,
-  }))
+  })),
+  handleChange: PropTypes.func,
 };
 
 class Challenge extends React.Component {
   render() {
     return (
-      	<div class="add-challenge-card">
+      	<div className="add-challenge-card">
 	        <Radio
-	          handleChoice={this.props.chooseOption}
+	          handleChoice={(e) => {
+	          	this.props.chooseOption(e, this.props.index)
+	          }}
 	          chosen={this.props.type}
 	          options= {[
 	          	{label: "Main", value: "Main"},
@@ -27,34 +32,37 @@ class Challenge extends React.Component {
 	        />
 	        <TextInput
 	        	value={this.props.prize}
+	        	handleChange={(e) => {
+	        		this.props.handleChange(e, 'prize', this.props.index);
+	        	}}
 	        />
 	        <Textarea 
+	        	value={this.props.description}
 	        	label="Description" 
 	        	placeholder="Description" 
-	        	value={this.props.description}
+	        	handleChange = {(e) => {
+	        		this.props.handleChange(e, 'description', this.props.index);
+	        	}}
 	        />
 	        <p>Select Challenge Winner(s)
-		        { this.props.activeQueens.length ? 
-		            <span className="selected"> -  Selected</span> 
-		          : 
-		            null 
-		        }
+	        	{ this.props.winners.length &&
+	        	    <span className="selected"> - {this.props.winners.length} Selected</span>
+	        	}
 	        </p>
-	        {this.props.activeQueens.map((queen, i) => {
+	        {this.props.activeQueens.map((queen) => {
 	            return (
 	              <Checkbox 
 	                standard
 	                key={queen.id}
-	                id={queen.id}
+	                id={`challenges_${queen.id}`}
 	                name={queen.name}
 	                label={queen.name}
+	                handleChange={() => {
+	                	this.props.addWinner(queen.id, this.props.index)
+	                }}
 	              />
 	            )
 	          })}
-	        <Button 
-	        	add
-	        	label="Add a Challenge"
-	        />
       	</div>
     );
   } 

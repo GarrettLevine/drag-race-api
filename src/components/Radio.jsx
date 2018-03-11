@@ -1,13 +1,14 @@
 import React from 'react';
 
+import './Radio.scss';
+
 class Radio extends React.Component{ 
-  renderRadio = () => {
+  renderRadio() {
     return this.props.options.map((option) => {
       const isChecked = option.value === this.props.chosen;
 
       return (
         <div className="radio-button" key={option.value}>
-          <label htmlFor={option.label}>{option.label}</label>
           <input
               id={option.label}
               type="radio"
@@ -15,6 +16,7 @@ class Radio extends React.Component{
               value={option.value}
               checked={isChecked}
             />
+          <label htmlFor={option.label}>{option.label}</label>
         </div>
       );
     });
