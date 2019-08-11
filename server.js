@@ -32,7 +32,7 @@ app.use('/images/:queen', ({ params }, res, next) => {
   const imagePath = path.resolve(`./images/${params.queen}`);
   fs.access(imagePath, (err) => {
     if (err) {
-      res.status(400).json({ message: `${params.queen} doesnt not exist.` })
+      res.status(404).json({ message: `${params.queen} does not exist.` })
       return;
     }
 
@@ -41,6 +41,21 @@ app.use('/images/:queen', ({ params }, res, next) => {
     });
   });
 });
+
+
+app.use("/.well-known/acme-challenge/:filename", ({ params }, res, next) => {
+  const filePath = path.resolve(`./.well-known/acme-challenge/${params.filename}`)
+  fs.access(filePath, (err) => {
+    if (err) {
+      res.status(404).json({ message: `${params.filename} does not exist.` })
+      return;
+    }
+  });
+
+  res.sendFile(filePath, (err) => {
+    if (err) res.status(500).json({ message: 'internal server error' })
+  });
+})
 
 // comment these two routes out to start serving react bundle
 app.get('/', (req, res) => {
