@@ -9,7 +9,7 @@ const { rateLimit, cors } = require(`middleware`)
 
 const app = express();
 const port = process.env.PORT || 3000;
-
+const internalServerError = { "message": "internal server error"};
 app.use(cors);
 Raven.config(process.env.DR_API_RAVEN_DNS).install();
 app.use(Raven.requestHandler());
@@ -37,23 +37,23 @@ app.use('/images/:queen', ({ params }, res, next) => {
     }
 
     res.sendFile(imagePath, (err) => {
-      if (err) res.status(500).json({ message: 'internal server error' })
+      if (err) res.status(500).json(internalServerError);
     });
   });
 });
 
 
 app.use("/.well-known/acme-challenge/:filename", ({ params }, res, next) => {
-  const filePath = path.resolve(`./.well-known/acme-challenge/${params.filename}`)
+  const filePath = path.resolve(`./.well-known/acme-challenge/${params.filename}.txt`)
   fs.access(filePath, (err) => {
     if (err) {
       res.status(404).json({ message: `${params.filename} does not exist.` })
       return;
     }
-  });
 
-  res.sendFile(filePath, (err) => {
-    if (err) res.status(500).json({ message: 'internal server error' })
+    res.sendFile(filePath, (err) => {
+      if (err) res.status(500).json(internalServerError);
+    });
   });
 })
 
