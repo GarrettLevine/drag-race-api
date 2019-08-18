@@ -43,18 +43,8 @@ app.use('/images/:queen', ({ params }, res, next) => {
 });
 
 
-app.get("/.well-known/acme-challenge/:filename", ({ params }, res) => {
-  const filePath = path.resolve(`./.well-known/acme-challenge/${params.filename}`)
-  fs.access(filePath, (err) => {
-    if (err) {
-      res.status(404).json({ message: `${params.filename} does not exist.` })
-      return;
-    }
-
-    res.sendFile(filePath, (err) => {
-      if (err) res.status(500).json(internalServerError);
-    });
-  });
+app.get("/.well-known/acme-challenge/:content", ({ params }, res) => {
+  res.send('eXBK8Ne4rZc9OUXcbwwdpLuQB2VEVwJhqI9HeeThXVw.a4AiHeIJiW5peAFQHlmEn4f1L0UX05RDxhB0P_NcQb8');
 })
 
 // comment these two routes out to start serving react bundle
