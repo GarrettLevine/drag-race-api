@@ -42,13 +42,16 @@ app.use('/images/:queen', ({ params }, res, next) => {
   });
 });
 
-
-app.get("/.well-known/acme-challenge/:content", ({ params }, res) => {
+app.get("/challenge", ({ params }, res) => {
   res.send('eXBK8Ne4rZc9OUXcbwwdpLuQB2VEVwJhqI9HeeThXVw.a4AiHeIJiW5peAFQHlmEn4f1L0UX05RDxhB0P_NcQb8');
 })
 
 // comment these two routes out to start serving react bundle
 app.get('/', (req, res) => {
+  if (req.query.token) {
+    res.send('eXBK8Ne4rZc9OUXcbwwdpLuQB2VEVwJhqI9HeeThXVw.a4AiHeIJiW5peAFQHlmEn4f1L0UX05RDxhB0P_NcQb8');
+    return
+  }
   res.status(301).redirect('https://drag-race-api.readme.io/docs');
 });
 
