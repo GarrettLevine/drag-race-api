@@ -43,8 +43,8 @@ app.use('/images/:queen', ({ params }, res, next) => {
 });
 
 
-app.use("/.well-known/acme-challenge/:filename", ({ params }, res, next) => {
-  const filePath = path.resolve(`./.well-known/acme-challenge/${params.filename}.txt`)
+app.get("/.well-known/acme-challenge/:filename", ({ params }, res) => {
+  const filePath = path.resolve(`./.well-known/acme-challenge/${params.filename}`)
   fs.access(filePath, (err) => {
     if (err) {
       res.status(404).json({ message: `${params.filename} does not exist.` })
