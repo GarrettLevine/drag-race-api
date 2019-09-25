@@ -9,11 +9,11 @@ const { rateLimit, cors } = require(`middleware`)
 
 const app = express();
 const port = process.env.PORT || 3000;
+const accessKey = process.env.ACCESS_KEY;
 const internalServerError = { "message": "internal server error"};
 app.use(cors);
 Raven.config(process.env.DR_API_RAVEN_DNS).install();
 app.use(Raven.requestHandler());
-
 
 app.enable(`trust proxy`);
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -25,7 +25,14 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use(rateLimit);
+app.use((req, res, next) => {
+  // if access key is provided, skip rate-limiting
+  if (req.query.key = accessKey) {
+    next();
+  }
+
+  return rateLimit
+});
 app.use(express.static('public'));
 app.use(`/api`, apiRouter);
 app.use('/images/:queen', ({ params }, res, next) => {
@@ -40,22 +47,6 @@ app.use('/images/:queen', ({ params }, res, next) => {
       if (err) res.status(500).json(internalServerError);
     });
   });
-});
-app.get("/.well-known/acme-challenge/d7mg0_H6cVkhyxqxY-pZF6WreJEm-Dj6jVxQtxil9as", (req, res) => {
-  res.send('d7mg0_H6cVkhyxqxY-pZF6WreJEm-Dj6jVxQtxil9as.a4AiHeIJiW5peAFQHlmEn4f1L0UX05RDxhB0P_NcQb8');
-});
-
-app.get("/challenge", ({ params }, res) => {
-  res.send('d7mg0_H6cVkhyxqxY-pZF6WreJEm-Dj6jVxQtxil9as.a4AiHeIJiW5peAFQHlmEn4f1L0UX05RDxhB0P_NcQb8');
-})
-
-// comment these two routes out to start serving react bundle
-app.get('/', (req, res) => {
-  if (req.query.token) {
-    res.send('d7mg0_H6cVkhyxqxY-pZF6WreJEm-Dj6jVxQtxil9as.a4AiHeIJiW5peAFQHlmEn4f1L0UX05RDxhB0P_NcQb8');
-    return
-  }
-  res.status(301).redirect('https://drag-race-api.readme.io/docs');
 });
 
 app.get('/*', (req, res) => {
