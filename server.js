@@ -33,7 +33,7 @@ app.use((req, res, next) => {
 
   return rateLimit
 });
-app.use(express.static('public'));
+// app.use(express.static('public'));
 app.use(`/api`, apiRouter);
 app.use('/images/:queen', ({ params }, res, next) => {
   const imagePath = path.resolve(`./images/${params.queen}`);
@@ -50,7 +50,8 @@ app.use('/images/:queen', ({ params }, res, next) => {
 });
 
 app.get('/*', (req, res) => {
-  res.status(400).json({ message: 'no route found.' });
+  res.status(301).redirect("https://drag-race-api.readme.io/docs")
+  // res.status(400).json({ message: 'no route found.' });
 });
 // uncomment this to serve react bundle
 // app.get(`*`, (req, res, next) => res.sendFile(path.resolve(`./public/index.html`)));
