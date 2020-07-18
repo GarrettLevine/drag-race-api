@@ -24,7 +24,7 @@
     "body-parser": "^1.17.1",
     "express": "^4.15.2",
     "express-rate-limit": "^2.8.0",
-    "lodash": "^4.17.4",
+    "lodash": "^4.17.19",
     "mongoose": "^4.9.5",
     "nodemon": "^1.11.0",
     "npm-run-all": "^4.1.1",
