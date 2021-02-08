@@ -25,7 +25,7 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use(rateLimit);
+// app.use(rateLimit);
 // app.use(express.static('public'));
 app.use(`/api`, apiRouter);
 app.use('/images/:queen', ({ params }, res, next) => {
