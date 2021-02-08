@@ -25,14 +25,7 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use((req, res, next) => {
-  // if access key is provided, skip rate-limiting
-  if (req.query.key = accessKey) {
-    next();
-  }
-
-  return rateLimit
-});
+app.use(rateLimit);
 // app.use(express.static('public'));
 app.use(`/api`, apiRouter);
 app.use('/images/:queen', ({ params }, res, next) => {
