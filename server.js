@@ -27,10 +27,12 @@ app.use((_req, res, next) => {
   next();
 });
 
-app.use(rateLimit({
-  windowMs: 10 * 60 * 1000, // 10 minutes
-  max: 1000 // limit each IP to 1000 requests per windowMs
-}))
+// const limiter = rateLimit({
+//   windowMs: 60 * 1000, // 10 minutes
+//   max: 100 // limit each IP to 1000 requests per windowMs
+// })
+
+// app.use(limiter);
 
 app.use(`/api`, apiRouter);
 app.use('/images/:queen', ({ params }, res) => {
