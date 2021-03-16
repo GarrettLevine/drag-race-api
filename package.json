@@ -24,7 +24,7 @@
     "express": "^4.15.2",
     "express-rate-limit": "^2.14.2",
     "lodash": "^4.17.4",
-    "mongoose": "^4.9.5",
+    "mongoose": "^5.7.5",
     "nodemon": "^1.11.0",
     "npm-run-all": "^4.1.1",
     "pg": "^6.1.5",
