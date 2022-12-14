@@ -25,7 +25,7 @@
   },
   "homepage": "https://github.com/GarrettLevine/drag-race-api#readme",
   "dependencies": {
-    "express": "^4.15.2",
+    "express": "^4.17.3",
     "express-rate-limit": "^2.14.2",
     "lodash": "^4.17.21",
     "npm-run-all": "^4.1.1",
